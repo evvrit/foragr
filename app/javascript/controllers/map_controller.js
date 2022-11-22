@@ -17,6 +17,11 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
+    this.map.on('click', (e) => {
+      var coords = `lat: ${e.lngLat.lat} <br> lng: ${e.lngLat.lng}`;
+      console.log(coords);
+    })
   }
 
   #addMarkersToMap() {
