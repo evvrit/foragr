@@ -1,0 +1,11 @@
+<div>
+  <h1>Logs#index</h1>
+  <ul style="list-style: none"><% @logs.each do |log| %>
+    <li>
+      <%= image_tag @log.seed_photo_url, style: "width: 200px;" %>
+      <%= log.created_on %>
+      <%= log.content %>
+    </li>
+  <% end %>
+  </ul>
+</div>
