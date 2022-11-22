@@ -2,6 +2,7 @@ require "faker"
 
 puts "cleaning the DB..."
 Cache.destroy_all
+Species.destroy_all
 User.destroy_all
 puts "DB is clean."
 
@@ -20,15 +21,15 @@ puts "6 users made."
 
 puts "making 40 caches..."
 
-PHOTOS = ["../../app/assets/images/chanterelle.jpg",
-          "../../app/assets/images/damson_plum.jpg",
-          "../../app/assets/images/hazelnut.jpg",
-          "../../app/assets/images/juniper.jpg",
-          "../../app/assets/images/raspberries.jpg",
-          "../../app/assets/images/stinging_nettle.jpg",
-          "../../app/assets/images/strawberries.jpg",
-          "../../app/assets/images/sumac.jpg",
-          "../../app/assets/images/walnut.jpg"
+PHOTOS = ["chanterelle.jpg",
+          "damson_plum.jpg",
+          "hazelnut.jpg",
+          "juniper.jpg",
+          "raspberries.jpg",
+          "stinging_nettle.jpg",
+          "strawberries.jpg",
+          "sumac.jpg",
+          "walnut.jpg"
           ]
 
 40.times do Cache.create(
@@ -42,3 +43,17 @@ PHOTOS = ["../../app/assets/images/chanterelle.jpg",
 end
 
 puts "40 caches created."
+puts "making 100 species..."
+
+100.times do Species.create(
+  name: Faker::Food.fruits,
+  description: Faker::Lorem.paragraphs(number: 1),
+  invasive?: [true, false].sample,
+  edible?: [true, false].sample,
+  usage: Faker::Lorem.paragraphs(number: 1),
+  season: ["spring", "summer", "fall", "winter"].sample,
+  photo_url: PHOTOS.sample
+)
+end
+
+puts "100 species created."
