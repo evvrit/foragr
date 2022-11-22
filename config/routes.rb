@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: "caches#index"
 
   resources :cache, only: %i[index]
+  resources :species, only: %i[show]
 end
