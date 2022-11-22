@@ -1,20 +1,3 @@
 <div class="container">
-  <h1>Caches#index</h1>
-  <p>Find me in app/views/caches/index.html.erb</p>
-
-  <%= @markers.first %>
-
-  <div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
-  <% @caches.each do |cache| %>
-    <div class="container" style="border: 1px solid black;">
-      <p> user:<%= cache.user.email %> </p>
-      <p> id:<%= cache.id %> </p>
-      <p> found on:<%= cache.found_on %> </p>
-    </div>
-  <% end %>
+  <%= render "map" %>
 </div>
