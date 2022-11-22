@@ -11,7 +11,7 @@ User.create(email: "a@a.a", password: "secret")
 User.create(email: "b@b.b", password: "secret")
 
 4.times do User.create(
-  email: Faker::Internet.email
+  email: Faker::Internet.email,
   password: "secret"
 )
 
@@ -31,10 +31,10 @@ PHOTOS = ["../../app/assets/images/chanterelle.jpg",
           ]
 
 40.times do Cache.create(
-  longitude: Faker::Number.normal(mean: 50, standard_deviation: 3.5)
-  latitude: Faker::Number.normal(mean: 50, standard_deviation: 3.5)
-  description: Faker::Lorem.paragraphs(number: 1)
-  found_on: Faker::Date.between(from: 5.days.ago, to: Date.today)
+  longitude: Faker::Number.normal(mean: 50, standard_deviation: 3.5),
+  latitude: Faker::Number.normal(mean: 50, standard_deviation: 3.5),
+  description: Faker::Lorem.paragraphs(number: 1),
+  found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   seed_photo: PHOTOS.sample
 )
 
