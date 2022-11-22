@@ -1,5 +1,6 @@
 class CachesController < ApplicationController
   def index
-    @caches = Cache.all
+    @caches = policy_scope(Cache)
+    authorize @caches
   end
 end
