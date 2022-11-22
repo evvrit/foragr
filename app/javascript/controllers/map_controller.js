@@ -34,24 +34,4 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
-
-  // addPin(event) {
-
-  // }
-  map.on('click', (e) => {
-    var coords = `lat: ${e.lngLat.lat} <br> lng: ${e.lngLat.lng}`;
-
-    // create the popup
-    var popup = new mapboxgl.Popup().setText(coords);
-
-    // create DOM element for the marker
-    var el = document.createElement('div');
-    el.id = 'marker';
-
-    // create the marker
-    new mapboxgl.Marker(el)
-        .setLngLat(e.lngLat)
-        .setPopup(popup)
-        .addTo(map);
-  });
 }
