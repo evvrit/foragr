@@ -1,2 +1,13 @@
-<h1>Caches#index</h1>
-<p>Find me in app/views/caches/index.html.erb</p>
+<div class="container">
+  <h1>Caches#index</h1>
+  <p>Find me in app/views/caches/index.html.erb</p>
+
+
+  <% @caches.each do |cache| %>
+    <div class="container" style="border: 1px solid black;">
+      <p> user:<%= cache.user.email %> </p>
+      <p> id:<%= cache.id %> </p>
+      <p> found on:<%= cache.found_on %> </p>
+    </div>
+  <% end %>
+</div>
