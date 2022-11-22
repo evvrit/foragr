@@ -1,4 +1,6 @@
 class CachesController < ApplicationController
+  before_action :set_cache, only: :show
+
   def index
     @caches = policy_scope(Cache)
     authorize @caches
@@ -10,5 +12,15 @@ class CachesController < ApplicationController
         cache_info: render_to_string(partial: "cache_info", locals: {cache: cache})
       }
     end
+  end
+
+  def show
+    authorize @cache
+  end
+
+  private
+
+  def set_cache
+    @cache = Cache.find(params[:id])
   end
 end
