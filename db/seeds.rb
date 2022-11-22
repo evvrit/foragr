@@ -42,3 +42,17 @@ PHOTOS = ["../../app/assets/images/chanterelle.jpg",
 end
 
 puts "40 caches created."
+puts "making 100 species..."
+
+100.times do Species.create(
+  name: Faker::Food.fruits,
+  description: Faker::Lorem.paragraphs(number: 1),
+  invasive?: [true, false].sample,
+  edible?: [true, false].sample,
+  usage: Faker::Lorem.paragraphs(number: 1),
+  season: ["spring", "summer", "fall", "winter"].sample,
+  photo_url: PHOTOS.sample
+)
+end
+
+puts "100 species created."

@@ -14,18 +14,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_170543) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "species", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.boolean "invasive?"
-    t.boolean "edible?"
-    t.string "usage"
-    t.string "photo_url"
-    t.string "season"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "caches", force: :cascade do |t|
     t.float "longitude"
     t.float "latitude"
@@ -36,6 +24,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_170543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_caches_on_user_id"
+  end
+
+  create_table "species", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.boolean "invasive?"
+    t.boolean "edible?"
+    t.string "usage"
+    t.string "photo_url"
+    t.string "season"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
