@@ -1,8 +1,8 @@
 require "faker"
 
 puts "cleaning the DB..."
-User.destroy_all
 Cache.destroy_all
+User.destroy_all
 puts "DB is clean."
 
 puts "making 6 users..."
@@ -14,6 +14,7 @@ User.create(email: "b@b.b", password: "secret")
   email: Faker::Internet.email,
   password: "secret"
 )
+end
 
 puts "6 users made."
 
@@ -31,11 +32,13 @@ PHOTOS = ["../../app/assets/images/chanterelle.jpg",
           ]
 
 40.times do Cache.create(
-  longitude: Faker::Number.normal(mean: 50, standard_deviation: 3.5),
-  latitude: Faker::Number.normal(mean: 50, standard_deviation: 3.5),
+  user: User.all.sample,
+  longitude: Faker::Address.longitude,
+  latitude: Faker::Address.latitude,
   description: Faker::Lorem.paragraphs(number: 1),
   found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   seed_photo: PHOTOS.sample
 )
+end
 
 puts "40 caches created."
