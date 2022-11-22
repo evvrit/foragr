@@ -2,6 +2,8 @@
   <h1>Caches#index</h1>
   <p>Find me in app/views/caches/index.html.erb</p>
 
+  <%= @markers.first %>
+
   <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
