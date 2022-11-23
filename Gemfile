@@ -31,6 +31,8 @@ gem "jbuilder"
 gem "pundit"
 gem "faker"
 gem "geocoder"
+gem "dotenv-rails", groups: [:development, :test]
+gem "cloudinary"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
