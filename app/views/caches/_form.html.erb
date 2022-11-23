@@ -1,11 +1,8 @@
-<div class="container">
-  <%= simple_form_for @cache,
-  html: { class: @cache.errors.any? ? "" : "",
-    style: "z-index: 5; position: absolute; top: 50px;",
-    data: { map_target: 'form' }} do |f| %>
-      <%= f.date_field :found_on, placeholder: "date found" %>
-      <%= f.input :photos, as: :file, input_html: {multiple: true} %>
-      <%= f.text_area :description, size: "70x5", placeholder: "description" %>
+<div class="container m-5">
+  <%= simple_form_for @cache, html: { data: { map_target: 'form' }} do |f| %>
+      <%= f.input :found_on, placeholder: "date found" %>
+      <%= f.input :photos, as: :file, input_html: {multiple: true}, required: false %>
+      <%= f.input :description, as: :text, size: "70x5", placeholder: "description" %>
       <%= f.hidden_field :longitude, value: params[:lng] %>
       <%= f.hidden_field :latitude, value: params[:lat] %>
       <%= f.hidden_field :user, value: current_user %>
