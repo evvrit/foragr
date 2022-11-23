@@ -39,8 +39,8 @@ PHOTOS = ["chanterelle.jpg",
 
 40.times do Cache.create(
   user: User.all.sample,
-  longitude: Faker::Number.within(range: -73.83053622..-73.36224401)
-  latitude: Faker::Number.within(range: 45.4503051..45.62801271)
+  longitude: Faker::Number.within(range: -73.83053621933163..-73.36224401489754),
+  latitude: Faker::Number.within(range: 45.450305095784344..45.6280127081368),
   description: Faker::Lorem.paragraphs(number: 1),
   found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   seed_photo: PHOTOS.sample
