@@ -19,8 +19,7 @@ export default class extends Controller {
 
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
-    this.#displayForm();
-    console.log();
+    this.#replaceMapWithForm();
   }
 
   #addMarkersToMap() {
@@ -39,12 +38,14 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
-  #displayForm() {
+  #replaceMapWithForm() {
     this.map.on('click', (e) => {
       var coords = `lat: ${e.lngLat.lat}, lng: ${e.lngLat.lng}`;
       console.log(coords);
+      console.log(this.formTarget);
 
-      this.formTarget.classList.remove("d-none")
+      this.map._container.classList.toggle("d-none")
+      this.formTarget.classList.toggle("test-class")
     })
   }
 

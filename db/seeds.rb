@@ -32,10 +32,15 @@ PHOTOS = ["chanterelle.jpg",
           "walnut.jpg"
           ]
 
+# latitude: 45.450305095784344 (south limit)
+# 45.6280127081368 (north limit)
+# longitude: -73.36224401489754 (east limit)
+# -73.83053621933163 (west limit)
+
 40.times do Cache.create(
   user: User.all.sample,
-  longitude: Faker::Address.longitude,
-  latitude: Faker::Address.latitude,
+  longitude: Faker::Number.within(range: -73.83053622..-73.36224401)
+  latitude: Faker::Number.within(range: 45.4503051..45.62801271)
   description: Faker::Lorem.paragraphs(number: 1),
   found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   seed_photo: PHOTOS.sample
