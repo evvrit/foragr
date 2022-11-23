@@ -1,0 +1,11 @@
+<div class="container m-5">
+  <%= simple_form_for @cache, html: { data: { map_target: 'form' }} do |f| %>
+      <%= f.input :found_on, placeholder: "date found" %>
+      <%= f.input :photos, as: :file, input_html: {multiple: true}, required: false %>
+      <%= f.input :description, as: :text, size: "70x5", placeholder: "description" %>
+      <%= f.hidden_field :longitude, value: params[:lng] %>
+      <%= f.hidden_field :latitude, value: params[:lat] %>
+      <%= f.hidden_field :user, value: current_user %>
+      <%= f.submit "Add cache", class: "btn btn-sm btn-primary btn-block mt-2" %>
+      <% end %>
+</div>

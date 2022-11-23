@@ -1,6 +1,18 @@
-<div class="container">
+<div class="container mt-5">
   <p> user:<%= @cache.user.email %> </p>
   <p> found on:<%= @cache.found_on %></p>
   <p> cache id:<%= @cache.id %></p>
-  <%= image_tag @cache.seed_photo, style: "width: 200px; height: 200px;" %>
+
+  <div>
+    <% if @cache.photos.attached? %>
+      <% @cache.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, width: 200 %>
+      <% end %>
+    <% elsif @cache.seed_photo != nil %>
+      <%= image_tag @cache.seed_photo, style: "width: 200px; height: 200px;" %>
+    <% else %>
+      No uploaded photos
+    <% end %>
+  </div>
+
 </div>

@@ -36,6 +36,11 @@ PHOTOS = ["chanterelle.jpg",
 # Seeding Caches
 puts "making 40 caches..."
 
+# latitude: 45.450305095784344 (south limit)
+# 45.6280127081368 (north limit)
+# longitude: -73.36224401489754 (east limit)
+# -73.83053621933163 (west limit)
+
 40.times do Cache.create(
   user: User.all.sample,
   longitude: Faker::Number.within(range: -73.83053621933163..-73.36224401489754),

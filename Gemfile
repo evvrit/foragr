@@ -31,6 +31,8 @@ gem "jbuilder"
 gem "pundit"
 gem "faker"
 gem "geocoder"
+gem 'bootstrap', '~> 5.1.3'
+
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
 

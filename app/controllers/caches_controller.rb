@@ -12,9 +12,27 @@ class CachesController < ApplicationController
         cache_info: render_to_string(partial: "cache_info", locals: {cache: cache})
       }
     end
+    @cache = Cache.new
+    authorize @cache
   end
 
   def show
+    authorize @cache
+  end
+
+  def new
+    @cache = Cache.new
+    authorize @cache
+  end
+
+  def create
+    @cache = Cache.new(cache_params)
+    @cache.user = current_user
+    if @cache.save
+      redirect_to cache_path(@cache)
+    else
+      render :new, status: 422
+    end
     authorize @cache
   end
 
@@ -22,5 +40,9 @@ class CachesController < ApplicationController
 
   def set_cache
     @cache = Cache.find(params[:id])
+  end
+
+  def cache_params
+    params.require(:cache).permit(:longitude, :latitude, :description, :found_on, photos: [])
   end
 end
