@@ -4,7 +4,6 @@ class LogsController < ApplicationController
   def index
     @logs = Log.all
     @logs = policy_scope(Log)
-    authorize @logs
   end
 
   def new
@@ -13,13 +12,14 @@ class LogsController < ApplicationController
   end
 
   def create
-    @log = Log.new
-    authorize @log
+    @log = Log.new(log_params)
+    @log.user_id = current_user.id
     if @log.save!
-      redirect log_path(@log)
+      redirect_to log_path(@log)
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @log
   end
 
   def update
@@ -33,6 +33,8 @@ class LogsController < ApplicationController
 
 
   def show
+    # @log = policy_scope(Log)
+    # raise
     authorize @log
   end
 
@@ -46,7 +48,10 @@ class LogsController < ApplicationController
   private
 
   def set_log
-
     @log = Log.find(params[:id])
+  end
+
+  def log_params
+    params.require(:log).permit(:content, :seed_photo_url, :created_on, :user_id, :cache_id)
   end
 end

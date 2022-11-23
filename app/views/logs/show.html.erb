@@ -1,10 +1,10 @@
 <div>
   <h1>Logs#show</h1>
   <div>
-    <% if @log.seed_photo_url = "" %>
+    <% if @log.cache == nil %>
       No Image Available
     <% else %>
-      <%= image_tag @log.seed_photo_url, style: "width: 200px;" %>
+      <%= image_tag @log.cache.seed_photo, style: "width: 200px;" %>
     <% end %>
   </div>
   <p><%= @log.created_on %></p>
