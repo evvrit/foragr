@@ -3,6 +3,7 @@ class Cache < ApplicationRecord
   has_one :cache_species
   has_many :species, through: :cache_species
   has_many :logs
+  has_many_attached :photos
 
 
   validates :longitude, :latitude, presence: true
