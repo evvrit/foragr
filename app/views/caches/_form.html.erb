@@ -1,9 +1,10 @@
 <%= simple_form_for @cache, html: {
-  class: @cache.errors.any? ? "" : "d-none",
-    data: {
-      map_target: 'form',
-      action: 'submit->map#update'
-    }} do |f| %>
+                                      class: @cache.errors.any? ? "" : "d-none",
+                                      data: {
+                                      map_target: 'form',
+                                      action: 'submit->map#update'
+                                  }} do |f| %>
+
   <%= f.date_field :found_on, placeholder: "date found" %>
   <%= f.text_area :description, size: "70x5", placeholder: "description" %>
   <%= f.hidden_field :longitude %>

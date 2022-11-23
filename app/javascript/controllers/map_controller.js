@@ -17,21 +17,20 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v10"
     })
 
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
-    this.#giveCoordsToNewCacheForm()
-    console.log(this.formTarget);
+    this.#addMarkersToMap();
+    this.#fitMapToMarkers();
+    this.#displayForm();
+    console.log();
   }
-}
 
-#addMarkersToMap() {
-  this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.cache_info)
-      new mapboxgl.Marker()
+  #addMarkersToMap() {
+    this.markersValue.forEach((marker) => {
+        const popup = new mapboxgl.Popup().setHTML(marker.cache_info)
+        new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
-    })
+      })
   }
 
   #fitMapToMarkers() {
@@ -41,12 +40,12 @@ export default class extends Controller {
   }
 
   #displayForm() {
+    this.map.on('click', (e) => {
+      var coords = `lat: ${e.lngLat.lat}, lng: ${e.lngLat.lng}`;
+      console.log(coords);
 
+      this.formTarget.classList.remove("d-none")
+    })
   }
 
-  #giveCoordsToNewCacheForm() {
-  this.map.on('click', (e) => {
-    var coords = `lat: ${e.lngLat.lat}, lng: ${e.lngLat.lng}`;
-    console.log(coords);
-  })
 }
