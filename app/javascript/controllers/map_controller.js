@@ -7,6 +7,8 @@ export default class extends Controller {
     markers: Array
   }
 
+  static targets = ["form"]
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -17,15 +19,13 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-
-    this.map.on('click', (e) => {
-      var coords = `lat: ${e.lngLat.lat} <br> lng: ${e.lngLat.lng}`;
-      console.log(coords);
-    })
+    this.#giveCoordsToNewCacheForm()
+    console.log(this.formTarget);
   }
+}
 
-  #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
+#addMarkersToMap() {
+  this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.cache_info)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
@@ -39,4 +39,14 @@ export default class extends Controller {
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
+
+  #displayForm() {
+
+  }
+
+  #giveCoordsToNewCacheForm() {
+  this.map.on('click', (e) => {
+    var coords = `lat: ${e.lngLat.lat}, lng: ${e.lngLat.lng}`;
+    console.log(coords);
+  })
 }

@@ -12,10 +12,17 @@ class CachesController < ApplicationController
         cache_info: render_to_string(partial: "cache_info", locals: {cache: cache})
       }
     end
+    @cache = Cache.new
+    authorize @cache
   end
 
   def show
     authorize @cache
+  end
+
+  def create
+    # need to get long and lat from stimulus controller
+    @cache.user = user
   end
 
   private
