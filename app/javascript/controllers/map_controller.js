@@ -7,9 +7,8 @@ export default class extends Controller {
     markers: Array
   }
 
-  static targets = ["form"]
-
   connect() {
+    console.log();
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -40,9 +39,8 @@ export default class extends Controller {
 
   #replaceMapWithForm() {
     this.map.on('click', (e) => {
-      var coords = `lat: ${e.lngLat.lat}, lng: ${e.lngLat.lng}`;
+      var coords = {lat: e.lngLat.lat, lng: e.lngLat.lng};
       console.log(coords);
-      console.log(this.formTarget);
 
       this.map._container.classList.toggle("d-none")
       this.formTarget.classList.toggle("test-class")
