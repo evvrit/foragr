@@ -1,9 +1,9 @@
 require "faker"
 
 puts "cleaning the DB..."
+Log.destroy_all
 Cache.destroy_all
 Species.destroy_all
-Log.destroy_all
 User.destroy_all
 puts "DB is clean."
 
@@ -67,17 +67,12 @@ puts "100 species created."
 # Seeding Logs
 puts "making 10 logs..."
 
-5.times do Log.create(
+30.times do Log.create(
   content: Faker::Lorem.paragraphs(number: 1),
   created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-  user_id: User.first.id
-)
-end
+  user_id: User.all.sample.id,
+  cache_id: Cache.all.sample.id
 
-5.times do Log.create(
-  content: Faker::Lorem.paragraphs(number: 1),
-  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-  user_id: User.last.id
 )
 end
 

@@ -5,4 +5,8 @@ class LogPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def css_test?
+    true
+  end
 end

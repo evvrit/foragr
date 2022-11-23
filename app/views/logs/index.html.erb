@@ -1,11 +1,18 @@
 <div>
   <h1>Logs#index</h1>
   <ul style="list-style: none"><% @logs.each do |log| %>
-    <li>
-      <%= image_tag @log.seed_photo_url, style: "width: 200px;" %>
-      <%= log.created_on %>
-      <%= log.content %>
-    </li>
+    <div>
+      <li>
+        <% if log.cache == nil %>
+          No Cache Attached
+        <% else %>
+          <%= image_tag log.cache.seed_photo, style: "width: 200px;" %>
+        <% end %>
+        <%= log.created_on %>
+        <%= log.content %>
+        <%= link_to "this log show", log_path(log) %>
+      </li>
+    </div>
   <% end %>
   </ul>
 </div>

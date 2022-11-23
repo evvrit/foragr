@@ -1,2 +1,12 @@
-<h1>Logs#show</h1>
-<p>Find me in app/views/logs/show.html.erb</p>
+<div>
+  <h1>Logs#show</h1>
+  <div>
+    <% if @log.seed_photo_url = "" %>
+      No Image Available
+    <% else %>
+      <%= image_tag @log.seed_photo_url, style: "width: 200px;" %>
+    <% end %>
+  </div>
+  <p><%= @log.created_on %></p>
+  <p><%= @log.content %></p>
+</div>

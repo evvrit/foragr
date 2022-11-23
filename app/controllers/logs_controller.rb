@@ -8,9 +8,18 @@ class LogsController < ApplicationController
   end
 
   def new
+    @log = Log.new
+    authorize @log
   end
 
   def create
+    @log = Log.new
+    authorize @log
+    if @log.save!
+      redirect log_path(@log)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -24,11 +33,20 @@ class LogsController < ApplicationController
 
 
   def show
+    authorize @log
+  end
+
+  # Test page for Vinh Tho to play with css
+  def css_test
+    @logs = Log.all
+    @logs = policy_scope(Log)
+    authorize @logs
   end
 
   private
 
   def set_log
+
     @log = Log.find(params[:id])
   end
 end
