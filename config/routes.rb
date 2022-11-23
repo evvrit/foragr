@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'logs/css_test', to: 'logs#css_test', as: :css_test
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  devise_for :users
+  root to: "caches#index"
+
+  resources :caches, only: :index, as: :caches
+  resources :caches, only: :show, as: :cache
+  resources :species, only: %i[show]
+  resources :logs
 end

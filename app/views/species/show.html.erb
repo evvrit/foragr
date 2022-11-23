@@ -1,0 +1,17 @@
+<div>
+  <%= image_tag @species.photo_url, style: "width: 200px;" %>
+  <ul style="list-style: none">
+    <li>
+      Name: <%= @species.name %>
+    </li>
+    <li>
+      Edible:<%= @species.edible? %>
+    </li>
+    <li>
+      Invasive: <%= @species.invasive? %>
+    </li>
+    <li>
+      season: <%= @species.season %>
+    </li>
+  </ul>
+</div>

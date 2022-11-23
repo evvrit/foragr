@@ -1,0 +1,9 @@
+<div>
+  <h1>Write A Log</h1>
+  <%= simple_form_for (@log) do |f| %>
+  <%= f.input :created_on, as: :date, html5: true %>
+  <%= f.input :seed_photo_url, as: :file %>
+  <%= f.input :content %>
+  <%= f.submit "Add This Log" %>
+  <% end %>
+</div>
