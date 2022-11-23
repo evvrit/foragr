@@ -26,13 +26,9 @@ class CachesController < ApplicationController
   end
 
   def create
-    @cache = Cache.create(
-      longitude: params[:cache][:longitude],
-      latitude:  params[:cache][:latitude],
-      user: current_user,
-      description: params[:cache][:description],
-      found_on: params[:cache][:found_on]
-    )
+    @cache = Cache.new(cache_params)
+    @cache.user = current_user
+    # raise
     if @cache.save
       redirect_to cache_path(@cache)
     else
@@ -45,5 +41,9 @@ class CachesController < ApplicationController
 
   def set_cache
     @cache = Cache.find(params[:id])
+  end
+
+  def cache_params
+    params.require(:cache).permit(:longitude, :latitude, :description, :found_on, photos: [])
   end
 end
