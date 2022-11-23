@@ -2,9 +2,16 @@
   <h1>Logs#show</h1>
   <div>
     <% if @log.cache == nil %>
-      No Image Available
+      No Cache Attached
     <% else %>
       <%= image_tag @log.cache.seed_photo, style: "width: 200px;" %>
+    <% end %>
+  </div>
+  <div>
+  <% if @log.photo == nil %>
+    <%= @log.seed_photo_url %>
+    <% else %>
+      <%= cl_image_tag @log.photo.key %>
     <% end %>
   </div>
   <p><%= @log.created_on %></p>
