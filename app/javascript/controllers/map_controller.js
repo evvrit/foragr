@@ -8,7 +8,9 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log();
+    this.link = document.getElementById("new-cache-link");
+
+    // console.log(link);
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
@@ -18,7 +20,8 @@ export default class extends Controller {
 
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
-    this.#replaceMapWithForm();
+    this.#sendCoordsToForm();
+
   }
 
   #addMarkersToMap() {
@@ -37,13 +40,15 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
-  #replaceMapWithForm() {
+  #sendCoordsToForm() {
     this.map.on('click', (e) => {
-      var coords = {lat: e.lngLat.lat, lng: e.lngLat.lng};
-      console.log(coords);
+      // const coords = `?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`
 
-      this.map._container.classList.toggle("d-none")
-      this.formTarget.classList.toggle("test-class")
+      this.link.href = `${this.link.href}?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`
+      // console.log(coords);
+      // console.log(this.link.href);
+      // console.log(this.link.href);
+      this.link.click()
     })
   }
 

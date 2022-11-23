@@ -1,10 +1,13 @@
-<%= simple_form_for @cache,
-    html: { class: @cache.errors.any? ? "" : "",
-            style: "z-index: 5; position: absolute; top: 50px;",
-            data: { map_target: 'form' }} do |f| %>
-  <%= f.date_field :found_on, placeholder: "date found" %>
-  <%= f.text_area :description, size: "70x5", placeholder: "description" %>
-  <%= f.hidden_field :longitude %>
-  <%= f.hidden_field :latitude %>
-  <%= f.submit "Add cache", class: "btn btn-sm btn-primary btn-block mt-2" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @cache,
+  html: { class: @cache.errors.any? ? "" : "",
+    style: "z-index: 5; position: absolute; top: 50px;",
+    data: { map_target: 'form' }} do |f| %>
+      <%= f.date_field :found_on, placeholder: "date found" %>
+      <%= f.text_area :description, size: "70x5", placeholder: "description" %>
+      <%= f.hidden_field :longitude, value: params[:lng] %>
+      <%= f.hidden_field :latitude, value: params[:lat] %>
+      <%= f.hidden_field :user, value: current_user %>
+      <%= f.submit "Add cache", class: "btn btn-sm btn-primary btn-block mt-2" %>
+      <% end %>
+</div>

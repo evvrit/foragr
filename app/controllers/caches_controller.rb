@@ -20,9 +20,25 @@ class CachesController < ApplicationController
     authorize @cache
   end
 
+  def new
+    @cache = Cache.new
+    authorize @cache
+  end
+
   def create
-    # need to get long and lat from stimulus controller
-    @cache.user = user
+    @cache = Cache.create(
+      longitude: params[:cache][:longitude],
+      latitude:  params[:cache][:latitude],
+      user: current_user,
+      description: params[:cache][:description],
+      found_on: params[:cache][:found_on]
+    )
+    if @cache.save
+      redirect_to cache_path(@cache)
+    else
+      render :new, status: 422
+    end
+    authorize @cache
   end
 
   private
