@@ -1,5 +1,6 @@
 <div>
   <h1>Logs#show</h1>
+  <%# Here is a section for the attached cache, showing the photo attached to the cache is there is one %>
   <div>
     <% if @log.cache == nil %>
       No Cache Attached
@@ -7,13 +8,17 @@
       <%= image_tag @log.cache.seed_photo, style: "width: 200px;" %>
     <% end %>
   </div>
+  <%# Here is a section for the photos uploaded and attached to the log, if there are any %>
   <div>
-    <% if @log.photo.attached? %>
-      <%= cl_image_tag @log.photo.key, width: 200 %>
+    <% if @log.photos.attached? %>
+      <% @log.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, width: 200 %>
+      <% end %>
     <% else %>
-      <%= @log.seed_photo_url %>
+      No uploaded photos
     <% end %>
   </div>
+  <%# Basic ino on the log %>
   <p><%= @log.created_on %></p>
   <p><%= @log.content %></p>
 </div>
