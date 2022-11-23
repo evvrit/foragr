@@ -18,6 +18,7 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v10"
     })
 
+    this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
     this.#sendCoordsToForm();
@@ -41,7 +42,7 @@ export default class extends Controller {
   }
 
   #sendCoordsToForm() {
-    this.map.on('click', (e) => {
+    this.map.on('dblclick', (e) => {
       // const coords = `?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`
 
       this.link.href = `${this.link.href}?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`

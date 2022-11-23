@@ -28,7 +28,6 @@ class CachesController < ApplicationController
   def create
     @cache = Cache.new(cache_params)
     @cache.user = current_user
-    # raise
     if @cache.save
       redirect_to cache_path(@cache)
     else
