@@ -8,10 +8,10 @@
     <% end %>
   </div>
   <div>
-  <% if @log.photo == nil %>
-    <%= @log.seed_photo_url %>
-    <% else %>
+    <% if @log.photo.attached? %>
       <%= cl_image_tag @log.photo.key, width: 200 %>
+    <% else %>
+      <%= @log.seed_photo_url %>
     <% end %>
   </div>
   <p><%= @log.created_on %></p>
