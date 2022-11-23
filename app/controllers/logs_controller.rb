@@ -52,6 +52,6 @@ class LogsController < ApplicationController
   end
 
   def log_params
-    params.require(:log).permit(:content, :seed_photo_url, :photo, :created_on, :user_id, :cache_id)
+    params.require(:log).permit(:content, :seed_photo_url, :created_on, :user_id, :cache_id, :photo)
   end
 end
