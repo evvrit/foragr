@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_214303) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_162039) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_214303) do
     t.date "created_on"
     t.string "seed_photo_url"
     t.bigint "user_id", null: false
-    t.bigint "cache_id", null: false
+    t.bigint "cache_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cache_id"], name: "index_logs_on_cache_id"

@@ -1,7 +1,7 @@
 class Log < ApplicationRecord
   belongs_to :user
-  has_one :cache
+  belongs_to :cache, optional: true
 
-  validates :content, length: { minimum: 30 }
+  validates :content, length: { minimum: 10 }
   validates :created_on, presence: true
 end
