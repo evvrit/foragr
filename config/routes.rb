@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "caches#index"
 
-  resources :caches, only: :index, as: :caches do
+  resources :caches, only: :index do
     member do
       post 'toggle_favorite', to: "caches#toggle_favorite"
     end
   end
+
   resources :caches, only: :new, as: :cache
   resources :caches, only: :create
 

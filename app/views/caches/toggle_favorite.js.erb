@@ -1,8 +1,0 @@
-var cacheId = '<%= @cache.id%>'
-
-function toggleLikeButton(cacheId, innerHTML) {
-  let likeButton = document.querySelector(`.like-icon[data-id='${cacheId}']`)
-  likeButton.classList.toggle('red');
-}
-
-toggleLikeButton(cacheId);

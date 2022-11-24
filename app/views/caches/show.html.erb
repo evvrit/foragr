@@ -3,7 +3,7 @@
   <p> <%= @cache.user.username %> </p>
   <p> found on<%= @cache.found_on.strftime("%b %d, %Y") %></p>
   <%#= render 'shared/like_button' %>
-  <%= link_to "like", toggle_favorite_cach_path(@cache), remote: true, method: :post %>
+  <%= link_to "like", toggle_favorite_cach_path(@cache), remote: true, data: { 'turbo-method': :post } %>
 
 
   <div>
