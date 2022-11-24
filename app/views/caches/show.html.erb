@@ -6,7 +6,7 @@
   <%#= render 'shared/like_button' %>
   <%= link_to "like",
     toggle_favorite_cach_path(@cache), remote: true,
-    data: { 'turbo-method': :post, toggle_favorite_target: "link" } %>
+    data: { 'turbo-method': :post, toggle_favorite_target: "link", action: "click->toggle-favorite#toggleIconFill" } %>
 
   <div>
     <% if @cache.photos.attached? %>
