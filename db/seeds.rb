@@ -10,12 +10,13 @@ puts "DB is clean."
 # Seeding users
 puts "making 6 users..."
 
-User.create(email: "a@a.a", password: "secret")
-User.create(email: "b@b.b", password: "secret")
+User.create(email: "a@a.a", password: "secret", username: "anna")
+User.create(email: "b@b.b", password: "secret", username: "bob")
 
 4.times do User.create(
   email: Faker::Internet.email,
-  password: "secret"
+  password: "secret",
+  username: Faker::Twitter.screen_name
 )
 end
 
