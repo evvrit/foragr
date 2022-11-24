@@ -9,4 +9,6 @@ class Cache < ApplicationRecord
   validates :longitude, :latitude, presence: true
   validates :description, length: { minimum: 30 }
   validates :found_on, presence: true
+
+  acts_as_favoritable
 end
