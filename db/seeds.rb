@@ -76,8 +76,8 @@ puts "making 10 logs..."
   content: Faker::Lorem.paragraphs(number: 1),
   created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   user_id: User.all.sample.id,
-  cache_id: Cache.all.sample.id
-
+  cache_id: Cache.all.sample.id,
+  seed_photo: PHOTOS.sample
 )
 end
 

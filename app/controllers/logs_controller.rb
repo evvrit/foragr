@@ -14,7 +14,7 @@ class LogsController < ApplicationController
   def create
     @log = Log.new(log_params)
     @log.user_id = current_user.id
-    if @log.save!
+    if @log.save
       redirect_to log_path(@log)
     else
       render :new, status: :unprocessable_entity
@@ -52,6 +52,6 @@ class LogsController < ApplicationController
   end
 
   def log_params
-    params.require(:log).permit(:content, :seed_photo_url, :created_on, :user_id, :cache_id, photos: [])
+    params.require(:log).permit(:content, :seed_photo, :created_on, :user_id, :cache_id, photos: [])
   end
 end
