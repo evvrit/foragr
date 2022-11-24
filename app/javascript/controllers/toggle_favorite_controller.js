@@ -10,6 +10,6 @@ export default class extends Controller {
 
   toggleIconFill(event) {
     // console.log(event);
-    this.linkTarget.classList.toggle("btn");
+    this.linkTarget.classList.toggle("btn-danger");
   }
 }
