@@ -5,8 +5,4 @@ class FavoritePolicy < ApplicationPolicy
       scope.all
     end
   end
-
-  def toggle_favorite
-    true
-  end
 end

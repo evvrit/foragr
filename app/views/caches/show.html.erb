@@ -1,9 +1,12 @@
-<div class="container mt-5">
+<div class="container mt-5" data-controller="toggle-favorite">
   <p><strong><%= @cache.title %><strong></p>
   <p> <%= @cache.user.username %> </p>
   <p> found on<%= @cache.found_on.strftime("%b %d, %Y") %></p>
+
   <%#= render 'shared/like_button' %>
-  <%= link_to "like", toggle_favorite_cach_path(@cache), remote: true, data: { 'turbo-method': :post } %>
+  <%= link_to "like",
+    toggle_favorite_cach_path(@cache), remote: true,
+    data: { 'turbo-method': :post, toggle_favorite_target: "link" } %>
 
   <div>
     <% if @cache.photos.attached? %>
