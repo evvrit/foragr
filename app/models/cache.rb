@@ -9,4 +9,5 @@ class Cache < ApplicationRecord
   validates :longitude, :latitude, presence: true
   validates :description, length: { minimum: 30 }
   validates :found_on, presence: true
+  validates :title, length: { in: 4..36 }
 end
