@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -18,11 +19,13 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v10"
     })
 
-    this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
     this.#sendCoordsToForm();
+    this.map.doubleClickZoom.disable();
 
+    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl }))
   }
 
   #addMarkersToMap() {
