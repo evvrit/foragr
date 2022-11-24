@@ -1,10 +1,19 @@
-<div data-controller="toggle-favorite">
-
-  <%= link_to ":)", toggle_favorite_cach_path(@cache),
-  remote: true,
-  class: "btn btn-primary",
-  data: { 'turbo-method': :post,
-          toggle_favorite_target: "link",
-          action: "click->toggle-favorite#toggleIconFill" } %>
-
-</div>
+<% if current_user.favorited?(@cache) %>
+  <div data-controller="toggle-favorite">
+    <%= link_to ":)", toggle_favorite_cach_path(@cache),
+    remote: true,
+    class: "btn btn-primary",
+    data: { 'turbo-method': :post,
+            toggle_favorite_target: "link",
+            action: "click->toggle-favorite#toggleIconFill" } %>
+  </div>
+<% else %>
+  <div data-controller="toggle-favorite">
+    <%= link_to ":)", toggle_favorite_cach_path(@cache),
+    remote: true,
+    class: "btn btn-warning",
+    data: { 'turbo-method': :post,
+            toggle_favorite_target: "link",
+            action: "click->toggle-favorite#toggleIconFill" } %>
+  </div>
+<% end %>

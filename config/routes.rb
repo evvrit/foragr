@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     member do
       post 'toggle_favorite', to: "caches#toggle_favorite"
     end
+    collection do
+      resources :favorites, only: :index
+    end
   end
 
   resources :caches, only: :new, as: :cache
@@ -17,4 +20,5 @@ Rails.application.routes.draw do
 
   resources :species, only: %i[show]
   resources :logs
+
 end
