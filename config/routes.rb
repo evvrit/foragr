@@ -4,7 +4,15 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "caches#index"
 
-  resources :caches, only: :index, as: :caches
+  resources :caches, only: :index do
+    member do
+      post 'toggle_favorite', to: "caches#toggle_favorite"
+    end
+    collection do
+      resources :favorites, only: :index
+    end
+  end
+
   resources :caches, only: :new, as: :cache
   resources :caches, only: :create
 
@@ -12,4 +20,5 @@ Rails.application.routes.draw do
 
   resources :species, only: %i[show]
   resources :logs
+
 end
