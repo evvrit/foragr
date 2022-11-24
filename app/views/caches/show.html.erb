@@ -1,7 +1,7 @@
 <div class="container mt-5">
-  <p> user:<%= @cache.user.email %> </p>
-  <p> found on:<%= @cache.found_on %></p>
-  <p> cache id:<%= @cache.id %></p>
+  <p><strong><%= @cache.title %><strong></p>
+  <p> <%= @cache.user.username %> </p>
+  <p> found on<%= @cache.found_on.strftime("%b %d, %Y") %></p>
 
   <div>
     <% if @cache.photos.attached? %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_192850) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_165513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_192850) do
     t.string "seed_photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["user_id"], name: "index_caches_on_user_id"
   end
 
@@ -62,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_192850) do
     t.bigint "cache_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["cache_id"], name: "index_logs_on_cache_id"
     t.index ["user_id"], name: "index_logs_on_user_id"
   end
@@ -86,6 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_192850) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
