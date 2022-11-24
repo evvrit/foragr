@@ -5,7 +5,6 @@
   <%#= render 'shared/like_button' %>
   <%= link_to "like", toggle_favorite_cach_path(@cache), remote: true, data: { 'turbo-method': :post } %>
 
-
   <div>
     <% if @cache.photos.attached? %>
       <% @cache.photos.each do |photo| %>

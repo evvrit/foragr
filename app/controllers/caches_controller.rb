@@ -1,5 +1,6 @@
 class CachesController < ApplicationController
   before_action :set_cache, only: %i[show toggle_favorite]
+  after_action :verify_authorized, except: [:toggle_favorite]
 
   def index
     @caches = policy_scope(Cache)
@@ -12,8 +13,6 @@ class CachesController < ApplicationController
         cache_info: render_to_string(partial: "cache_info", locals: {cache: cache})
       }
     end
-    @cache = Cache.new
-    authorize @cache
   end
 
   def show
@@ -38,7 +37,6 @@ class CachesController < ApplicationController
 
   def toggle_favorite
     current_user.favorited?(@cache) ? current_user.unfavorite(@cache) : current_user.favorite(@cache)
-    # render cache_path(@cache)
   end
 
   private
