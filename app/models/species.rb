@@ -7,5 +7,4 @@ class Species < ApplicationRecord
   validates :edible?, exclusion: [nil]
   validates :photo_url, presence: true
   validates :season, inclusion: { in: ["spring", "summer", "fall", "winter"] }
-
 end
