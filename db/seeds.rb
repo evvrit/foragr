@@ -22,7 +22,8 @@ end
 puts "6 users made."
 
 # Photos from assets for seeding
-PHOTOS = ["chanterelle.jpg",
+PHOTOS = [
+  "chanterelle.jpg",
   "damson_plum.jpg",
   "hazelnut.jpg",
   "juniper.jpg",
@@ -31,6 +32,14 @@ PHOTOS = ["chanterelle.jpg",
   "strawberries.jpg",
   "sumac.jpg",
   "walnut.jpg"
+]
+
+GENERIC_TITLES = [
+  "I absolutely love finding treasures growing from the ground",
+  "what a wonderful adventure I had that day",
+  "could not have asked for a better haul",
+  "couldn't find what I was looking for; found somethiing even better!",
+  "dangerous!! not because they're poisonous but because they're delicious"
 ]
 
 puts "making 40 caches..."
@@ -46,11 +55,12 @@ puts "making 40 caches..."
 40.times do Cache.create(
   user: User.all.sample,
   longitude: [Faker::Number.within(range: -73.83053621933163..-73.56830061735444),
-    Faker::Number.within(range: -73.56708451801268..-73.36224401489754)].sample,
-    latitude: Faker::Number.within(range: 45.4372900644492..45.6280127081368),
-    description: Faker::Lorem.paragraphs(number: 1),
-    found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-    seed_photo: PHOTOS.sample
+              Faker::Number.within(range: -73.56708451801268..-73.36224401489754)].sample,
+  latitude: Faker::Number.within(range: 45.4372900644492..45.6280127081368),
+  description: Faker::Lorem.paragraphs(number: 1),
+  found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
+  seed_photo: PHOTOS.sample,
+  title: GENERIC_TITLES.sample
   )
 end
 
@@ -95,8 +105,8 @@ puts "making 10 logs..."
   content: Faker::Lorem.paragraphs(number: 1),
   created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   user_id: User.all.sample.id,
-  cache_id: Cache.all.sample.id
-
+  cache_id: Cache.all.sample.id,
+  title: GENERIC_TITLES.sample
 )
 end
 
