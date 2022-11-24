@@ -38,6 +38,7 @@ class CachesController < ApplicationController
 
   def toggle_favorite
     current_user.favorited?(@cache) ? current_user.unfavorite(@cache) : current_user.favorite(@cache)
+    # render cache_path(@cache)
   end
 
   private

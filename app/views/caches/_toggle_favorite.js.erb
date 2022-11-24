@@ -1,3 +1,5 @@
+<%= link_to "like", toggle_favorite_cach_path(@cache), remote: true, method: :post %>
+
 var cacheId = '<%= @cache.id%>'
 
 function toggleLikeButton(cacheId, innerHTML) {
