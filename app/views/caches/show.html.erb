@@ -2,6 +2,7 @@
   <p><strong><%= @cache.title %><strong></p>
   <p> <%= @cache.user.username %> </p>
   <p> found on<%= @cache.found_on.strftime("%b %d, %Y") %></p>
+  <%= link_to "like", toggle_favorite_cache_path(@cache), remote: true, method: :post %>
 
   <div>
     <% if @cache.photos.attached? %>
