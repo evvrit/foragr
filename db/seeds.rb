@@ -33,33 +33,33 @@ PHOTOS = ["chanterelle.jpg",
   "walnut.jpg"
 ]
 
-# Seeding Caches
 puts "making 40 caches..."
 
+# Getting Montreal bounds
+
 # latitude: 45.450305095784344 (south limit)
+# 45.382223818544965 (lower south limit)
 # 45.6280127081368 (north limit)
 # longitude: -73.36224401489754 (east limit)
 # -73.83053621933163 (west limit)
 
-# 45.382223818544965 (new south limit)
+40.times do Cache.create(
+  user: User.all.sample,
+  longitude: [Faker::Number.within(range: -73.83053621933163..-73.56830061735444),
+    Faker::Number.within(range: -73.56708451801268..-73.36224401489754)].sample,
+    latitude: Faker::Number.within(range: 45.4372900644492..45.6280127081368),
+    description: Faker::Lorem.paragraphs(number: 1),
+    found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
+    seed_photo: PHOTOS.sample
+  )
+end
 
+# Avoiding the river
 
 # lat=45.416762732009886&lng=-73.78362440103011 # awful
 # lat=45.42563154754981&lng=-73.53996688931123 # bad
 # lat=45.45067330399482&lng=-73.50865667352087 # very bad
 # 45.563128244421165, -73.5049835667227 still quite bad
-
-
-40.times do Cache.create(
-  user: User.all.sample,
-  longitude: [Faker::Number.within(range: -73.83053621933163..-73.56830061735444),
-              Faker::Number.within(range: -73.56708451801268..-73.36224401489754)].sample,
-  latitude: Faker::Number.within(range: 45.4372900644492..45.6280127081368),
-  description: Faker::Lorem.paragraphs(number: 1),
-  found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-  seed_photo: PHOTOS.sample
-)
-end
 
 Cache.all.each do |cache|
   if  cache.longitude == -73.5086566735 && cache.latitude == 45.450673304 ||
@@ -70,7 +70,7 @@ Cache.all.each do |cache|
   end
 end
 
-puts "40 caches created."
+puts "~40 caches created."
 
 # Seeding Species
 puts "making 100 species..."
