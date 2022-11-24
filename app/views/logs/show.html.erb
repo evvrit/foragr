@@ -18,7 +18,8 @@
       No uploaded photos
     <% end %>
   </div>
-  <%# Basic ino on the log %>
-  <p><%= @log.created_on %></p>
+  <%# Basic info on the log %>
+  <p><strong><%= @log.title %></strong></p>
+  <p><%= @log.created_on.strftime("%b %d, %Y") %></p>
   <p><%= @log.content %></p>
 </div>
