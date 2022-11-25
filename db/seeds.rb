@@ -102,9 +102,9 @@ end
 puts "100 species created."
 
 # Seeding Logs
-puts "making 30 logs..."
+puts "making 300 logs..."
 
-30.times do Log.create!(
+300.times do Log.create!(
   content: Faker::Lorem.paragraphs(number: 1),
   created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   user_id: User.all.sample.id,
@@ -114,4 +114,4 @@ puts "making 30 logs..."
 )
 end
 
-puts "30 logs created."
+puts "300 logs created."

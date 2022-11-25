@@ -84,8 +84,11 @@ body {
   color: $beige;
   background-color: $gold;
   font-size: 12px;
-  width: 200px;
+  width: 300px;
   height: 34px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn-add-species-to-your-collection-show {
@@ -103,13 +106,24 @@ body {
   color: $beige;
   background-color: $green-dark;
   font-size: 12px;
-  width: 200px;
+  width: 300px;
   height: 34px;
   text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 // ICONS
+
+.icons-container-caches-species {
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: space-evenly;
+  height: 50px;
+  align-items: flex-end;
+}
 
 .icon-caches {
   width: 20px;
@@ -195,6 +209,51 @@ body {
 }
 
 
+// CARD LOG PROFILE
+
+.card-log-profile {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-log-profile img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid $green-dark;
+}
+
+.card-log-profile h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-dark;
+}
+
+.card-log-profile p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-dark;
+}
+
+.card-log-profile .card-log-profile-infos {
+  padding: 16px;
+}
+
+
 // CARD COLLECTION (CACHE)
 
 .card-cache {
@@ -205,8 +264,12 @@ body {
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  padding-left: 15px;
   border-radius: 10px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .card-cache img {
@@ -217,7 +280,7 @@ body {
 }
 
 .card-cache h2 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   margin: 0;
   color: $brown-cache-card-text;
@@ -234,6 +297,12 @@ body {
 
 .card-cache .card-cache-infos {
   padding: 16px;
+  width: 232px;
+}
+
+.card-cache-infos a {
+  color: $brown-cache-card-text;
+  text-decoration: none;
 }
 
 // CARD CACHE ADDED TO COLLECTION
@@ -558,4 +627,13 @@ body {
 
 .icon-deleted-log {
   display: contents;
+}
+
+
+// CONTAINERS
+
+.container-caches-collection {
+padding-bottom: 70px;
+padding-left: 20px;
+padding-right: 20px;
 }
