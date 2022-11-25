@@ -107,6 +107,7 @@ puts "making 300 logs..."
   created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   user_id: User.all.sample.id,
   cache_id: Cache.all.sample.id,
+  seed_photo_url: PHOTOS.sample,
   # title: GENERIC_TITLES.sample
 )
 end

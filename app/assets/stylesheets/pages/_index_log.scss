@@ -2,6 +2,11 @@ body {
   margin: 0;
   font-family: Arial;
 }
+
+.all-log-pictures {
+  padding-bottom: 80px;
+}
+
 .post-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(100px, 100px));
@@ -9,15 +14,6 @@ body {
   grid-gap: 0;
 }
 
-.post {
-  // cursor: pointer;
-  position: relative;
-  display: block;
-}
-.post-image {
-  margin: 0;
-}
-.post-image img {
-  width: 100%;
-  vertical-align: top;
+.log-picture {
+  border: 1px solid $beige;
 }
