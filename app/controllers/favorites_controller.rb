@@ -6,5 +6,6 @@ class FavoritesController < ApplicationController
       @cache = Cache.find_by(id: cache_favorite.favoritable_id)
       authorize @cache
     end
+    authorize @cache_favorites
   end
 end

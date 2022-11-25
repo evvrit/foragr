@@ -1,4 +1,4 @@
-<div>
+<div class="container container-caches-collection">
   <% @caches.each do |cache| %>
   <div class="card-cache">
     <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}") %>
@@ -7,6 +7,9 @@
       <p>@<%= cache.user.username %></p>
     </div>
   </div>
+
+  <br>
+
   <% end %>
 </div>
 

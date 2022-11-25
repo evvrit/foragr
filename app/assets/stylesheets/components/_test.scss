@@ -255,6 +255,9 @@ body {
   align-items: center;
   padding-left: 20px;
   border-radius: 10px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card-cache img {
@@ -269,6 +272,7 @@ body {
   font-weight: bold;
   margin: 0;
   color: $brown-cache-card-text;
+  text-align: justify;
 }
 
 .card-cache p {
@@ -282,6 +286,7 @@ body {
 
 .card-cache .card-cache-infos {
   padding: 16px;
+  width: 232px;
 }
 
 // CARD CACHE ADDED TO COLLECTION
@@ -606,4 +611,13 @@ body {
 
 .icon-deleted-log {
   display: contents;
+}
+
+
+// CONTAINERS
+
+.container-caches-collection {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
