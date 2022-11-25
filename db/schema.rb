@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_171949) do
     t.string "seed_photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title", null: false
+    t.string "title"
     t.index ["user_id"], name: "index_caches_on_user_id"
   end
 
@@ -76,7 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_171949) do
   create_table "logs", force: :cascade do |t|
     t.text "content"
     t.date "created_on"
-    t.string "seed_photo"
+    t.string "seed_photo_url"
     t.bigint "user_id", null: false
     t.bigint "cache_id"
     t.datetime "created_at", null: false
