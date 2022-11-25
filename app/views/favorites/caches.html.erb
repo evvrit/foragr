@@ -1,11 +1,20 @@
-<div class="container">
+<div>
   <% @caches.each do |cache| %>
-  <div class="container bg-white p-2 m-5 d-flex">
-    <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}", size: "60x60") %>
-    <div class="container">
-      <%= link_to cache.title, cache_path(cache) %>
+  <div class="card-cache">
+    <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}") %>
+    <div class="card-cache-infos">
+      <h2><%= link_to cache.title, cache_path(cache) %></h2>
       <p>@<%= cache.user.username %></p>
     </div>
   </div>
   <% end %>
+</div>
+
+
+<div class="card-cache">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-cache-infos">
+    <h2>Cache name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
 </div>
