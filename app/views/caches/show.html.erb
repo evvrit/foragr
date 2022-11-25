@@ -4,6 +4,7 @@
   <p> found on<%= @cache.found_on.strftime("%b %d, %Y") %></p>
 
   <%= render 'shared/favorite_icon' %>
+  <%= link_to "collection", favorites_caches_path %>
 
   <div>
     <% if @cache.photos.attached? %>
