@@ -5,21 +5,22 @@
   <a href="#"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20species.png" alt="icon species" class="icon-species"></a>
 </div>
 
-<div class="container mt-2" data-controller="toggle-favorite">
+<div class="container mt-2">
   <h2>Caches</h2>
   <% if @cache_favorites.empty? %>
     <p>You have not added any caches to your collection. <%= link_to "Explore caches in my area", caches_path %></p>
   <% else %>
-      <div class="container-caches-collection" data-toggle-favorite-target="card">
-
+      <div class="container-caches-collection">
         <% @caches.each do |cache| %>
 
-          <div class="card-cache">
-            <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}") %>
-            <div class="card-cache-infos">
-              <h2><%= link_to cache.title, cache_path(cache) %></h2>
-              <p>@<%= cache.user.username %></p>
-              <%= render 'shared/favorite_icon' %>
+          <div data-controller="toggle-favorite">
+            <div class="card-cache" data-toggle-favorite-target="cacheCard">
+              <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}") %>
+              <div class="card-cache-infos">
+                <h2><%= link_to cache.title, cache_path(cache) %></h2>
+                <p>@<%= cache.user.username %></p>
+                <%= render 'shared/favorite_icon' %>
+              </div>
             </div>
           </div>
 
@@ -27,9 +28,6 @@
       </div>
   <% end %>
 </div>
-    <br>
-
+  <br>
     <%= link_to "Add a cache", new_cache_path, class: "btn btn-add-a-cache" %>
-
-
   </div>
