@@ -2,12 +2,14 @@
   <%# <%= @plant %>
   <%# <%= @fungus %>
   <ul style="list-style: none">
-    <% @tree_shrub.each do |content| %>
+    <% @plant.each do |content| %>
       <div>
         <li>
           <% if content.kind_of?(Array)%>
             <h4><%= content.first %></h4>
             <p><%= content.last %></p>
+          <% elsif content.match(/.+\.(jpg)/)%>
+            <%= image_tag content, width: 200 %>
           <% else %>
             <h1><%= content %></h1>
           <% end %>
