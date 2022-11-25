@@ -5,4 +5,5 @@ class Log < ApplicationRecord
 
   validates :content, length: { minimum: 10 }
   validates :created_on, presence: true
+  validates :title, length: { in: 4..36 }
 end
