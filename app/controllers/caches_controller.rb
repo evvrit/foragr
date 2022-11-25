@@ -17,9 +17,16 @@ class CachesController < ApplicationController
 
   def show
     authorize @cache
+    @cache_favorites = current_user.favorites_by_type('Cache')
+    @caches = @cache_favorites.map do |cache_favorite|
+      @fav_cache = Cache.find_by(id: cache_favorite.favoritable_id)
+      authorize @fav_cache
+    end
+    authorize @cache_favorites
   end
 
   def new
+    @markers = {lat: @cache}
     @cache = Cache.new
     authorize @cache
   end
