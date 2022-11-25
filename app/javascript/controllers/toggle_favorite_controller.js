@@ -9,7 +9,9 @@ export default class extends Controller {
   }
 
   toggleIconFill(event) {
-    // console.log(event);
-    this.linkTarget.classList.toggle("btn-danger");
+    console.log(this.linkTarget);
+    // this.linkTarget.classList.toggle("btn-danger");
+    // this.linkTarget.className == 'fa-solid fa-heart-circle-minus fa-2xl' ? 'fa-solid fa-heart-circle-plus fa-2xl' : 'fa-solid fa-heart-circle-minus fa-2xl';
+    ['fa-heart-circle-plus', 'fa-heart-circle-minus'].map(v=> this.linkTarget.classList.toggle(v) )
   }
 }
