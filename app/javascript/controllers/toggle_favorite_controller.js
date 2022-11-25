@@ -5,12 +5,18 @@ export default class extends Controller {
   static targets = ["link", "card"]
 
   connect() {
-    console.log(this.cardTarget);
+    // console.log(this.cardTarget);
   }
 
   toggleIconFill(event) {
     // console.log(this.linkTarget);
     // this.linkTarget.className == 'fa-solid fa-heart-circle-minus fa-2xl' ? 'fa-solid fa-heart-circle-plus fa-2xl' : 'fa-solid fa-heart-circle-minus fa-2xl';
     ['fa-heart-circle-plus', 'fa-heart-circle-minus'].map(v=> this.linkTarget.classList.toggle(v) )
+    this.showCard();
+  }
+
+  showCard() {
+    // console.log(event);
+    this.cardTarget.classList.toggle('d-none')
   }
 }
