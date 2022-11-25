@@ -1,17 +1,21 @@
-<div>
-  <%= image_tag @species.photo_url, style: "width: 200px;" %>
+<div class="container">
+  <%# <%= @plant %>
+  <%# <%= @fungus %>
   <ul style="list-style: none">
-    <li>
-      Name: <%= @species.name %>
-    </li>
-    <li>
-      Edible:<%= @species.edible? %>
-    </li>
-    <li>
-      Invasive: <%= @species.invasive? %>
-    </li>
-    <li>
-      season: <%= @species.season %>
-    </li>
+    <% @plant.each do |content| %>
+      <div>
+        <li>
+          <% if content.kind_of?(Array)%>
+            <h4><%= content.first %></h4>
+            <p><%= content.last %></p>
+          <% elsif content.match(/.+\.(jpg)/)%>
+            <%= image_tag content, width: 200 %>
+          <% else %>
+            <h1><%= content %></h1>
+          <% end %>
+        </li>
+        <br>
+      </div>
+    <% end %>
   </ul>
 </div>
