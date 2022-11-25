@@ -2,10 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle-favorite"
 export default class extends Controller {
-  static targets = ["link"]
+  static targets = ["link", "card"]
 
   connect() {
-    console.log(this.linkTarget);
+    console.log(this.cardTarget);
   }
 
   toggleIconFill(event) {
