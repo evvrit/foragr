@@ -65,6 +65,8 @@ puts "making 40 caches..."
   )
 end
 
+p "deleting irrelevant caches"
+
 # Avoiding the river
 
 # lat=45.416762732009886&lng=-73.78362440103011 # awful
@@ -107,7 +109,7 @@ puts "making 300 logs..."
   created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   user_id: User.all.sample.id,
   cache_id: Cache.all.sample,
-  seed_photo_url: PHOTOS.sample,
+  seed_photo: PHOTOS.sample,
   title: GENERIC_TITLES.sample
 )
 end

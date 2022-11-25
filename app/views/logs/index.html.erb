@@ -1,12 +1,3 @@
-<div class="navbar-t">
-  <a href="#profile"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669260079/FORAGR/Logo%20-%20Profile%20%28logs%29.png" alt="profile" class="logo-profile"></a>
-  <a href="#map"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669260079/FORAGR/Logo%20-%20Map%20%28add%20a%20cache%29.png" alt="map" class="logo-map"></a>
-  <a href="#log"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669260079/FORAGR/Logo%20-%20Add%20a%20log.png" alt="add log" class="logo-add-a-log"></a>
-  <a href="#collection"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669260079/FORAGR/Logo%20-%20My%20Collection.png" alt="my collection" class="logo-collection"></a>
-</div>
-
-<br><br>
-
 <div class="card-log-profile">
   <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
   <div class="card-log-profile-infos">
@@ -24,12 +15,18 @@
 
 
 <div class="all-log-pictures">
+=======
+<div class="container">
+  <h1>Logs#index</h1>
+>>>>>>> master
   <div class="post-list" style="list-style: "><% @logs.each do |log| %>
     <div>
       <%# div for photos attached to the log, if none, then show the cache photo %>
         <div class="log-picture">
           <% if log.photos.attached? %>
-            <%= cl_image_tag log.photos.first.key, width: 100, height: 100 %>
+            <% log.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, width: 200 %>
+            <% end %>
           <% else %>
             <%= image_tag log.seed_photo_url, width: 100, height: 100 %>
           <% end %>
