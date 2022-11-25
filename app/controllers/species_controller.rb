@@ -27,13 +27,18 @@ class SpeciesController < ApplicationController
     file.search("h1").children.first.text
   end
 
-  def scraper_photo(link)
+  def scraper_photos(link)
     url = @base_url + link
 
     html_file = URI.open(url).read
     file = Nokogiri::HTML(html_file)
-    photo_value = file.search("#blog-item-holder img").attribute("src").value
-    @base_url + photo_value
+    # photo_value = file.search("#blog-item-holder img").attribute("src").value
+    photos = []
+    file.search("#blog-item-holder img").each do |element|
+      photo_value = element.attribute("src").value
+      photos << (@base_url + photo_value)
+    end
+    return photos.first(3)
   end
 
   def scraper_overview(link)
@@ -134,14 +139,21 @@ class SpeciesController < ApplicationController
     html_doc = Nokogiri::HTML(html_file)
     link = html_doc.search("#ctl00_mainBodyContent_divPlants a").attribute("href").value
     name = scraper_name(link)
-    photo = scraper_photo(link)
+    photos = scraper_photos(link)
     overview = scraper_overview(link)
     edible = scraper_edible(link)
     leaves = scraper_leaves(link)
     flowers = scraper_flowers(link)
     fruit = scraper_fruit(link)
     habitat = scraper_habitat(link)
-    return name, photo, overview, edible, leaves, flowers, fruit, habitat
+    return { name: name,
+             photos: photos,
+             overview: overview,
+             edible: edible,
+             leaves: leaves,
+             flowers: flowers,
+             fruit: fruit,
+             habitat: habitat }
   end
 
   def scraper_fungi
@@ -151,14 +163,21 @@ class SpeciesController < ApplicationController
     html_doc = Nokogiri::HTML(html_file)
     link = html_doc.search("#ctl00_mainBodyContent_divFungi a").attribute("href").value
     name = scraper_name(link)
-    photo = scraper_photo(link)
+    photos = scraper_photos(link)
     overview = scraper_overview(link)
     edible = scraper_edible(link)
     features = scraper_features(link)
     sporeprint = scraper_sporeprint(link)
     gills = scraper_gills(link)
     habitat = scraper_habitat(link)
-    return name, photo, overview, edible, features, sporeprint, gills, habitat
+    return { name: name,
+             photos: photos,
+             overview: overview,
+             edible: edible,
+             features: features,
+             sporeprint: sporeprint,
+             gills: gills,
+             habitat:habitat }
   end
 
   def scraper_trees_shrubs
@@ -168,13 +187,20 @@ class SpeciesController < ApplicationController
     html_doc = Nokogiri::HTML(html_file)
     link = html_doc.search("#ctl00_mainBodyContent_divTreesShrubs a").attribute("href").value
     name = scraper_name(link)
-    photo = scraper_photo(link)
+    photos = scraper_photos(link)
     overview = scraper_overview(link)
     edible = scraper_edible(link)
     leaves = scraper_leaves(link)
     flowers = scraper_flowers(link)
     fruit = scraper_fruit(link)
     habitat = scraper_habitat(link)
-    return name, photo, overview, edible, leaves, flowers, fruit, habitat
+    return { name: name,
+      photos: photos,
+      overview: overview,
+      edible: edible,
+      leaves: leaves,
+      flowers: flowers,
+      fruit: fruit,
+      habitat: habitat }
   end
 end
