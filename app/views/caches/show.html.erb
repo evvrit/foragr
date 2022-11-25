@@ -1,7 +1,10 @@
 <div class="container mt-5">
-  <p> user:<%= @cache.user.email %> </p>
-  <p> found on:<%= @cache.found_on %></p>
-  <p> cache id:<%= @cache.id %></p>
+  <p><strong><%= @cache.title %><strong></p>
+  <p> <%= @cache.user.username %> </p>
+  <p> found on<%= @cache.found_on.strftime("%b %d, %Y") %></p>
+
+  <%= render 'shared/favorite_icon' %>
+  <%= link_to "collection", favorites_caches_path %>
 
   <div>
     <% if @cache.photos.attached? %>

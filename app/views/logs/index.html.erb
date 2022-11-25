@@ -1,26 +1,33 @@
 <div>
   <h1>Logs#index</h1>
-  <ul style="list-style: none"><% @logs.each do |log| %>
+  <div class="post-list" style="list-style: "><% @logs.each do |log| %>
     <div>
-      <li>
       <%# div for photos attached to the log, if none, then show the cache photo %>
         <div>
           <% if log.photos.attached? %>
-            <% log.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, width: 200 %>
-            <% end %>
-          <% elsif log.cache == nil %>
-            No Photo
+            <%= cl_image_tag log.photos.first.key, width: 200 %>
           <% else %>
-            <%= image_tag log.cache.seed_photo, width: 200 %>
+            <%= image_tag log.seed_photo, width: 200 %>
           <% end %>
         </div>
         <%# Basic info on log %>
-        <%= log.created_on %>
-        <%= log.content %>
-        <%= link_to "this log show", log_path(log) %>
-      </li>
+        <%# <%= log.created_on %>
+        <%# <%= log.content %>
+        <%# <%= link_to "this log show", log_path(log) %>
     </div>
   <% end %>
-  </ul>
+  </div>
 </div>
+
+
+
+
+<section class="post-list">
+
+  <a href="" class="post">
+    <figure class="post-image">
+      <img src="https://picsum.photos/300?image=600" alt="">
+    </figure>
+  </a>
+
+</section>

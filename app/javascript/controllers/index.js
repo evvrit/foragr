@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import ToggleFavoriteController from "./toggle_favorite_controller"
+application.register("toggle-favorite", ToggleFavoriteController)
