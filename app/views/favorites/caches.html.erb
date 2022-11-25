@@ -1,11 +1,16 @@
-<div class="container">
-  <% @caches.each do |cache| %>
-  <div class="container bg-white p-2 m-5 d-flex">
-    <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}", size: "60x60") %>
-    <div class="container">
-      <%= link_to cache.title, cache_path(cache) %>
-      <p>@<%= cache.user.username %></p>
+<div class="container mt-2">
+  <% if @cache_favorites.empty? %>
+    <p>You have not added any caches to your collection. <%= link_to "Explore caches in my area", caches_path %></p>
+  <% else %>
+    <% @caches.each do |cache| %>
+    <div class="container bg-white p-2 m-5 d-flex">
+      <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}", size: "60x60") %>
+      <div class="container">
+        <%= link_to cache.title, cache_path(cache) %>
+        <p>@<%= cache.user.username %></p>
+        <%= render 'shared/favorite_icon' %>
+      </div>
     </div>
-  </div>
+    <% end %>
   <% end %>
 </div>

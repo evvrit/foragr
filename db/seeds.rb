@@ -13,7 +13,7 @@ puts "making 6 users..."
 User.create(email: "a@a.a", password: "secret", username: "anna")
 User.create(email: "b@b.b", password: "secret", username: "bob")
 
-4.times do User.create(
+4.times do User.create!(
   email: Faker::Internet.email,
   password: "secret",
   username: Faker::Twitter.screen_name
@@ -53,7 +53,7 @@ puts "making 40 caches..."
 # longitude: -73.36224401489754 (east limit)
 # -73.83053621933163 (west limit)
 
-40.times do Cache.create(
+40.times do Cache.create!(
   user: User.all.sample,
   longitude: [Faker::Number.within(range: -73.83053621933163..-73.56830061735444),
               Faker::Number.within(range: -73.56708451801268..-73.36224401489754)].sample,
@@ -86,7 +86,7 @@ puts "~40 caches created."
 # Seeding Species
 puts "making 100 species..."
 
-100.times do Species.create(
+100.times do Species.create!(
   name: Faker::Food.fruits,
   description: Faker::Lorem.paragraphs(number: 1),
   invasive?: [true, false].sample,
@@ -102,7 +102,7 @@ puts "100 species created."
 # Seeding Logs
 puts "making 10 logs..."
 
-30.times do Log.create(
+30.times do Log.create!(
   content: Faker::Lorem.paragraphs(number: 1),
   created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   user_id: User.all.sample.id,
