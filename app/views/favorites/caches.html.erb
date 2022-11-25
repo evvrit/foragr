@@ -1,0 +1,9 @@
+<div class="container">
+  <% @caches.each do |cache| %>
+  <div class="container">
+    <%= cache.title %>
+    <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}", size: "60x60") %>
+    <p>@<%= cache.user.username %></p>
+  </div>
+  <% end %>
+</div>

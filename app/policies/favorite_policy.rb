@@ -5,4 +5,8 @@ class FavoritePolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def caches?
+    true
+  end
 end
