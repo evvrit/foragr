@@ -1,36 +1,12 @@
 <div class="container">
-  <%# <%= @plant %>
-  <%# <%= @fungus %>
-  <ul style="list-style: none">
+  <%# form_for url() do |f| %>
+    <%#= f.input :query %>
+    <%#= f.submit "find a species" %>
+  <% #end %>
+
   <div>
-    <li><%= @plant[:name] %></li>
-    <li><% @plant[:photos].each do |photo| %>
-          <%= image_tag photo, width: 200 %>
-        <% end %></li>
-    <li>
-      <h4><%= @plant[:overview].first %></h4>
-      <p><%= @plant[:overview].last%></p>
-    </li>
-    <li>
-      <h4><%= @plant[:edible].first %></h4>
-      <p><%= @plant[:edible].last %></p>
-    </li>
-    <li>
-      <h4><%= @plant[:leaves].first %></h4>
-      <p><%= @plant[:leaves].last %></p>
-    </li>
-    <li>
-      <h4><%= @plant[:flowers].first %></h4>
-      <p><%= @plant[:flowers].last %></p>
-    </li>
-    <li>
-      <h4><%= @plant[:fruit].first %></h4>
-      <p><%= @plant[:fruit].last %></p>
-    </li>
-    <li>
-      <h4><%= @plant[:habitat].first %></h4>
-      <p><%= @plant[:habitat].last %></p>
-    </li>
+    <%= render "show_plant" if !@plant.nil?%>
+    <%= render "show_fungus" if !@fungus.nil?%>
+    <%= render "show_tree_shrub" if !@tree_shrub.nil? %>
   </div>
-  </ul>
 </div>
