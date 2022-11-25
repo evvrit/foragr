@@ -53,7 +53,7 @@ puts "making 40 caches..."
 # longitude: -73.36224401489754 (east limit)
 # -73.83053621933163 (west limit)
 
-40.times do Cache.create(
+40.times do Cache.create!(
   user: User.all.sample,
   longitude: [Faker::Number.within(range: -73.83053621933163..-73.56830061735444),
               Faker::Number.within(range: -73.56708451801268..-73.36224401489754)].sample,
@@ -61,9 +61,11 @@ puts "making 40 caches..."
   description: Faker::Lorem.paragraphs(number: 1),
   found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   seed_photo: PHOTOS.sample,
-  # title: GENERIC_TITLES.sample
+  title: GENERIC_TITLES.sample
   )
 end
+
+p "deleting irrelevant caches"
 
 # Avoiding the river
 
@@ -106,9 +108,9 @@ puts "making 30 logs..."
   content: Faker::Lorem.paragraphs(number: 1),
   created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   user_id: User.all.sample.id,
-  cache_id: Cache.all.sample.id,
-  seed_photo: PHOTOS.sample
-  # title: GENERIC_TITLES.sample
+  cache_id: Cache.all.sample,
+  seed_photo: PHOTOS.sample,
+  title: GENERIC_TITLES.sample
 )
 end
 
