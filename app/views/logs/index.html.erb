@@ -1,11 +1,13 @@
-<div>
+<div class="container">
   <h1>Logs#index</h1>
   <div class="post-list" style="list-style: "><% @logs.each do |log| %>
     <div>
       <%# div for photos attached to the log, if none, then show the cache photo %>
         <div>
           <% if log.photos.attached? %>
-            <%= cl_image_tag log.photos.first.key, width: 200 %>
+            <% log.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, width: 200 %>
+            <% end %>
           <% else %>
             <%= image_tag log.seed_photo, width: 200 %>
           <% end %>
