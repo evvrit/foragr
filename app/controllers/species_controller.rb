@@ -7,9 +7,8 @@ class SpeciesController < ApplicationController
   def show
     authorize @species
     @plant = scraper_plants
-    @fungus = scraper_fungi
-    @tree_shrub = scraper_trees_shrubs
-    # @photo = scraper_photo
+    # @fungus = scraper_fungi
+    # @tree_shrub = scraper_trees_shrubs
   end
 
   private
@@ -132,11 +131,8 @@ class SpeciesController < ApplicationController
   end
 
   # Scraping for the main query
-  def scraper_plants
-    @base_url = "https://www.ediblewildfood.com"
-    url = "https://www.ediblewildfood.com/search-results.aspx?s1=stinging+nettle"
-    html_file = URI.open(url).read
-    html_doc = Nokogiri::HTML(html_file)
+
+  def plant_and_tree_content_scraper(html_doc)
     link = html_doc.search("#ctl00_mainBodyContent_divPlants a").attribute("href").value
     name = scraper_name(link)
     photos = scraper_photos(link)
@@ -156,11 +152,7 @@ class SpeciesController < ApplicationController
              habitat: habitat }
   end
 
-  def scraper_fungi
-    @base_url = "https://www.ediblewildfood.com"
-    url = "https://www.ediblewildfood.com/search-results.aspx?s1=oyster"
-    html_file = URI.open(url).read
-    html_doc = Nokogiri::HTML(html_file)
+  def fungus_content_scraper(html_doc)
     link = html_doc.search("#ctl00_mainBodyContent_divFungi a").attribute("href").value
     name = scraper_name(link)
     photos = scraper_photos(link)
@@ -180,27 +172,28 @@ class SpeciesController < ApplicationController
              habitat:habitat }
   end
 
-  def scraper_trees_shrubs
+  def scraper_plants
     @base_url = "https://www.ediblewildfood.com"
-    url = "https://www.ediblewildfood.com/search-results.aspx?s1=sumac"
+    url = "https://www.ediblewildfood.com/search-results.aspx?s1=stinging+nettle"
+    html_file = URI.open(url).read
+    html_doc = Nokogiri::HTML(html_file)
+    plant_and_tree_content_scraper(html_doc) unless html_doc.search("#ctl00_mainBodyContent_divPlants a").first.nil?
+  end
+
+  def scraper_fungi(query)
+    @base_url = "https://www.ediblewildfood.com"
+    url = "https://www.ediblewildfood.com/search-results.aspx?s1=#{query}"
+    html_file = URI.open(url).read
+    html_doc = Nokogiri::HTML(html_file)
+    fungus_content_scraper(html_doc) unless html_doc.search("#ctl00_mainBodyContent_divFungus a").first.nil?
+  end
+
+  def scraper_trees_shrubs(query)
+    @base_url = "https://www.ediblewildfood.com"
+    url = "https://www.ediblewildfood.com/search-results.aspx?#{query}"
     html_file = URI.open(url).read
     html_doc = Nokogiri::HTML(html_file)
     link = html_doc.search("#ctl00_mainBodyContent_divTreesShrubs a").attribute("href").value
-    name = scraper_name(link)
-    photos = scraper_photos(link)
-    overview = scraper_overview(link)
-    edible = scraper_edible(link)
-    leaves = scraper_leaves(link)
-    flowers = scraper_flowers(link)
-    fruit = scraper_fruit(link)
-    habitat = scraper_habitat(link)
-    return { name: name,
-      photos: photos,
-      overview: overview,
-      edible: edible,
-      leaves: leaves,
-      flowers: flowers,
-      fruit: fruit,
-      habitat: habitat }
+    plant_and_tree_content_scraper(html_doc) unless html_doc.search("#ctl00_mainBodyContent_divPlants a").first.nil?
   end
 end
