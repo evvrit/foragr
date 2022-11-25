@@ -32,7 +32,8 @@ class SpeciesController < ApplicationController
 
     html_file = URI.open(url).read
     file = Nokogiri::HTML(html_file)
-    file.search(".cycle-slideshow .cycle-slide")
+    photo = file.css("img.cycle-slide")
+    raise
   end
 
   def scraper_overview(link)
