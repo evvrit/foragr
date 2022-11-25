@@ -2,20 +2,35 @@
   <%# <%= @plant %>
   <%# <%= @fungus %>
   <ul style="list-style: none">
-    <% @plant.each do |content| %>
-      <div>
-        <li>
-          <% if content.kind_of?(Array)%>
-            <h4><%= content.first %></h4>
-            <p><%= content.last %></p>
-          <% elsif content.match(/.+\.(jpg)/)%>
-            <%= image_tag content, width: 200 %>
-          <% else %>
-            <h1><%= content %></h1>
-          <% end %>
-        </li>
-        <br>
-      </div>
-    <% end %>
+  <div>
+    <li><%= @plant[:name] %></li>
+    <li><% @plant[:photos].each do |photo| %>
+          <%= image_tag photo, width: 200 %>
+        <% end %></li>
+    <li>
+      <h4><%= @plant[:overview].first %></h4>
+      <p><%= @plant[:overview].last%></p>
+    </li>
+    <li>
+      <h4><%= @plant[:edible].first %></h4>
+      <p><%= @plant[:edible].last %></p>
+    </li>
+    <li>
+      <h4><%= @plant[:leaves].first %></h4>
+      <p><%= @plant[:leaves].last %></p>
+    </li>
+    <li>
+      <h4><%= @plant[:flowers].first %></h4>
+      <p><%= @plant[:flowers].last %></p>
+    </li>
+    <li>
+      <h4><%= @plant[:fruit].first %></h4>
+      <p><%= @plant[:fruit].last %></p>
+    </li>
+    <li>
+      <h4><%= @plant[:habitat].first %></h4>
+      <p><%= @plant[:habitat].last %></p>
+    </li>
+  </div>
   </ul>
 </div>
