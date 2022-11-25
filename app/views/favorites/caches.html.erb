@@ -1,23 +1,26 @@
-<div class="container container-caches-collection">
-  <% @caches.each do |cache| %>
-  <div class="card-cache">
-    <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}") %>
-    <div class="card-cache-infos">
-      <h2><%= link_to cache.title, cache_path(cache) %></h2>
-      <p>@<%= cache.user.username %></p>
-    </div>
-  </div>
+<div class="icons-container-caches-species">
+<a href="#"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20caches.png" alt="icon caches" class="icon-caches"></a>
 
-  <br>
-
-  <% end %>
+<a href="#"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20species.png" alt="icon species" class="icon-species"></a>
 </div>
 
 
-<div class="card-cache">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-cache-infos">
-    <h2>Cache name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+<div class="container">
+  <div class="container-caches-collection">
+    <% @caches.each do |cache| %>
+    <div class="card-cache">
+      <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}") %>
+      <div class="card-cache-infos">
+        <h2><%= link_to cache.title, cache_path(cache) %></h2>
+        <p>@<%= cache.user.username %></p>
+      </div>
+    </div>
+    <% end %>
+
+    <br>
+
+    <a class="btn btn-add-a-cache" href="#">Add a cache</a>
+
+
   </div>
 </div>
