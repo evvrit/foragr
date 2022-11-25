@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       post 'toggle_favorite', to: "caches#toggle_favorite"
     end
     collection do
-      resources :favorites, only: :index
+      get 'favorites', to: "favorites#caches"
     end
   end
 

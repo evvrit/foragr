@@ -8,4 +8,8 @@ class CachePolicy < ApplicationPolicy
   def toggle_favorite
     true
   end
+
+  def caches?
+    true
+  end
 end
