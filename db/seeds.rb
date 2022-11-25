@@ -88,7 +88,7 @@ puts "~40 caches created."
 # Seeding Species
 puts "making 100 species..."
 
-100.times do Species.create(
+100.times do Species.create!(
   name: Faker::Food.fruits,
   description: Faker::Lorem.paragraphs(number: 1),
   invasive?: [true, false].sample,
