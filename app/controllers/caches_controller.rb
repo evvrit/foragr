@@ -20,6 +20,7 @@ class CachesController < ApplicationController
   end
 
   def new
+    @markers = {lat: @cache}
     @cache = Cache.new
     authorize @cache
   end
