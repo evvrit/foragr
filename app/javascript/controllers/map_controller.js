@@ -8,6 +8,8 @@ export default class extends Controller {
     markers: Array
   }
 
+  // static targets = ['link']
+
   connect() {
     this.link = document.getElementById("new-cache-link");
 
@@ -19,10 +21,10 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v10"
     })
 
+    this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
     this.#sendCoordsToForm();
-    this.map.doubleClickZoom.disable();
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
@@ -30,6 +32,7 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      // console.log(marker);
         const popup = new mapboxgl.Popup().setHTML(marker.cache_info)
         new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
@@ -46,13 +49,18 @@ export default class extends Controller {
 
   #sendCoordsToForm() {
     this.map.on('dblclick', (e) => {
-      // const coords = `?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`
-
+      console.log('clicked');
       this.link.href = `${this.link.href}?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`
-      // console.log(coords);
-      // console.log(this.link.href);
-      // console.log(this.link.href);
-      this.link.click()
+      // const link = this.link
+      new mapboxgl.Marker({draggable: true})
+      .setLngLat([ e.lngLat.lat, e.lngLat.lng ])
+      .addTo(this.map)
+
+      // setTimeout(function(link) {
+      //   console.log(link);
+      //   link.click()
+      // }, 500);
+      // this.link.click();
     })
   }
 
