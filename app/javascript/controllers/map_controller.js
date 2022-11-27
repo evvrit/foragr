@@ -49,10 +49,10 @@ export default class extends Controller {
 
   #sendCoordsToForm() {
     this.map.on('dblclick', (e) => {
-      console.log('clicked');
+      console.log(`${e.lngLat.lat}`);
       this.link.href = `${this.link.href}?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`
       // const link = this.link
-      new mapboxgl.Marker({draggable: true})
+      new mapboxgl.Marker()
       .setLngLat([ e.lngLat.lat, e.lngLat.lng ])
       .addTo(this.map)
 
@@ -60,7 +60,7 @@ export default class extends Controller {
       //   console.log(link);
       //   link.click()
       // }, 500);
-      // this.link.click();
+      this.link.click();
     })
   }
 
