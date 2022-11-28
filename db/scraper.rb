@@ -54,8 +54,13 @@ end
 def scraper_edible
   html_file = URI.open(@url).read
   file = Nokogiri::HTML(html_file)
-  title = file.search("#ctl00_mainBodyContent_edibleparts h3").text
-  text = file.search("#ctl00_mainBodyContent_edibleparts p").text
+  if file.search("#ctl00_mainBodyContent_edibleparts h3").text == ""
+    title = file.search("#ctl00_mainBodyContent_edibility h3").text
+    text = file.search("#ctl00_mainBodyContent_edibility p").text
+  else
+    title = file.search("#ctl00_mainBodyContent_edibleparts h3").text
+    text = file.search("#ctl00_mainBodyContent_edibleparts p").text
+  end
   return title, text
 end
 
