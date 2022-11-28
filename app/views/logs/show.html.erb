@@ -1,17 +1,24 @@
 <div class="container">
   <h1>Logs#show</h1>
   <%# Here is a section for the photos uploaded and attached to the log, if there are any %>
-  <div>
+  <div class="photo-log-all">
     <% if @log.photos.attached? %>
       <% @log.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, width: 200 %>
+      <div class="photo-log">
+        <%= cl_image_tag photo.key %>
       <% end %>
     <% else %>
-      <%= image_tag @log.seed_photo, width: 200 %>
+      <%= image_tag @log.seed_photo %>
     <% end %>
+    </div>
   </div>
+  <%= render "map" %>
+</div>
+</div>
+
+  </div class="log-infos-show">
   <%# Basic info on the log %>
   <p><strong><%= @log.title %></strong></p>
   <p><%= @log.created_on.strftime("%b %d, %Y") %></p>
   <p><%= @log.content %></p>
-</div>
+  </div>
