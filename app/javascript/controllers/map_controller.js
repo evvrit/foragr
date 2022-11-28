@@ -38,7 +38,7 @@ export default class extends Controller {
         const popup = new mapboxgl.Popup().setHTML(marker.cache_info)
         new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
+        .setPopup(popup, {focusAfterOpen: true})
         .addTo(this.map)
       })
   }
@@ -67,10 +67,11 @@ export default class extends Controller {
 
   #dropDraggablePin() {
     const map = this.map
+    console.log(map);
 
     // const canvas = map.getCanvasContainer();
 
-    map.on('mouseup', (e) => {
+    map.once('mouseup', (e) => {
       // console.log(e.lngLat);
       new mapboxgl.Marker({color: '#f58b54'}).setLngLat(e.lngLat).addTo(map);
       this.#sendCoordsToForm(e)
