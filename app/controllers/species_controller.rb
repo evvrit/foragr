@@ -1,5 +1,6 @@
 class SpeciesController < ApplicationController
-  before_action :set_species, only: :show
+  before_action :set_species, only: %i[show]
+  after_action :verify_authorized, except: [:toggle_favorite]
 
   def show
     authorize @species
@@ -15,6 +16,10 @@ class SpeciesController < ApplicationController
     @species = species_scraper(query)
     authorize @species
   end
+
+  # def toggle_favorite
+  #   current_user.favorited?(@species) ? current_user.unfavorite(@species) : current_user.favorite(@species)
+  # end
 
   private
 
