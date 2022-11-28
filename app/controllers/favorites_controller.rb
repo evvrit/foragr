@@ -8,4 +8,13 @@ class FavoritesController < ApplicationController
     end
     authorize @cache_favorites
   end
+
+  def species
+    @species_favorites = current_user.favorites_by_type('Species')
+    @species = @species_favorites.map do |species_favorite|
+      @species = Species.find_by(id: species_favorite.favoritable_id)
+      authorize @species
+    end
+    authorize @species_favorites
+  end
 end

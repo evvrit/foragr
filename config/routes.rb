@@ -18,7 +18,17 @@ Rails.application.routes.draw do
 
   resources :caches, only: :show, as: :cache
 
+
+  resources :species, only: :index do
+    member do
+      post 'toggle_favorite', to: "species#toggle_favorite"
+    end
+    collection do
+      get 'favorites', to: "favorites#species"
+    end
+  end
   resources :species, only: %i[show]
+
   resources :logs
 
 end
