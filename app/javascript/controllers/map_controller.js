@@ -72,7 +72,7 @@ export default class extends Controller {
 
     map.on('mouseup', (e) => {
       // console.log(e.lngLat);
-      new mapboxgl.Marker().setLngLat(e.lngLat).addTo(map);
+      new mapboxgl.Marker({color: '#f58b54'}).setLngLat(e.lngLat).addTo(map);
       this.#sendCoordsToForm(e)
       // console.log(canvas);
       // const geojson = {
