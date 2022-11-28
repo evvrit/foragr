@@ -1,46 +1,33 @@
 
 <div class="icons-container-caches-species">
-<a href="#"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20caches.png" alt="icon caches" class="icon-caches"></a>
+  <a href="#"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20caches.png" alt="icon caches" class="icon-caches"></a>
 
-<a href="#"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20species.png" alt="icon species" class="icon-species"></a>
+  <a href="#"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20species.png" alt="icon species" class="icon-species"></a>
 </div>
 
-
-<div class="container">
-  <div class="container-caches-collection">
-    <% @caches.each do |cache| %>
-    <div class="card-cache">
-      <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}") %>
-      <div class="card-cache-infos">
-        <h2><%= link_to cache.title, cache_path(cache) %></h2>
-        <p>@<%= cache.user.username %></p>
-      </div>
-    </div>
-    <% end %>
-
-    <br>
-
-    <a class="btn btn-add-a-cache" href="#">Add a cache</a>
-
-
-  </div>
-
-<div class="container mt-2" data-controller="toggle-favorite">
+<div class="container mt-2">
   <h2>Caches</h2>
   <% if @cache_favorites.empty? %>
     <p>You have not added any caches to your collection. <%= link_to "Explore caches in my area", caches_path %></p>
   <% else %>
-    <% @caches.each do |cache| %>
-    <div class="container bg-white p-2 m-5 d-flex">
-      <div class="container" data-toggle-favorite-target="card">
-        <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}", size: "60x60") %>
-        <div class="container" data-toggle-favorite-target="card">
-          <%= link_to cache.title, cache_path(cache) %>
-            <p>@<%= cache.user.username %></p>
-          <%= render 'shared/favorite_icon' %>
-        </div>
+      <div class="container-caches-collection">
+        <% @caches.each do |cache| %>
+
+          <div data-controller="toggle-favorite">
+            <div class="card-cache" data-toggle-favorite-target="cacheCard">
+              <%= cache.seed_photo == nil ? "" : image_tag("#{cache.seed_photo}") %>
+              <div class="card-cache-infos">
+                <h2><%= link_to cache.title, cache_path(cache) %></h2>
+                <p>@<%= cache.user.username %></p>
+                <%= render 'shared/favorite_icon' %>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
       </div>
-    </div>
-    <% end %>
   <% end %>
 </div>
+  <br>
+    <%= link_to "Add a cache", new_cache_path, class: "btn btn-add-a-cache" %>
+  </div>
