@@ -25,22 +25,40 @@ export default class extends Controller {
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
 
-    this.#dropDraggablePin();
+    this.#dropPin();
     // this.#sendCoordsToForm();
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
+
+      // this.map.on('click', (e) => {
+      // console.log("click");
+      // console.log(e);
+    // })
+
+    // this.map.on('zoom', (e) => {
+    //   // this.map.doubleClickZoom.disable();
+    //   console.log("zoom");
+    //   // this.map.doubleClickZoom.enable();
+    // })
+
+    // this.map.on('doubleClickZoom', (e) => {
+    //   console.log(e.originalEvent);
+    // })
   }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       // console.log(marker);
         const popup = new mapboxgl.Popup().setHTML(marker.cache_info)
-        new mapboxgl.Marker()
+        this.marker = new mapboxgl.Marker({color: '#35635B'})
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup, {focusAfterOpen: true})
         .addTo(this.map)
-      })
+        // this.marker.on('preclick', (e) =>{
+        //   this.marker.setPopup(popup, {focusAfterOpen: true})
+        // })
+    })
   }
 
   #fitMapToMarkers() {
@@ -65,15 +83,15 @@ export default class extends Controller {
     this.link.click();
   }
 
-  #dropDraggablePin() {
+  #dropPin() {
     const map = this.map
-    console.log(map);
+    // console.log(map);
 
     // const canvas = map.getCanvasContainer();
 
-    map.once('mouseup', (e) => {
-      // console.log(e.lngLat);
-      new mapboxgl.Marker({color: '#f58b54'}).setLngLat(e.lngLat).addTo(map);
+    map.on('dblclick', (e) => {
+      console.log(e.lngLat);
+      new mapboxgl.Marker({color: '#957009'}).setLngLat(e.lngLat).addTo(map);
       this.#sendCoordsToForm(e)
       // console.log(canvas);
       // const geojson = {
