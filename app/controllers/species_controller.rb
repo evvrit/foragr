@@ -3,7 +3,12 @@ class SpeciesController < ApplicationController
 
   def show
     authorize @species
-  end
+    if params[:query] == "" || Species.search_by_name(params[:query]) == []
+      # raise
+      @species = Species.all
+    else
+      @species = Species.search_by_name(params[:query])
+    end
 
   def create(query)
     @species = species_scraper(query)
@@ -15,8 +20,4 @@ class SpeciesController < ApplicationController
   def set_species
     @species = Species.find(params[:id])
   end
-
-  # def clean_up
-  #   .delete '[]\""'
-  # end
 end

@@ -1,3 +1,20 @@
 <div class="container">
+  <div>
+    <%= form_with url: species_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a species"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div>
+    <% if params[:query] == "" || Species.search_by_name(params[:query]) == [] %>
+    <%= render "all_species" %>
+    <% else %>
+      <%= render "show_species" %>
+    <% end %>
+  </div>
     <%= render "show_species" %>
 </div>
