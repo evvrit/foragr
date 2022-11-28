@@ -9,7 +9,8 @@
 <br>
 
 <div>
-<a class="btn btn-add-a-log" href="#">Add a log</a>
+<%# <a class="btn btn-add-a-log" href="#">Add a log</a> %>
+<%= link_to "Add a log", new_log_path, class: "btn btn-add-a-log" %>
 </div> <br>
 
 
@@ -20,18 +21,19 @@
     <div>
       <%# div for photos attached to the log, if none, then show the cache photo %>
         <div class="log-picture">
+        <%= link_to log_path(log) do %>
           <% if log.photos.attached? %>
             <% log.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, width: 200 %>
+              <%= cl_image_tag photo.key, width: 100, height: 100 %>
             <% end %>
           <% else %>
             <%= image_tag log.seed_photo, width: 100, height: 100 %>
           <% end %>
+        <% end%>
         </div>
         <%# Basic info on log %>
         <%# <%= log.created_on %>
         <%# <%= log.content %>
-        <%# <%= link_to "this log show", log_path(log) %>
     </div>
   <% end %>
   </div>
