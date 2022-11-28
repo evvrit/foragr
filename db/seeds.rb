@@ -1,4 +1,5 @@
 require "faker"
+require_relative "scraper"
 
 puts "cleaning the DB..."
 Log.destroy_all
@@ -117,7 +118,7 @@ puts "300 logs created."
 
 # Seeding 95 species
 
-SPECIES_NAMES = [
+species_names= [
   "Apricot Jelly", "Artist's Conk", "Bear's Head Tooth", "Birch Polypore",
   "Black Trumpet", "Brown Birch Bolete", "Chaga", "Chanterelles", "Chicken Fat Mushroom",
   "Chicken of the Woods", "Comb Tooth Fungus", "Common Morel", "Dark Stalked Bolete",
@@ -140,8 +141,8 @@ SPECIES_NAMES = [
 
 puts "making 95 species"
 
-SPECIES_NAMES.each do |item|
-  # @species = species_scraper(item)
+species_names.each do |item|
+  @species = species_scraper(item)
   Species.create!(
     name: @species[:name],
     overview: @species[:overview],

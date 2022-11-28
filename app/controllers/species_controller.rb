@@ -6,7 +6,7 @@ class SpeciesController < ApplicationController
 
   def show
     authorize @species
-    @species = species_scraper("oyster mushroom")
+    @species = species_scraper("Delicious Lactarius")
   end
 
   def create(query)
