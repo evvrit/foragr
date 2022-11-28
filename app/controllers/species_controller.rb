@@ -9,7 +9,6 @@ class SpeciesController < ApplicationController
     else
       @species = Species.search_by_name(params[:query])
     end
-  end
 
   def create(query)
     @species = species_scraper(query)
