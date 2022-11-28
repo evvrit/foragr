@@ -29,6 +29,8 @@ class CachesController < ApplicationController
     @markers = {lat: @cache}
     @cache = Cache.new
     authorize @cache
+    @species = Species.all
+    authorize @species
   end
 
   def create
