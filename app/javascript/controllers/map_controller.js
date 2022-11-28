@@ -24,7 +24,9 @@ export default class extends Controller {
     this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
-    this.#sendCoordsToForm();
+
+    this.#dropDraggablePin();
+    // this.#sendCoordsToForm();
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
@@ -47,21 +49,120 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
-  #sendCoordsToForm() {
-    this.map.on('dblclick', (e) => {
-      console.log(`${e.lngLat.lat}`);
-      this.link.href = `${this.link.href}?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`
-      // const link = this.link
-      new mapboxgl.Marker()
-      .setLngLat([ e.lngLat.lat, e.lngLat.lng ])
-      .addTo(this.map)
+  #sendCoordsToForm(e) {
+    // console.log(coords);
+    // console.log(`${e.lngLat.lat}`);
+    this.link.href = `${this.link.href}?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`
+    // const link = this.link
+    new mapboxgl.Marker()
+    .setLngLat([ e.lngLat.lat, e.lngLat.lng ])
+    .addTo(this.map)
 
-      // setTimeout(function(link) {
-      //   console.log(link);
-      //   link.click()
-      // }, 500);
-      this.link.click();
-    })
+    // setTimeout(function(link) {
+    //   console.log(link);
+    //   link.click()
+    // }, 500);
+    this.link.click();
   }
 
+  #dropDraggablePin() {
+    const map = this.map
+
+    // const canvas = map.getCanvasContainer();
+
+    map.on('mouseup', (e) => {
+      // console.log(e.lngLat);
+      new mapboxgl.Marker().setLngLat(e.lngLat).addTo(map);
+      this.#sendCoordsToForm(e)
+      // console.log(canvas);
+      // const geojson = {
+      //   'type': 'FeatureCollection',
+      //   'features': [
+      //       {
+      //         'type': 'Feature',
+      //         'geometry': {
+      //           'type': 'Point',
+      //           'coordinates': [e.lngLat.lat, e.lngLat.lng]
+      //         }
+      //       }
+      //     ]
+      //   };
+
+      // console.log(geojson);
+
+      // function onMove(e) {
+      //   const coords = e.lngLat;
+
+      //   // Set a UI indicator for dragging.
+      //   canvas.style.cursor = 'grabbing';
+
+      //   // Update the Point feature in `geojson` coordinates
+      //   // and call setData to the source layer `point` on it.
+      //   geojson.features[0].geometry.coordinates = [coords.lat, coords.lng];
+      //   map.getSource('point').setData(geojson);
+      // }
+
+      // function onUp(e) {
+      //   const coords = e.lngLat;
+
+      //   // Print the coordinates of where the point had
+      //   // finished being dragged to on the map.
+      //   canvas.style.cursor = '';
+
+      //   // Unbind mouse/touch events
+      //   map.off('mousemove', onMove);
+      //   map.off('touchmove', onMove);
+      // }
+
+      //   // Add a single point to the map.
+      // map.addSource('point', {
+      // 'type': 'geojson',
+      // 'data': geojson
+      // });
+
+      // map.addLayer({
+      //   'id': 'point',
+      //   'type': 'circle',
+      //   'source': 'point',
+      //   'paint': {
+      //     'circle-radius': 10,
+      //     'circle-color': '#F84C4C' // red color
+      //   }
+      // });
+
+      // map.setPaintProperty('point', 'circle-color', '#3bb2d0');
+
+      // // // When the cursor enters a feature in
+      // // // the point layer, prepare for dragging.
+      // map.on('mouseenter', 'point', () => {
+      //     map.setPaintProperty('point', 'circle-color', '#3bb2d0');
+      //     canvas.style.cursor = 'move';
+      // });
+
+      // map.on('mouseleave', 'point', () => {
+      //     map.setPaintProperty('point', 'circle-color', '#3887be');
+      //     canvas.style.cursor = '';
+      //   });
+
+      // map.on('mousedown', 'point', (e) => {
+      //     // Prevent the default map drag behavior.
+      //     e.preventDefault();
+
+      //     canvas.style.cursor = 'grab';
+
+      //     map.on('mousemove', onMove);
+      //     map.once('mouseup', onUp);
+      //   });
+
+      // map.on('touchstart', 'point', (e) => {
+      //     if (e.points.length !== 1) return;
+
+      //     // Prevent the default map drag behavior.
+      //     e.preventDefault();
+
+      //     map.on('touchmove', onMove);
+      //     map.once('touchend', onUp);
+      //   });
+    });
+  };
 }
