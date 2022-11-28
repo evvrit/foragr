@@ -9,4 +9,12 @@ class SpeciesPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def toggle_favorite
+    true
+  end
+
+  def species?
+    true
+  end
 end

@@ -11,7 +11,7 @@
     <% end %>
   </div>
   <p><strong><%= @cache.title %><strong></p>
-  <p> <%= @cache.user.username %> </p>
+  <p> @ <%= @cache.user.username %> </p>
   <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
 
   <%= render 'shared/favorite_icon' %>
