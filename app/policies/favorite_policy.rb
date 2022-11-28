@@ -9,4 +9,8 @@ class FavoritePolicy < ApplicationPolicy
   def caches?
     true
   end
+
+  def species?
+    true
+  end
 end
