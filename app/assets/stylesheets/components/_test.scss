@@ -1,0 +1,639 @@
+.hw {
+  padding-bottom: 100px;
+}
+
+body {
+  background-color: $beige;
+}
+
+// NAVBAR
+
+.navbar-t {
+  background-color: $green-dark;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 100;
+}
+
+.navbar-t a {
+  padding: 15px 15px;
+}
+
+.logo-profile {
+  width: 20px;
+}
+
+.logo-map {
+  width: 20px;
+}
+
+.logo-add-a-log {
+  width: 20px;
+}
+
+.logo-collection {
+  width: 20px;
+}
+
+// BUTTONS
+
+.btn-create-your-own-cache {
+  border-radius: 50px;
+  color: $beige;
+  background-color: $gold;
+  font-size: 12px;
+  width: 200px;
+  height: 34px;
+}
+
+.btn-add-cache-to-my-collection {
+  border-radius: 50px;
+  color: $beige;
+  background-color: $gold;
+  font-size: 7px;
+  width: 104px;
+  height: 36px;
+  text-align: center;
+}
+
+.btn-add-species-to-my-collection-cache {
+  border-radius: 50px;
+  color: $beige;
+  background-color: $green-light;
+  font-size: 7px;
+  width: 104px;
+  height: 36px;
+  text-align: center;
+}
+
+.btn-add-a-comment {
+  border-radius: 50px;
+  color: $beige;
+  background-color: $green-dark;
+  font-size: 12px;
+  width: 200px;
+  height: 34px;
+}
+
+.btn-add-a-cache {
+  border-radius: 50px;
+  color: $beige;
+  background-color: $gold;
+  font-size: 12px;
+  width: 300px;
+  height: 34px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-add-species-to-your-collection-show {
+  border-radius: 50px;
+  color: $beige;
+  background-color: $green-light;
+  font-size: 12px;
+  width: 200px;
+  height: 34px;
+  text-align: center;
+}
+
+.btn-add-a-log {
+  border-radius: 50px;
+  color: $beige;
+  background-color: $green-dark;
+  font-size: 12px;
+  width: 300px;
+  height: 34px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// ICONS
+
+.icons-container-caches-species {
+  display: flex;
+  margin-bottom: 30px;
+  justify-content: space-evenly;
+  height: 50px;
+  align-items: flex-end;
+}
+
+.icon-caches {
+  width: 20px;
+}
+
+.icon-species {
+  width: 20px;
+}
+
+.icon-edit {
+  width: 32px;
+}
+
+.icon-delete {
+  width: 30px;
+}
+
+// MODAL
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  height: 500px;
+  bottom: 0;
+  border: none;
+  background-color: $beige;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: $beige;
+  color: $green-dark;
+  border-bottom: none;
+  border-radius:  50px 50px 0px 0px;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: $beige;
+  color: $green-dark;
+  border: none;
+  border-radius: 0px 0px 0px 0px;
+}
+
+
+// CARD LOG PROFILE
+
+.card-log-profile {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-log-profile img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid $green-dark;
+}
+
+.card-log-profile h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-dark;
+}
+
+.card-log-profile p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-dark;
+}
+
+.card-log-profile .card-log-profile-infos {
+  padding: 16px;
+}
+
+
+// CARD COLLECTION (CACHE)
+
+.card-cache {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.card-cache img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-cache h2 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+  color: $brown-cache-card-text;
+}
+
+.card-cache p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $brown-cache-card-text;
+}
+
+.card-cache .card-cache-infos {
+  padding: 16px;
+  width: 232px;
+}
+
+.card-cache-infos a {
+  color: $brown-cache-card-text;
+  text-decoration: none;
+}
+
+// CARD CACHE ADDED TO COLLECTION
+
+.card-cache-added-to-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-cache-added-to-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-cache-added-to-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $brown-cache-card-text;
+}
+
+.card-cache-added-to-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $brown-cache-card-text;
+}
+
+.card-cache-added-to-collection .card-cache-added-to-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-added-cache {
+  display: contents;
+}
+
+
+// CARD CACHE DELETED FROM COLLECTION
+
+.card-cache-deleted-from-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-cache-deleted-from-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-cache-deleted-from-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $brown-cache-card-text;
+}
+
+.card-cache-deleted-from-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $brown-cache-card-text;
+}
+
+.card-cache-deleted-from-collection .card-cache-deleted-from-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-deleted-cache {
+  display: contents;
+}
+
+
+
+
+// CARD COLLECTION (SPECIES)
+
+.card-species {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-species img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-species h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-light;
+}
+
+.card-species p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-light;
+}
+
+.card-species .card-species-infos {
+  padding: 16px;
+}
+
+// CARD SPECIE ADDED TO COLLECTION
+
+.card-species-added-to-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-species-added-to-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-species-added-to-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-light;
+}
+
+.card-species-added-to-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-light;
+}
+
+.card-species-added-to-collection .card-species-added-to-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-added-species {
+  display: contents;
+}
+
+
+// CARD SPECIES DELETED FROM COLLECTION
+
+.card-species-deleted-from-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-species-deleted-from-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-species-deleted-from-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-light;
+}
+
+.card-species-deleted-from-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-light;
+}
+
+.card-species-deleted-from-collection .card-species-deleted-from-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-deleted-species {
+  display: contents;
+}
+
+
+// CARD LOG ADDED TO PROFILE
+
+.card-log-added-to-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-log-added-to-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-log-added-to-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-dark;
+}
+
+.card-log-added-to-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-dark;
+}
+
+.card-log-added-to-collection .card-log-added-to-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-added-log {
+  display: contents;
+}
+
+
+// CARD LOG DELETED FROM PROFILE
+
+.card-log-deleted-from-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-log-deleted-from-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-log-deleted-from-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-dark;
+}
+
+.card-log-deleted-from-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-dark;
+}
+
+.card-log-deleted-from-collection .card-log-deleted-from-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-deleted-log {
+  display: contents;
+}
+
+
+// CONTAINERS
+
+.container-caches-collection {
+padding-bottom: 70px;
+padding-left: 20px;
+padding-right: 20px;
+}

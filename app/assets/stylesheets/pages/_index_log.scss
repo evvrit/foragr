@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.all-log-pictures {
+  padding-bottom: 80px;
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 100px));
+  justify-content:center;
+  grid-gap: 0;
+}
+
+.log-picture {
+  border: 1px solid $beige;
+}

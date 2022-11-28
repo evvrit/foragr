@@ -1,26 +1,40 @@
+<div class="card-log-profile">
+  <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
+  <div class="card-log-profile-infos">
+    <h2>@frauzino_the_4ager</h2>
+    <p><strong>Montréal, Qc</strong></p>
+  </div>
+</div>
+
+<br>
+
 <div>
-  <h1>Logs#index</h1>
-  <ul style="list-style: none"><% @logs.each do |log| %>
+<%# <a class="btn btn-add-a-log" href="#">Add a log</a> %>
+<%= link_to "Add a log", new_log_path, class: "btn btn-add-a-log" %>
+</div> <br>
+
+
+
+<div class="all-log-pictures">
+<div class="container">
+  <div class="post-list" style="list-style: "><% @logs.each do |log| %>
     <div>
-      <li>
       <%# div for photos attached to the log, if none, then show the cache photo %>
-        <div>
+        <div class="log-picture">
+        <%= link_to log_path(log) do %>
           <% if log.photos.attached? %>
             <% log.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, width: 200 %>
+              <%= cl_image_tag photo.key, width: 100, height: 100 %>
             <% end %>
-          <% elsif log.cache == nil %>
-            No Photo
           <% else %>
-            <%= image_tag log.cache.seed_photo, width: 200 %>
+            <%= image_tag log.seed_photo, width: 100, height: 100 %>
           <% end %>
+        <% end%>
         </div>
         <%# Basic info on log %>
-        <%= log.created_on %>
-        <%= log.content %>
-        <%= link_to "this log show", log_path(log) %>
-      </li>
+        <%# <%= log.created_on %>
+        <%# <%= log.content %>
     </div>
   <% end %>
-  </ul>
+  </div>
 </div>

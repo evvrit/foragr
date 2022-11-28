@@ -4,4 +4,12 @@ class CachePolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def toggle_favorite
+    true
+  end
+
+  def caches?
+    true
+  end
 end
