@@ -1,12 +1,3 @@
 <div class="container">
-  <%# form_for url() do |f| %>
-    <%#= f.input :query %>
-    <%#= f.submit "find a species" %>
-  <% #end %>
-
-  <div>
-    <%= render "show_plant" if !@plant.nil?%>
-    <%= render "show_fungus" if !@fungus.nil?%>
-    <%= render "show_tree_shrub" if !@tree_shrub.nil? %>
-  </div>
+    <%= render "show_species" %>
 </div>

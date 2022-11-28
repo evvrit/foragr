@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_171949) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_171216) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -88,14 +88,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_171949) do
 
   create_table "species", force: :cascade do |t|
     t.string "name"
-    t.string "description"
-    t.boolean "invasive?"
-    t.boolean "edible?"
-    t.string "usage"
-    t.string "photo_url"
-    t.string "season"
+    t.string "overview", default: [], array: true
+    t.string "features", default: [], array: true
+    t.string "edible", default: [], array: true
+    t.string "sporeprint", default: [], array: true
+    t.string "photos", default: [], array: true
+    t.string "habitat", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gills", default: [], array: true
+    t.string "leaves", default: [], array: true
+    t.string "flowers", default: [], array: true
+    t.string "fruit", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
