@@ -9,9 +9,32 @@ class SpeciesController < ApplicationController
     @species = species_scraper("oyster mushroom")
   end
 
-  def create
-    @species = Species.new
+  def create(query)
+    @species = species_scraper(query)
     authorize @species
+  end
+
+  # Class method with .self? cause right now I can't use this method in seed file
+
+  def species_scraper(query)
+    @base_url = "https://www.ediblewildfood.com"
+    query.count(" ").times do
+      query[" "] = "-"
+    end
+    @url = "#{@base_url}/#{query}.aspx"
+    return {
+      name: scraper_name,
+      photos: scraper_photos,
+      overview: scraper_overview,
+      edible: scraper_edible,
+      leaves: scraper_leaves,
+      flowers: scraper_flowers,
+      fruit: scraper_fruit,
+      features: scraper_features,
+      sporeprint: scraper_sporeprint,
+      gills: scraper_gills,
+      habitat: scraper_habitat
+    }
   end
 
   private
@@ -108,28 +131,5 @@ class SpeciesController < ApplicationController
     title = file.search("#ctl00_mainBodyContent_gills h3").text
     text = file.search("#ctl00_mainBodyContent_gills p").text
     return title, text
-  end
-
-  # Scraping for the main query
-
-  def species_scraper(query)
-    @base_url = "https://www.ediblewildfood.com"
-    query.count(" ").times do
-      query[" "] = "-"
-    end
-    @url = "#{@base_url}/#{query}.aspx"
-    return {
-      name: scraper_name,
-      photos: scraper_photos,
-      overview: scraper_overview,
-      edible: scraper_edible,
-      leaves: scraper_leaves,
-      flowers: scraper_flowers,
-      fruit: scraper_fruit,
-      features: scraper_features,
-      sporeprint: scraper_sporeprint,
-      gills: scraper_gills,
-      habitat: scraper_habitat
-    }
   end
 end
