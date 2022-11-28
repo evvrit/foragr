@@ -141,6 +141,13 @@ body {
   width: 30px;
 }
 
+.fa-solid-cache-collection {
+  position:absolute ;
+  left: 366px;
+  font-size: 10px;
+}
+
+
 // MODAL
 
 /* The Modal (background) */
@@ -251,6 +258,19 @@ body {
 
 .card-log-profile .card-log-profile-infos {
   padding: 16px;
+}
+
+// .log-picture {
+//   max-width: 100%;
+//   max-height: 100%;
+// }
+
+// PROFILE - LOG INDEX
+
+.log-picture img {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
 }
 
 
@@ -637,3 +657,27 @@ padding-bottom: 70px;
 padding-left: 20px;
 padding-right: 20px;
 }
+
+
+// SHOW PAGE - log
+
+.photo-log-all img {
+  border: 5px solid $green-dark;
+  border-radius: 15px;
+  width: 350px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.photo-log-all {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.log-infos-show {
+
+}
+
+
+//

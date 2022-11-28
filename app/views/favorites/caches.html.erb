@@ -1,4 +1,3 @@
-
 <div class="icons-container-caches-species">
   <a href="#"><img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20caches.png" alt="icon caches" class="icon-caches"></a>
 
@@ -6,7 +5,7 @@
 </div>
 
 <div class="container mt-2">
-  <h2>Caches</h2>
+  <%# <h2>Caches</h2> %>
   <% if @cache_favorites.empty? %>
     <p>You have not added any caches to your collection. <%= link_to "Explore caches in my area", caches_path %></p>
   <% else %>
@@ -19,7 +18,9 @@
               <div class="card-cache-infos">
                 <h2><%= link_to cache.title, cache_path(cache) %></h2>
                 <p>@<%= cache.user.username %></p>
+                <div class="fa-solid-cache-collection">
                 <%= render 'shared/favorite_icon' %>
+                </div>
               </div>
             </div>
           </div>
@@ -27,7 +28,7 @@
         <% end %>
       </div>
   <% end %>
-</div>
+<%# </div>
   <br>
     <%= link_to "Add a cache", new_cache_path, class: "btn btn-add-a-cache" %>
-  </div>
+  <%# </div> %>

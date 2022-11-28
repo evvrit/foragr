@@ -17,17 +17,18 @@
 
 <div class="all-log-pictures">
 <div class="container">
-  <div class="post-list" style="list-style: "><% @logs.each do |log| %>
+  <div class="post-list"
+  ><% @logs.each do |log| %>
     <div>
       <%# div for photos attached to the log, if none, then show the cache photo %>
         <div class="log-picture">
         <%= link_to log_path(log) do %>
           <% if log.photos.attached? %>
             <% log.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, width: 100, height: 100 %>
+              <%= cl_image_tag photo.key %>
             <% end %>
           <% else %>
-            <%= image_tag log.seed_photo, width: 100, height: 100 %>
+            <%= image_tag log.seed_photo %>
           <% end %>
         <% end%>
         </div>
