@@ -23,6 +23,7 @@ class CachesController < ApplicationController
       authorize @fav_cache
     end
     authorize @cache_favorites
+
     @markers = [{
       lat: @cache.latitude,
       lng: @cache.longitude,

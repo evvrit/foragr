@@ -1,4 +1,4 @@
-<% if @cache != nil %>
+<% if @cache %>
   <% if current_user.favorited?(@cache) %>
 
       <div>
@@ -20,7 +20,7 @@
     <% end %>
 <% end %>
 
-<% if @spec != nil %>
+<% if @spec %>
   <% if current_user.favorited?(@spec) %>
 
       <div>
@@ -35,6 +35,30 @@
 
       <div>
         <%= link_to toggle_favorite_species_path(@spec), remote: true,
+          data: { 'turbo-method': :post } do %>
+          <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-solid fa-heart-circle-plus fa-2xl"></i>
+        <% end %>
+      </div>
+
+    <% end %>
+<% end %>
+
+
+<% if @species %>
+  <% if current_user.favorited?(@species) %>
+
+      <div>
+        <%= link_to toggle_favorite_species_path(@species), remote: true,
+          data: { 'turbo-method': :post } do %>
+          <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-solid fa-heart-circle-minus fa-2xl"></i>
+        <% end %>
+      </div>
+
+
+    <% else %>
+
+      <div>
+        <%= link_to toggle_favorite_species_path(@species), remote: true,
           data: { 'turbo-method': :post } do %>
           <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-solid fa-heart-circle-plus fa-2xl"></i>
         <% end %>

@@ -11,7 +11,7 @@ class FavoritesController < ApplicationController
 
   def species
     @species_favorites = current_user.favorites_by_type('Species')
-    @species = @species_favorites.map do |species_favorite|
+    @specieses = @species_favorites.map do |species_favorite|
       @spec = Species.find_by(id: species_favorite.favoritable_id)
       authorize @spec
     end
