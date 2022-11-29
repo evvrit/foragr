@@ -15,6 +15,11 @@
   </div>
   <p><strong><%= @cache.title %><strong></p>
   <p> @ <%= @cache.user.username %> </p>
+
+  <% if @cache.species.present? %>
+    <p>Species: <%= link_to @cache.species[0].name, species_path(@cache.species[0]) %></p>
+  <% end %>
+
   <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
 
   <%= render 'shared/favorite_icon' %>
@@ -32,11 +37,11 @@
     <% else %>
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
     <% end %>
-  <div class="card-cache-added-to-collection-infos">
-    <h2><%= link_to "Added to your collection!", favorites_caches_path, class: "text-decoration-none" %></h2>
-  </div>
-  <div class="icon-added-cache">
-    <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
+    <div class="card-cache-added-to-collection-infos">
+      <h2><%= link_to "Added to your collection!", favorites_caches_path, class: "text-decoration-none" %></h2>
+    </div>
+    <div class="icon-added-cache">
+      <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
   </div>
 </div>
 </div>
