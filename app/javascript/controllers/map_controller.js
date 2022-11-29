@@ -16,10 +16,15 @@ export default class extends Controller {
     // console.log(link);
     mapboxgl.accessToken = this.apiKeyValue
 
+    mapboxgl.workerCount = 12;
+    console.log(mapboxgl.workerCount);
+    mapboxgl.prewarm();
+
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/streets-v10?optimize=true"
     })
+
 
     this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
