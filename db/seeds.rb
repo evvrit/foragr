@@ -3,6 +3,7 @@ require_relative "scraper"
 
 puts "cleaning the DB..."
 Log.destroy_all
+CacheSpecy.destroy_all
 Cache.destroy_all
 Species.destroy_all
 User.destroy_all
