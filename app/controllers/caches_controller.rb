@@ -23,6 +23,7 @@ class CachesController < ApplicationController
       authorize @fav_cache
     end
     authorize @cache_favorites
+
     @markers = [{
       lat: @cache.latitude,
       lng: @cache.longitude,
@@ -64,7 +65,7 @@ class CachesController < ApplicationController
   end
 
   def cache_params
-    params.require(:cache).permit(:longitude, :latitude, :description, :found_on, photos: [],
+    params.require(:cache).permit(:title, :longitude, :latitude, :description, :found_on, photos: [],
                                   cache_species_attributes: %i[id species_id _destroy])
   end
 end
