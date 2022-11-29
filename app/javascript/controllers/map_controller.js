@@ -27,6 +27,11 @@ export default class extends Controller {
       zoom: 10,
     })
 
+    this.map.on('load', () => {
+      const mapContainerEl = document.getElementById('map');
+      mapContainerEl.style.visibility = 'visible';
+    });
+
 
     this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
