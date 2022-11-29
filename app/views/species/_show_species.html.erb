@@ -9,7 +9,9 @@
           <% end %>
         </li>
       </div>
-      <div><%= render "shared/favorite_icon" %></div>
+      <div data-controller="toggle-favorite">
+        <div><%= render "shared/favorite_icon" %></div>
+      </div>
     </div>
     <li>
       <h4><%= @species.overview.first %></h4>
