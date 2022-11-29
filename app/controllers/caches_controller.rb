@@ -33,6 +33,8 @@ class CachesController < ApplicationController
   def new
     @cache = Cache.new
     authorize @cache
+    @species = Species.all
+    authorize @species
     # raise
     @markers = [{
       lat: params["lat"],

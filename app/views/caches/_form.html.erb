@@ -1,6 +1,7 @@
 <div class="container m-5">
   <%= simple_form_for @cache, html: { data: { map_target: 'form' }} do |f| %>
       <%= f.input :title, placeholder: "title" %>
+      <%= f.select_tag :species, options_from_collection_for_select(@species, 'name') %>
       <%= f.input :found_on, placeholder: "date found" %>
       <%= f.input :photos, as: :file, input_html: {multiple: true}, required: false %>
       <%= f.input :description, as: :text, size: "70x5", placeholder: "description" %>
