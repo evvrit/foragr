@@ -1,7 +1,10 @@
 class Cache < ApplicationRecord
   belongs_to :user
-  has_one :cache_species
+  has_many :cache_species
   has_many :species, through: :cache_species
+  accepts_nested_attributes_for :cache_species,
+                                reject_if: :all_blank,
+                                allow_destroy: true
   has_many :logs
   has_many_attached :photos
 
