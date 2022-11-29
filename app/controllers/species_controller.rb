@@ -21,7 +21,7 @@ class SpeciesController < ApplicationController
     # raise
     current_user.favorited?(@species) ? current_user.unfavorite(@species) : current_user.favorite(@species)
   end
-
+  
   private
 
   def set_species
