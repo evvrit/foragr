@@ -19,6 +19,7 @@
 
   <%= render 'shared/favorite_icon' %>
   <%#= link_to "collection", favorites_caches_path %>
+  <p><%= @cache.description %></p>
   <br>
 
   <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
