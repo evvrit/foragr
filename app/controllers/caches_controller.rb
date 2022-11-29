@@ -26,16 +26,15 @@ class CachesController < ApplicationController
     @markers = [{
       lat: @cache.latitude,
       lng: @cache.longitude,
-      cache_info: render_to_string(partial: "cache_info", locals: {cache: @cache})
+      cache_info: render_to_string(partial: "cache_info", locals: { cache: @cache })
     }]
   end
 
   def new
     @cache = Cache.new
     authorize @cache
-    @species = Species.all
-    authorize @species
-    # raise
+    @cache.cache_species.build unless @cache.cache_species.any?
+    @species = Species.all.map { |species| [species.name, species.id] }
     @markers = [{
       lat: params["lat"],
       lng: params["lng"]
@@ -46,6 +45,7 @@ class CachesController < ApplicationController
     @cache = Cache.new(cache_params)
     @cache.user = current_user
     if @cache.save
+      # raise
       redirect_to cache_path(@cache)
     else
       render :new, status: 422
@@ -64,6 +64,7 @@ class CachesController < ApplicationController
   end
 
   def cache_params
-    params.require(:cache).permit(:longitude, :latitude, :description, :found_on, photos: [])
+    params.require(:cache).permit(:longitude, :latitude, :description, :found_on, photos: [],
+                                  cache_species_attributes: %i[id species_id _destroy])
   end
 end
