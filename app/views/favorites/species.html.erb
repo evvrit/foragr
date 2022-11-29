@@ -23,7 +23,7 @@
                 <h2><%= link_to spec.name, species_path(spec) %></h2>
                 <p><%= spec.overview[1].first(50) %>...</p>
                 <div class="fa-solid-cache-collection">
-                <%#= render 'shared/favorite_icon' %>
+                <%= render 'shared/favorite_icon' %>
                 </div>
               </div>
             </div>
@@ -32,7 +32,3 @@
         <% end %>
       </div>
   <% end %>
-<%# </div>
-  <br>
-    <%= link_to "Add a cache", new_cache_path, class: "btn btn-add-a-cache" %>
-  <%# </div> %>

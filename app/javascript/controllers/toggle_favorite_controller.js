@@ -17,7 +17,7 @@ export default class extends Controller {
     }
 
     if (this.hasCacheCardTarget) {
-      console.log(this.cacheCardTarget);
+      // console.log(this.cacheCardTarget);
       // console.log("hello");
       this.removeCacheCard();
     }

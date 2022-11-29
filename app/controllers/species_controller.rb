@@ -1,5 +1,5 @@
 class SpeciesController < ApplicationController
-  before_action :set_species, only: %i[show]
+  before_action :set_species, only: %i[show toggle_favorite]
   after_action :verify_authorized, except: [:toggle_favorite]
 
   def show
@@ -17,9 +17,10 @@ class SpeciesController < ApplicationController
     authorize @species
   end
 
-  # def toggle_favorite
-  #   current_user.favorited?(@species) ? current_user.unfavorite(@species) : current_user.favorite(@species)
-  # end
+  def toggle_favorite
+    # raise
+    current_user.favorited?(@species) ? current_user.unfavorite(@species) : current_user.favorite(@species)
+  end
 
   private
 
