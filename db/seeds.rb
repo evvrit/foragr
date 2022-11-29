@@ -41,7 +41,12 @@ GENERIC_TITLES = [
   "what a wonderful adventure I had that day",
   "could not have asked for a better haul",
   "couldn't find what I was looking for; found somethiing even better!",
-  "dangerous!! not because they're poisonous but because they're delicious"
+  "these were delicious",
+  "looks like a brain lol",
+  "is this past its prime?",
+  "epic haul from an honest day's worth of foraging",
+  "this stuff was growing in my backyard!",
+  "we brought some to the neighbours :)"
 ]
 
 puts "making 40 caches..."
