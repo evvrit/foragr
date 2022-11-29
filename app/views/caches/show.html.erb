@@ -1,4 +1,7 @@
 <div class="container mt-5" data-controller="toggle-favorite">
+  <div class="d-none">
+    <%= render 'map' %>
+  </div>
   <div>
     <% if @cache.photos.attached? %>
       <% @cache.photos.each do |photo| %>
