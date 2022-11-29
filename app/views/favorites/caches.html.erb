@@ -27,6 +27,7 @@
               <div class="card-cache-infos">
                 <h2><%= link_to cache.title, cache_path(cache) %></h2>
                 <p>@<%= cache.user.username %></p>
+                <p><%= cache.species.present? ? cache.species[0].name : "" %></p>
                 <div class="fa-solid-cache-collection">
                 <%= render 'shared/favorite_icon' %>
                 </div>

@@ -10,7 +10,21 @@
         </li>
       </div>
       <div data-controller="toggle-favorite">
-        <div><%= render "shared/favorite_icon" %></div>
+          <div><%= render "shared/favorite_icon" %></div>
+
+          <div class="<%= @specieses.include?(@species) ? 'card-species-added-to-collection' : 'card-species-added-to-collection d-none' %>" data-toggle-favorite-target="card">
+
+            <%= image_tag @species.photos.first, style: "width: 80px; height: 80px;" %>
+
+            <div class="card-species-added-to-collection-infos">
+              <h2><%= link_to "Added to your collection!", favorites_species_index_path, class: "text-decoration-none" %></h2>
+            </div>
+
+            <div class="icon-added-species">
+              <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20species%20in%20collection.png" alt="icon add light green" style="margin-right: 16px;">
+            </div>
+
+          </div>
       </div>
     </div>
     <li>
