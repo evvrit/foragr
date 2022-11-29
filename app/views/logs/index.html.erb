@@ -24,9 +24,7 @@
         <div class="log-picture">
         <%= link_to log_path(log) do %>
           <% if log.photos.attached? %>
-            <% log.photos.each do |photo| %>
-              <%= cl_image_tag photo.key %>
-            <% end %>
+              <%= cl_image_tag log.photos.first.key %>
           <% else %>
             <%= image_tag log.seed_photo %>
           <% end %>

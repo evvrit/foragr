@@ -1,42 +1,54 @@
 <div class="container mt-5" data-controller="toggle-favorite">
-  <div class="d-none">
-    <%= render 'map' %>
-  </div>
-  <div>
-    <% if @cache.photos.attached? %>
-      <% @cache.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, width: 200 %>
-      <% end %>
-    <% elsif @cache.seed_photo != nil %>
-      <%= image_tag @cache.seed_photo, style: "width: 200px; height: 200px;" %>
-    <% else %>
-      No uploaded photos
-    <% end %>
-  </div>
   <p><strong><%= @cache.title %><strong></p>
   <p> @ <%= @cache.user.username %> </p>
   <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
 
-  <%= render 'shared/favorite_icon' %>
-  <%#= link_to "collection", favorites_caches_path %>
-  <p><%= @cache.description %></p>
+  <div class="d-none">
+    <%= render 'map' %>
+  </div>
+
+  <div>
+    <% if @cache.photos.attached? %>
+    <div class="p1-cache-show">
+        <%= cl_image_tag @cache.photos.first.key %>
+    </div>
+    <div class="photo-cache-2-3">
+    <div class="p2-cache-show">
+        <%= cl_image_tag @cache.photos[1].key %>
+    </div>
+    <div class="p3-cache-show">
+        <%= cl_image_tag @cache.photos.last.key %>
+    </div>
+    <% elsif @cache.seed_photo != nil %>
+      <%= image_tag @cache.seed_photo, width: 200 %>
+    <% else %>
+      No uploaded photos
+    <% end %>
+  </div>
+
+  <div>
+    <%= render 'shared/favorite_icon' %>
+    <%#= link_to "collection", favorites_caches_path %>
+    <p><%= @cache.description %></p>
+  </div>
   <br>
+
+
+<%# No CSS NEEDED %>
 
   <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
     <% if @cache.photos.attached? %>
-      <% @cache.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, width: 200 %>
-      <% end %>
+        <%= cl_image_tag @cache.photos.first.key, width: 200 %>
     <% elsif @cache.seed_photo != nil %>
       <%= image_tag @cache.seed_photo, style: "width: 80px; height: 80px;" %>
     <% else %>
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
     <% end %>
-  <div class="card-cache-added-to-collection-infos">
-    <h2><%= link_to "Added to your collection!", favorites_caches_path, class: "text-decoration-none" %></h2>
+    <div class="card-cache-added-to-collection-infos">
+      <h2><%= link_to "Added to your collection!", favorites_caches_path, class: "text-decoration-none" %></h2>
+    </div>
+    <div class="icon-added-cache">
+      <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
+    </div>
   </div>
-  <div class="icon-added-cache">
-    <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
-  </div>
-</div>
 </div>
