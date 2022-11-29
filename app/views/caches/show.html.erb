@@ -1,5 +1,5 @@
 <div class="container mt-5" data-controller="toggle-favorite">
-  <div class="container">
+  <div class="d-none">
     <%= render 'map' %>
   </div>
   <div>
@@ -20,6 +20,13 @@
   <%= render 'shared/favorite_icon' %>
   <%#= link_to "collection", favorites_caches_path %>
   <br>
+
+
+
+
+
+
+<%# No CSS NEEDED %>
 
   <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
     <% if @cache.photos.attached? %>

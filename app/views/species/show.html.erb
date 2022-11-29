@@ -13,7 +13,9 @@
     <% if params[:query] == "" || Species.search_by_name(params[:query]) == [] %>
     <%= render "all_species" %>
     <% else %>
+      <div class="infos">
       <%= render "show_species" %>
+      </div>
     <% end %>
   </div>
 </div>
