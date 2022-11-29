@@ -1,43 +1,43 @@
 <ul style="list-style: none">
   <div>
-    <li><h2><%= @species[0].name %></h2></li>
-    <li><% @species[0].photos.each do |photo| %>
+    <li><h2><%= @species.name %></h2></li>
+    <li><% @species.photos.each do |photo| %>
           <%= image_tag photo, width: 200 %>
         <% end %></li>
     <li>
-      <h4><%= @species[0].overview.first %></h4>
-      <p><%= @species[0].overview.last%></p>
+      <h4><%= @species.overview.first %></h4>
+      <p><%= @species.overview.last%></p>
     </li>
     <li>
-      <h4><%= @species[0].edible.first %></h4>
-      <p><%= @species[0].edible.last %></p>
+      <h4><%= @species.edible.first %></h4>
+      <p><%= @species.edible.last %></p>
     </li>
     <li>
-      <h4><%= @species[0].leaves.first %></h4>
-      <p><%= @species[0].leaves.last %></p>
+      <h4><%= @species.leaves.first %></h4>
+      <p><%= @species.leaves.last %></p>
     </li>
     <li>
-      <h4><%= @species[0].flowers.first %></h4>
-      <p><%= @species[0].flowers.last %></p>
+      <h4><%= @species.flowers.first %></h4>
+      <p><%= @species.flowers.last %></p>
     </li>
     <li>
-      <h4><%= @species[0].fruit.first %></h4>
-      <p><%= @species[0].fruit.last %></p>
+      <h4><%= @species.fruit.first %></h4>
+      <p><%= @species.fruit.last %></p>
     </li>
      <li>
-      <h4><%= @species[0].features.first %></h4>
-      <p><%= @species[0].features.last %></p>
+      <h4><%= @species.features.first %></h4>
+      <p><%= @species.features.last %></p>
     </li>
     <li>
-      <h4><%= @species[0].sporeprint.first %></h4>
-      <p><%= @species[0].sporeprint.last %></p>
+      <h4><%= @species.sporeprint.first %></h4>
+      <p><%= @species.sporeprint.last %></p>
     </li>
     <li>
-      <h4><%= @species[0].gills.first %></h4>
-      <p><%= @species[0].gills.last %></p>
+      <h4><%= @species.gills.first %></h4>
+      <p><%= @species.gills.last %></p>
     </li>
     <li>
-      <h4><%= @species[0].habitat.first %></h4>
-      <p><%= @species[0].habitat.last %></p>
+      <h4><%= @species.habitat.first %></h4>
+      <p><%= @species.habitat.last %></p>
   </div>
 </ul>
