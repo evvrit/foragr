@@ -2,16 +2,18 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle-favorite"
 export default class extends Controller {
-  static targets = ["link", "card", "cacheCard"]
+  static targets = ["link", "card", "cacheCard", "icon"]
 
   connect() {
-    console.log();
+    console.log(this.iconTarget);
   }
 
   toggleIconFill() {
-    // console.log(this.linkTarget);
+    console.log(this.linkTarget);
     // this.linkTarget.className == 'fa-solid fa-heart-circle-minus fa-2xl' ? 'fa-solid fa-heart-circle-plus fa-2xl' : 'fa-solid fa-heart-circle-minus fa-2xl';
     ['fa-heart-circle-plus', 'fa-heart-circle-minus'].map(v=> this.linkTarget.classList.toggle(v) )
+    // ['fa-heart-circle-plus', 'fa-heart-circle-minus'].map(v=> this.iconTarget.classList.toggle(v) )
+
     if (this.hasCardTarget) {
       this.showCard();
     }

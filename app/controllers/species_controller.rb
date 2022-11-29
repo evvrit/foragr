@@ -8,8 +8,8 @@ class SpeciesController < ApplicationController
     @species_favorites = current_user.favorites_by_type('Species')
     # raise
     @specieses = @species_favorites.map do |species_favorite|
-      @spec = Species.find_by(id: species_favorite.favoritable_id)
-      authorize @spec
+      @fav_spec = Species.find_by(id: species_favorite.favoritable_id)
+      authorize @fav_spec
     end
     # raise
     authorize @species_favorites
