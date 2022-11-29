@@ -1,9 +1,5 @@
 <div class="container">
   <div>
-    <% if params[:query] == "" || Species.search_by_name(params[:query]) == [] %>
-    <%= render "all_species" %>
-    <% else %>
-      <%= render "show_species" %>
-    <% end %>
+    <%= render "show_species" %>
   </div>
 </div>
