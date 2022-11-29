@@ -55,9 +55,6 @@ export default class extends Controller {
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup, {focusAfterOpen: true})
         .addTo(this.map)
-        // this.marker.on('preclick', (e) =>{
-        //   this.marker.setPopup(popup, {focusAfterOpen: true})
-        // })
     })
   }
 
@@ -75,11 +72,6 @@ export default class extends Controller {
     new mapboxgl.Marker()
     .setLngLat([ e.lngLat.lat, e.lngLat.lng ])
     .addTo(this.map)
-
-    // setTimeout(function(link) {
-    //   console.log(link);
-    //   link.click()
-    // }, 500);
     this.link.click();
   }
 
@@ -91,7 +83,11 @@ export default class extends Controller {
 
     map.on('dblclick', (e) => {
       console.log(e.lngLat);
-      new mapboxgl.Marker({color: '#957009'}).setLngLat(e.lngLat).addTo(map);
+
+      new mapboxgl.Marker({color: '#957009'})
+      .setLngLat(e.lngLat)
+      .addTo(map);
+
       this.#sendCoordsToForm(e)
       // console.log(canvas);
       // const geojson = {
