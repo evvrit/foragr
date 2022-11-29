@@ -29,6 +29,7 @@ class CachesController < ApplicationController
       lng: @cache.longitude,
       cache_info: render_to_string(partial: "cache_info", locals: { cache: @cache })
     }]
+    # authorize @markers.first
   end
 
   def new
