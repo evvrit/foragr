@@ -6,3 +6,27 @@
     <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20species.png" alt="icon species" class="icon-species"></a>
   <% end %>
 </div>
+<div class="container mt-2">
+  <%# <h2>Caches</h2> %>
+  <% if @species_favorites.empty? %>
+    <p>You have not added any species to your collection.</p>
+  <% else %>
+      <div class="container-caches-collection">
+        <% @species.each do |spec| %>
+
+          <div data-controller="toggle-favorite">
+            <div class="card-cache" data-toggle-favorite-target="cacheCard">
+              <%= spec.photos.empty? ? "" : image_tag("#{spec.photos[0]}") %>
+              <div class="card-cache-infos">
+                <h2><%= link_to spec.name, species_path(spec) %></h2>
+                <p><%= spec.overview[1].first(50) %>...</p>
+                <div class="fa-solid-cache-collection">
+                <%= render 'shared/favorite_icon' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+  <% end %>

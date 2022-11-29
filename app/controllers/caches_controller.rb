@@ -23,14 +23,23 @@ class CachesController < ApplicationController
       authorize @fav_cache
     end
     authorize @cache_favorites
+    @markers = [{
+      lat: @cache.latitude,
+      lng: @cache.longitude,
+      cache_info: render_to_string(partial: "cache_info", locals: {cache: @cache})
+    }]
   end
 
   def new
-    @markers = {lat: @cache}
     @cache = Cache.new
     authorize @cache
     @species = Species.all
     authorize @species
+    # raise
+    @markers = [{
+      lat: params["lat"],
+      lng: params["lng"]
+    }]
   end
 
   def create
