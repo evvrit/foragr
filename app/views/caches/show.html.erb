@@ -2,9 +2,11 @@
   <p><strong><%= @cache.title %><strong></p>
   <p> @ <%= @cache.user.username %> </p>
   <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
-  <div class="">
+
+  <div class="d-none">
     <%= render 'map' %>
   </div>
+
   <div>
     <% if @cache.photos.attached? %>
     <div class="p1-cache-show">
@@ -23,16 +25,14 @@
       No uploaded photos
     <% end %>
   </div>
+
+  <div>
+    <%= render 'shared/favorite_icon' %>
+    <%#= link_to "collection", favorites_caches_path %>
+    <p><%= @cache.description %></p>
   </div>
 
-  <%= render 'shared/favorite_icon' %>
-  <%#= link_to "collection", favorites_caches_path %>
-  <p><%= @cache.description %></p>
   <br>
-
-
-
-
 
 
 <%# No CSS NEEDED %>
@@ -45,11 +45,11 @@
     <% else %>
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
     <% end %>
-  <div class="card-cache-added-to-collection-infos">
-    <h2><%= link_to "Added to your collection!", favorites_caches_path, class: "text-decoration-none" %></h2>
+    <div class="card-cache-added-to-collection-infos">
+      <h2><%= link_to "Added to your collection!", favorites_caches_path, class: "text-decoration-none" %></h2>
+    </div>
+    <div class="icon-added-cache">
+      <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
+    </div>
   </div>
-  <div class="icon-added-cache">
-    <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
-  </div>
-</div>
 </div>

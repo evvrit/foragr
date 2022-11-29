@@ -4,12 +4,16 @@ class SpeciesController < ApplicationController
 
   def show
     authorize @species
+  end
+
+  def search
     if params[:query] == "" || Species.search_by_name(params[:query]) == []
       # raise
       @species = Species.all
     else
       @species = Species.search_by_name(params[:query])
     end
+    authorize @species
   end
 
   def create(query)
@@ -21,7 +25,7 @@ class SpeciesController < ApplicationController
     # raise
     current_user.favorited?(@species) ? current_user.unfavorite(@species) : current_user.favorite(@species)
   end
-  
+
   private
 
   def set_species

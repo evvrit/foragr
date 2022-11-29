@@ -32,7 +32,7 @@ gem "pundit"
 gem "faker"
 gem "geocoder"
 gem 'bootstrap', '~> 5.1.3'
-
+gem 'cocoon'
 gem "cloudinary"
 gem "pg_search"
 gem 'acts_as_favoritor'
