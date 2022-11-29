@@ -62,6 +62,6 @@ class CachesController < ApplicationController
   end
 
   def cache_params
-    params.require(:cache).permit(:longitude, :latitude, :description, :found_on, photos: [])
+    params.require(:cache).permit(:title, :longitude, :latitude, :description, :found_on, photos: [])
   end
 end
