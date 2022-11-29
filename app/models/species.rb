@@ -5,7 +5,8 @@ class Species < ApplicationRecord
                   using: {
                     tsearch: { prefix: true } # <-- now `superman batm` will return something!
                   }
-  has_one :cache_species
+  has_many :cache_species
+  # has_many :caches, through: :cache_species # doesn't seem to access caches through the association
 
   validates :name, presence: true
   validates :overview, presence: true

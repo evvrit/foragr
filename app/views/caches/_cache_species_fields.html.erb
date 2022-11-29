@@ -1,0 +1,8 @@
+<div class='nested-fields'>
+    <%= f.input :species_id, collection: @species,
+                 input_html: { data: {
+                                    controller: "tom-select",
+                                    tom_select_target: "input"
+                                    } }%>
+    <%= link_to_remove_association "remove species", f, partial: "cache_species_fields" %>
+</div>
