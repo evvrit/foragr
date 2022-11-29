@@ -1,22 +1,31 @@
-<div class="container">
-  <h1>Logs#show</h1>
-  <%# Here is a section for the photos uploaded and attached to the log, if there are any %>
+<div class="container-show-cache">
+<div class="header-show-cache">
+  <h1><p><strong><%= @log.title %></strong></p></h1>
+  <p><%= @log.created_on.strftime("%b %d, %Y") %></p>
+</div>
+
   <div class="photo-log-all">
     <% if @log.photos.attached? %>
-      <% @log.photos.each do |photo| %>
-      <div class="photo-log">
-        <%= cl_image_tag photo.key %>
-      <% end %>
+      <div class="p1-show">
+        <%= cl_image_tag @log.photos.first.key %>
+      </div>
+      <div class="photo-log-2-3">
+      <div class="p2-show">
+        <%= cl_image_tag @log.photos[1].key %>
+      </div>
+      <div class="p3-show">
+        <%= cl_image_tag @log.photos.last.key %>
+      </div>
     <% else %>
       <%= image_tag @log.seed_photo %>
     <% end %>
     </div>
-</div>
-</div>
-
-  </div class="log-infos-show">
-  <%# Basic info on the log %>
-  <p><strong><%= @log.title %></strong></p>
-  <p><%= @log.created_on.strftime("%b %d, %Y") %></p>
-  <p><%= @log.content %></p>
   </div>
+
+  <br>
+
+  </div>
+      <p class="log-infos-show"><%= @log.content %></p>
+  </div>
+
+</div>
