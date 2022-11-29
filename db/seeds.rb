@@ -41,7 +41,12 @@ GENERIC_TITLES = [
   "what a wonderful adventure I had that day",
   "could not have asked for a better haul",
   "couldn't find what I was looking for; found somethiing even better!",
-  "dangerous!! not because they're poisonous but because they're delicious"
+  "these were delicious",
+  "looks like a brain lol",
+  "is this past its prime?",
+  "epic haul from an honest day's worth of foraging",
+  "this stuff was growing in my backyard!",
+  "we brought some to the neighbours :)"
 ]
 
 puts "making 40 caches..."
@@ -86,20 +91,6 @@ end
 
 puts "~40 caches created."
 
-# Seeding Species
-# puts "making 100 species..."
-
-# 100.times do Species.create!(
-#   name: Faker::Food.fruits,
-#   overview: Faker::Lorem.paragraphs(number: 1),
-#   features: Faker::Lorem.paragraphs(number: 1),
-#   edible: Faker::Lorem.paragraphs(number: 1),
-#   habitat: ["spring", "summer", "fall", "winter"].sample,
-#   photos: PHOTOS.sample
-# )
-# end
-
-# puts "100 species created."
 
 # Seeding Logs
 puts "making 300 logs..."
@@ -139,7 +130,7 @@ species_names = [
   "Lavender", "Marigold", "Nasturtium", "Snapdragon"
 ]
 
-puts "making 95 species"
+puts "making #{species_names.length} species"
 
 species_names.each do |item|
   @species = species_scraper(item)
@@ -158,4 +149,26 @@ species_names.each do |item|
   )
 end
 
-puts "a bunch of species created"
+puts "#{species_names.length} species created"
+
+# Seeding Favorites
+
+puts "favoriting caches and species..."
+
+2.times { User.first.favorite(Species.all.sample) }
+3.times { User.first.favorite(Cache.all.sample) }
+
+puts "a@a.a has favorited #{User.first.favorites_by_type('Species').length} species"
+puts "and #{User.first.favorites_by_type('Cache').length} caches."
+
+2.times { User.second.favorite(Species.all.sample) }
+3.times { User.second.favorite(Cache.all.sample) }
+
+puts "b@b.b has favorited #{User.second.favorites_by_type('Species').length} species"
+puts "and #{User.second.favorites_by_type('Cache').length} caches."
+
+puts "distributing 12 additional favorites randomly..."
+
+12.times { User.all.sample.favorite(Species.all.sample) }
+
+puts "12 additional favorites seeded."
