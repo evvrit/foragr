@@ -664,8 +664,10 @@ padding-right: 20px;
 .photo-log-all img {
   border: 5px solid $green-dark;
   border-radius: 15px;
-  width: 350px;
-  height: 280px;
+  // width: 350px;
+  // height: 280px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -675,9 +677,33 @@ padding-right: 20px;
   margin-right: auto;
 }
 
-.log-infos-show {
-
+.photo-log-all p {
+  color: $green-dark;
 }
 
 
-//
+// FORM
+
+.date {
+  color: $green-dark;
+}
+
+.file {
+  color: $green-dark;
+}
+
+.text {
+  color: $green-dark;
+}
+
+.string {
+  color: $green-dark;
+}
+
+.form-select {
+  opacity: 0.5;
+}
+
+.form-control {
+  opacity: 0.5;
+}
