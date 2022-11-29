@@ -1,9 +1,16 @@
 <ul style="list-style: none">
   <div>
-    <li><h2><%= @species.name %></h2></li>
-    <li><% @species.photos.each do |photo| %>
-          <%= image_tag photo, width: 200 %>
-        <% end %></li>
+  <div class="container d-flex align-items-center justify-content-between">
+    <div>
+      <li><h2><%= @species.name %></h2></li>
+      <li>
+        <% @species.photos.each do |photo| %>
+            <%= image_tag photo, width: 200 %>
+          <% end %>
+        </li>
+      </div>
+      <div><%= render "shared/favorite_icon" %></div>
+    </div>
     <li>
       <h4><%= @species.overview.first %></h4>
       <p><%= @species.overview.last%></p>

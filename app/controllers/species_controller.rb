@@ -3,7 +3,16 @@ class SpeciesController < ApplicationController
   after_action :verify_authorized, except: [:toggle_favorite]
 
   def show
+    # raise
     authorize @species
+    @species_favorites = current_user.favorites_by_type('Species')
+    # raise
+    @specieses = @species_favorites.map do |species_favorite|
+      @spec = Species.find_by(id: species_favorite.favoritable_id)
+      authorize @spec
+    end
+    # raise
+    authorize @species_favorites
   end
 
   def search
