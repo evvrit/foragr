@@ -4,11 +4,23 @@
   </div>
 
 <div class="container mt-5" data-controller="toggle-favorite">
-  <p><strong><%= @cache.title %><strong></p>
-  <p> @ <%= @cache.user.username %> </p>
-  <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
-
-
+  <div class="header-cache-show">
+    <p><strong><%= @cache.title %><strong></p>
+    <br>
+    <p> @ <%= @cache.user.username %> </p>
+    <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
+  </div>
+  
+  <div class="d-none">
+    <div id="sm-map-container">
+      <div id="sm-map"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <div id="sm-static"></div>
+    </div>
+  </div>
+  
   <div>
     <% if @cache.photos.attached? %>
     <div class="p1-cache-show">
@@ -59,3 +71,26 @@
   </div>
 </div>
 </div>
+
+<style>
+  #sm-map-container {
+    width: 414px;
+    height: 300px;
+    margin: 0;
+    display: grid;
+  }
+  #sm-map {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+  }
+  #sm-static {
+    background-image: url("https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/-73.60488,45.53257,10/414x300?access_token=<%= ENV['MAPBOX_API_KEY'] %>");
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+    grid-row: 1;
+  }
+</style>
