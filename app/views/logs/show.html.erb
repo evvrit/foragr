@@ -5,23 +5,33 @@
 </div>
 
   <div class="photo-log-all">
-    <% if @log.photos.attached? %>
-      <div class="p1-show">
-        <%= cl_image_tag @log.photos.first.key %>
+    <% if @log.photos.count == 1 %>
+      <div class="p1-cache-show">
+        <%= cl_image_tag @log.photos.first %>
       </div>
-      <div class="photo-log-2-3">
-      <div class="p2-show">
-        <%= cl_image_tag @log.photos[1].key %>
+    <% elsif @log.photos.count == 2 %>
+      <div class="p1-cache-show">
+        <%= cl_image_tag @log.photos.first %>
       </div>
-      <div class="p3-show">
-        <%= cl_image_tag @log.photos.last.key %>
+      <div class="photo-cache-2-3">
+        <div class="p2-cache-show">
+          <%= cl_image_tag @log.photos.last %>
+        </div>
       </div>
     <% else %>
-    <div class ="p1-show-seed">
-      <%= image_tag @log.seed_photo %>
-    </div>
+      <div class="p1-cache-show">
+        <%= cl_image_tag @log.photos.first %>
+      </div>
+      <div class="photo-cache-2-3">
+        <div class="p2-cache-show">
+          <%= cl_image_tag @log.photos[1] %>
+        </div>
+        <div class="p3-cache-show">
+          <%= cl_image_tag @log.photos.last %>
+        </div>
+      </div>
     <% end %>
-    </div>
+
   </div>
 
   <br>
