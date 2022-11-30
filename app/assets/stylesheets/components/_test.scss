@@ -37,6 +37,7 @@ body {
   display: flex;
   justify-content: space-around;
   z-index: 100;
+  left: 0px;
 }
 
 .navbar-t a {
@@ -714,13 +715,13 @@ body {
 
 .container-caches-collection {
 padding-bottom: 70px;
-padding-left: 34px;
+padding-left: 27px;
 padding-right: 20px;
 }
 
 .container-species-collection {
   padding-bottom: 70px;
-  padding-left: 34px;
+  padding-left: 18px;
   padding-right: 20px;
   }
 
@@ -744,6 +745,16 @@ padding-right: 20px;
   object-fit: cover;
 }
 
+.p1-show-seed {
+  margin-top: 10px;
+}
+
+.p1-show-seed img {
+  width: 330px;
+  height: 240px;
+  object-fit: cover;
+}
+
 .p2-show img {
   width: 108px;
   height: 102px;
@@ -757,13 +768,15 @@ padding-right: 20px;
 }
 
 .header-show-cache {
-  position: fixed;
+  position: sticky;
   left: 0px;
   top: 0px;
   width: 100%;
   background-color: $beige;
   padding-top: 10px;
-  padding-left: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  word-break: break-all;
 }
 
 
@@ -787,7 +800,7 @@ padding-right: 20px;
   margin-right: auto;
   text-align: justify;
   margin-bottom: 10px;
-  margin-top: 100px;
+  margin-top: 45px;
 }
 
 .log-infos-show {
@@ -797,6 +810,7 @@ padding-right: 20px;
   margin-right: auto;
   text-align: justify;
   color: $green-dark;
+  margin-bottom: 100px;
 }
 
 // SHOW PAGE - cache
@@ -819,6 +833,38 @@ padding-right: 20px;
   object-fit: cover;
 }
 
+// SPECIES PAGE - cache
+
+.species-photos {
+  display: flex;
+}
+
+.container-species-pictures {
+width: 85%;
+display: flex;
+}
+
+.photo-species-2-3 {
+  display: flex;
+}
+
+.p1-species-show img {
+  width: 221px;
+  height: 222px;
+  object-fit: cover;
+}
+
+.p2-species-show img {
+  width: 108px;
+  height: 102px;
+  object-fit: cover;
+}
+
+.p3-species-show img {
+  width: 108px;
+  height: 102px;
+  object-fit: cover;
+}
 
 // FORM
 
