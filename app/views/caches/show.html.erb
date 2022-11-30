@@ -1,3 +1,8 @@
+  <div id="sm-map-container">
+    <%= render 'map' %>
+    <div id="sm-static"></div>
+  </div>
+
 <div class="container mt-5" data-controller="toggle-favorite">
   <div class="header-cache-show">
     <p><strong><%= @cache.title %><strong></p>
@@ -5,8 +10,7 @@
     <p> @ <%= @cache.user.username %> </p>
     <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
   </div>
-
-
+  
   <div class="d-none">
     <div id="sm-map-container">
       <div id="sm-map"
@@ -16,9 +20,7 @@
       <div id="sm-static"></div>
     </div>
   </div>
-
-
-
+  
   <div>
     <% if @cache.photos.attached? %>
     <div class="p1-cache-show">
@@ -38,8 +40,6 @@
     <% end %>
   </div>
   <div class="">
-    <p><strong><%= @cache.title %><strong></p>
-    <p> @ <%= @cache.user.username %> </p>
 
     <% if @cache.species.present? %>
       <p>Species: <%= link_to @cache.species[0].name, species_path(@cache.species[0]) %></p>

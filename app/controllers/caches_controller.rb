@@ -39,7 +39,8 @@ class CachesController < ApplicationController
     @species = Species.all.map { |species| [species.name, species.id] }
     @markers = [{
       lat: params["lat"],
-      lng: params["lng"]
+      lng: params["lng"],
+      cache_info: "#{params["lat"]}, #{params["lng"]}"
     }]
   end
 
