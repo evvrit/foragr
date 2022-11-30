@@ -9,6 +9,7 @@ export default class extends Controller {
   }
 
   connect() {
+
     this.link = document.getElementById("new-cache-link");
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -32,12 +33,7 @@ export default class extends Controller {
     this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
-    this.#dropPin();
-
-    if (this.markersValue.length !== 1) {
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }))
-    }
+    this.#checkClickLocation();
   }
 
   #setStaticImage() {
@@ -74,6 +70,35 @@ export default class extends Controller {
     }
   }
 
+  #checkClickLocation() {
+    this.map.on('click', (e) => {
+      const offset = 0.01 // we use it to build a selection area around each marker
+      const clickLat = e.lngLat.lat
+      const clickLng = e.lngLat.lng
+      let userClickedMarker = false
+      this.markersValue.forEach(marker => {
+        // this actually checks the longitude. error in seed do not touch !!!
+        const clickedWithinLat = clickLat > (marker.lat) && clickLat < (marker.lat + (2 * offset))
+        // actually checks latitude
+        const clickedWithinLng = clickLng > (marker.lng - offset) && clickLng < (marker.lng + offset)
+        if (clickedWithinLat && clickedWithinLng) {
+          userClickedMarker = true
+          return
+        }
+      })
+      if (!userClickedMarker) {
+        this.#dropPin(e);
+        this.#sendCoordsToForm(e);
+      }
+    })
+  }
+
+  #dropPin(e) {
+    new mapboxgl.Marker({color: '#957009'})
+    .setLngLat(e.lngLat)
+    .addTo(this.map);
+  };
+
   #sendCoordsToForm(e) {
     this.link.href = `${this.link.href}?lat=${e.lngLat.lat}&lng=${e.lngLat.lng}`
     new mapboxgl.Marker()
@@ -81,16 +106,4 @@ export default class extends Controller {
     .addTo(this.map)
     this.link.click();
   }
-
-  #dropPin() {
-    const map = this.map
-
-    map.on('dblclick', (e) => {
-      new mapboxgl.Marker({color: '#957009'})
-      .setLngLat(e.lngLat)
-      .addTo(map);
-
-      this.#sendCoordsToForm(e);
-    });
-  };
 }
