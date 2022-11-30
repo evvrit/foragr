@@ -1,0 +1,11 @@
+.back-chevron {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+
+  .fa-solid {
+    color: $green-dark;
+    font-size: 25px;
+  }
+}
