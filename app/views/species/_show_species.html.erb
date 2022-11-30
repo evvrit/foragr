@@ -7,14 +7,15 @@
 <div class="container-species-pictures">
   <div class="species-photos">
     <div class="p1-species-show">
-      <%= cl_image_tag @species.photos.first %>
+    <%# <%= raise %> %>
+      <%= image_tag @species.photos.first %>
     </div>
     <div class="photo-species-2-3">
       <div class="p2-species-show">
-        <%= cl_image_tag @species.photos[1] %>
+        <%= image_tag @species.photos[1] %>
       </div>
       <div class="p3-species-show">
-        <%= cl_image_tag @species.photos.last %>
+        <%= image_tag @species.photos.last %>
       </div>
     </div>
   </div>
