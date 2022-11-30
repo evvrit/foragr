@@ -5,10 +5,12 @@
   font-family: $headers-font;
   border: none;
 
-  :active {
-    transform: scale(0.98);
-    color: $brown-cache-card-text;
-  }
+}
+
+.popup-title:active {
+  transform: scale(0.98);
+  text-decoration: none;
+  color: $brown-cache-card-text;
 }
 
 .popup-username {
