@@ -3,6 +3,7 @@ require_relative "scraper"
 
 puts "cleaning the DB..."
 Log.destroy_all
+CacheSpecy.destroy_all
 Cache.destroy_all
 Species.destroy_all
 User.destroy_all
@@ -147,9 +148,20 @@ species_names.each do |item|
     fruit: @species[:fruit],
     photos: @species[:photos]
   )
+  puts "made #{item} a species"
 end
 
 puts "#{species_names.length} species created"
+
+# Seeding Cache_Species, aka CacheSpecy
+
+puts "Assigning Species to all caches and creating CacheSpecies"
+
+Cache.all.each do |cache|
+  CacheSpecy.create(cache: cache, species: Species.all.sample)
+end
+
+puts "Caches now all have a species assigned"
 
 # Seeding Favorites
 

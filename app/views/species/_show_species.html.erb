@@ -1,32 +1,24 @@
-<ul style="list-style: none">
-  <div>
-  <div class="container d-flex align-items-center justify-content-between">
-    <div>
-      <li><h2><%= @species.name %></h2></li>
-      <li>
-        <% @species.photos.each do |photo| %>
-            <%= image_tag photo, width: 200 %>
-          <% end %>
-        </li>
+<h2><%= @species.name %></h2>
+
+<div class="container-species-pictures">
+  <div class="species-photos">
+    <div class="p1-species-show">
+      <%= cl_image_tag @species.photos.first %>
+    </div>
+    <div class="photo-species-2-3">
+      <div class="p2-species-show">
+        <%= cl_image_tag @species.photos[1] %>
       </div>
-      <div data-controller="toggle-favorite">
-          <div><%= render "shared/favorite_icon" %></div>
-
-          <div class="<%= @specieses.include?(@species) ? 'card-species-added-to-collection' : 'card-species-added-to-collection d-none' %>" data-toggle-favorite-target="card">
-
-            <%= image_tag @species.photos.first, style: "width: 80px; height: 80px;" %>
-
-            <div class="card-species-added-to-collection-infos">
-              <h2><%= link_to "Added to your collection!", favorites_species_index_path, class: "text-decoration-none" %></h2>
-            </div>
-
-            <div class="icon-added-species">
-              <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20species%20in%20collection.png" alt="icon add light green" style="margin-right: 16px;">
-            </div>
-
-          </div>
+      <div class="p3-species-show">
+        <%= cl_image_tag @species.photos.last %>
       </div>
     </div>
+  </div>
+</div>
+
+
+<ul style="list-style: none">
+  <div>
     <li>
       <h4><%= @species.overview.first %></h4>
       <p><%= @species.overview.last%></p>
@@ -47,7 +39,7 @@
       <h4><%= @species.fruit.first %></h4>
       <p><%= @species.fruit.last %></p>
     </li>
-     <li>
+    <li>
       <h4><%= @species.features.first %></h4>
       <p><%= @species.features.last %></p>
     </li>
@@ -64,3 +56,25 @@
       <p><%= @species.habitat.last %></p>
   </div>
 </ul>
+
+
+
+
+
+      <div data-controller="toggle-favorite">
+          <div><%= render "shared/favorite_icon" %></div>
+
+          <div class="<%= @specieses.include?(@species) ? 'card-species-added-to-collection' : 'card-species-added-to-collection d-none' %>" data-toggle-favorite-target="card">
+
+            <%= image_tag @species.photos.first, style: "width: 80px; height: 80px;" %>
+
+            <div class="card-species-added-to-collection-infos">
+              <h2><%= link_to "Added to your collection!", favorites_species_index_path, class: "text-decoration-none" %></h2>
+            </div>
+
+            <div class="icon-added-species">
+              <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20species%20in%20collection.png" alt="icon add light green" style="margin-right: 16px;">
+            </div>
+
+          </div>
+      </div>

@@ -13,8 +13,9 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue
 
     mapboxgl.workerCount = 12;
-    // console.log(mapboxgl.workerCount);
     mapboxgl.prewarm();
+
+    this.#setStaticImage();
 
     this.map = new mapboxgl.Map({
       container: "map",
@@ -37,6 +38,22 @@ export default class extends Controller {
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
+  }
+
+  #setStaticImage() {
+    if (this.markersValue.length === 1) {
+      this.static = document.getElementById("sm-static");
+      this.lat = this.markersValue[0].lat;
+      this.lng = this.markersValue[0].lng;
+
+    } else {
+      this.static = document.getElementById("static");
+      this.lat = -73.60488
+      this.lng = 45.53257
+    }
+    const width = this.static.offsetWidth;
+    const height = this.static.offsetHeight;
+    this.static.style.backgroundImage = `url(https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/${this.lat},${this.lng},10/${width}x${height}?access_token=${this.apiKeyValue})`
   }
 
   #addMarkersToMap() {

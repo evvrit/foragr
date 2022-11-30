@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'logs/css_test', to: 'logs#css_test', as: :css_test
 
   devise_for :users
-  root to: "caches#index"
+  root to: "pages#home"
 
   resources :caches, only: :index do
     member do
