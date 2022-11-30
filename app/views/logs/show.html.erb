@@ -6,6 +6,7 @@
   </div>
 
   <div class="photo-log-all">
+
     <% if @log.photos.attached? %>
       <% if @log.photos.count == 1 %>
         <div class="p1-cache-show">
@@ -34,11 +35,19 @@
         </div>
       <% end %>
     <% else %>
-    <div class ="p1-show-seed">
-      <%= image_tag @log.seed_photo %>
-    </div>
+      <div class="p1-cache-show">
+        <%= cl_image_tag @log.photos.first %>
+      </div>
+      <div class="photo-cache-2-3">
+        <div class="p2-cache-show">
+          <%= cl_image_tag @log.photos[1] %>
+        </div>
+        <div class="p3-cache-show">
+          <%= cl_image_tag @log.photos.last %>
+        </div>
+      </div>
     <% end %>
-    </div>
+
   </div>
 
   <br>
