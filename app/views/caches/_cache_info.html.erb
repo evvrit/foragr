@@ -1,5 +1,7 @@
 <% if cache.photos.attached? %>
-    <%= cl_image_tag photos.first.key, width: 200 %>
+  <%= cl_image_tag photos.first.key, width: 200 %>
+<% else %>
+  <%= link_to cache.seed_photo, width: 200 %>
 <% end %>
 
 <h4><%= link_to "#{cache.title.first(25)}...", cache_path(cache), class: "popup-title" %></h4>
