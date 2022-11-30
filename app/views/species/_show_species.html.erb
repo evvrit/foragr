@@ -1,8 +1,6 @@
 <div class="species-name">
-<h2><%= @species.name %></h2>
+  <h2><%= @species.name %></h2>
 </div>
-
-<br>
 
 <div class="container-species-pictures">
   <div class="species-photos">
@@ -20,12 +18,11 @@
   </div>
 </div>
 
-
 <ul class="species-infos" style="list-style: none">
 
 <br>
 <div data-controller="toggle-favorite">
-    <div  class="favorite-icon-species"><%= render "shared/favorite_icon" %></div> <br>
+  <div  class="favorite-icon-species"><%= render "shared/favorite_icon" %></div> <br>
     <div class="<%= @specieses.include?(@species) ? 'card-species-added-to-collection' : 'card-species-added-to-collection d-none' %>" data-toggle-favorite-target="card">
       <%= image_tag @species.photos.first, style: "width: 80px; height: 80px;" %>
       <div class="card-species-added-to-collection-infos">
@@ -35,6 +32,7 @@
         <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20species%20in%20collection.png" alt="icon add light green" style="margin-right: 16px;">
       </div>
     </div>
+  </div>
 </div>
 <br>
 

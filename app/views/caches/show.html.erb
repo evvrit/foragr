@@ -1,5 +1,6 @@
   <div id="sm-map-container">
     <%= render 'map' %>
+    <%= render "/shared/back" %>
     <div id="sm-static"></div>
   </div>
 
@@ -10,7 +11,7 @@
     <p> @ <%= @cache.user.username %> </p>
     <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
   </div>
-  
+
   <div class="d-none">
     <div id="sm-map-container">
       <div id="sm-map"
@@ -20,7 +21,7 @@
       <div id="sm-static"></div>
     </div>
   </div>
-  
+
   <div>
     <% if @cache.photos.attached? %>
       <% if @cache.photos.count == 1 %>
