@@ -1,7 +1,11 @@
 <div class="container mt-5" data-controller="toggle-favorite">
-  <p><strong><%= @cache.title %><strong></p>
-  <p> @ <%= @cache.user.username %> </p>
-  <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
+  <div class="header-cache-show">
+    <p><strong><%= @cache.title %><strong></p>
+    <br>
+    <p> @ <%= @cache.user.username %> </p>
+    <p> found on <%= @cache.found_on.strftime("%b %d, %Y") %></p>
+  </div>
+
 
   <div class="d-none">
     <div id="sm-map-container">
@@ -12,6 +16,9 @@
       <div id="sm-static"></div>
     </div>
   </div>
+
+
+
   <div>
     <% if @cache.photos.attached? %>
     <div class="p1-cache-show">
@@ -87,4 +94,3 @@
     grid-row: 1;
   }
 </style>
-
