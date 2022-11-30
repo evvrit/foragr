@@ -10,11 +10,6 @@ export default class extends Controller {
 
   connect() {
     this.link = document.getElementById("new-cache-link");
-<<<<<<< Updated upstream
-
-    // console.log(link);
-=======
->>>>>>> Stashed changes
     mapboxgl.accessToken = this.apiKeyValue
 
     mapboxgl.workerCount = 12;
@@ -57,13 +52,9 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-<<<<<<< Updated upstream
-    // this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-=======
     if (this.markersValue.length === 1) {
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
     }
->>>>>>> Stashed changes
   }
 
   #sendCoordsToForm(e) {
@@ -78,11 +69,6 @@ export default class extends Controller {
     const map = this.map
 
     map.on('dblclick', (e) => {
-<<<<<<< Updated upstream
-      console.log(e.lngLat);
-
-=======
->>>>>>> Stashed changes
       new mapboxgl.Marker({color: '#957009'})
       .setLngLat(e.lngLat)
       .addTo(map);
