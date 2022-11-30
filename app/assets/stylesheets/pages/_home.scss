@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+
+.landing-page {
+  background-image: asset-url("forest.jpg");
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  opacity: .85;
+}
+
+.landing-page h1 {
+  font-size: 50px;
+  color: $beige;
+
+
+}
+
+.btn-ghost {
+  color: $beige;
+  // border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  background-color: rgba(255, 255, 255, 0.35);
+}
