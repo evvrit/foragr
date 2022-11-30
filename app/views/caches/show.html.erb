@@ -1,7 +1,7 @@
 <div class="container mt-5" data-controller="toggle-favorite">
   <div class="d-none">
     <div id="sm-map-container">
-      <div id="sm-map"
+      <div id="map"
             data-controller="map"
             data-map-markers-value="<%= @markers.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

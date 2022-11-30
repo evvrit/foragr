@@ -16,7 +16,7 @@ export default class extends Controller {
     // console.log(link);
     mapboxgl.accessToken = this.apiKeyValue
 
-    mapboxgl.workerCount = 12;
+    mapboxgl.workerCount = 4;
     // console.log(mapboxgl.workerCount);
     mapboxgl.prewarm();
 

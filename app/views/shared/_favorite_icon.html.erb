@@ -2,14 +2,14 @@
   <% if current_user.favorited?(@cache) %>
 
       <div>
-        <%= link_to toggle_favorite_cach_path(@cache), remote: true,
-          data: { 'turbo-method': :post } do %>
-          <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-solid fa-heart-circle-minus fa-2xl"></i>
-        <% end %>
+          <i data-toggle-favorite-target="link"
+          data-action="click->toggle-favorite#toggleIconFill"
+          class="fa-solid fa-heart-circle-minus fa-2xl" id="icon-fav"></i>
+          <%= link_to "LINK", toggle_favorite_cach_path(@cache), remote: true,
+          data: { 'turbo-method': :post }, id: "delete-link" %>
       </div>
 
     <% else %>
-
       <div>
         <%= link_to toggle_favorite_cach_path(@cache), remote: true,
           data: { 'turbo-method': :post } do %>
@@ -66,3 +66,9 @@
 
     <% end %>
 <% end %>
+
+<style>
+#delete-link {
+  /* display: none; */
+}
+</style>
