@@ -2,6 +2,7 @@
   color: $brown-cache-card-text;
   text-decoration: none;
   font-family: $headers-font;
+  border: none;
 
   :active {
     transform: scale(0.98);
@@ -16,5 +17,6 @@
 }
 
 .popup-background {
-  background: $beige-card-collection;
+  // background: $beige-card-collection;
+  // background-color: $brown-cache-card-text;
 }

@@ -2,6 +2,5 @@
     <%= cl_image_tag photos.first.key, width: 200 %>
 <% end %>
 
-<h4><%= link_to cache.title, cache_path(cache), class: "popup-title" %></h4>
+<h4><%= link_to "#{cache.title.first(25)}...", cache_path(cache), class: "popup-title" %></h4>
 <p class= "popup-username">@<%= cache.user.username %></p>
-<p><%= cache.found_on.strftime('%b %d, %Y') %></p>
