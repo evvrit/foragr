@@ -40,7 +40,7 @@ class CachesController < ApplicationController
     @markers = [{
       lat: params["lat"],
       lng: params["lng"],
-      cache_info: "#{params["lat"]}, #{params["lng"]}"
+      cache_info: "#{params['lat']}, #{params['lng']}"
     }]
   end
 
@@ -51,6 +51,7 @@ class CachesController < ApplicationController
       # raise
       redirect_to cache_path(@cache)
     else
+      @species = Species.all.map { |species| [species.name, species.id] }
       render :new, status: 422
     end
     authorize @cache

@@ -1,7 +1,8 @@
 <div class="container">
-<div class="form-log">
-  <h1 style="font-size: 20px;">Write A Log</h1>
-</div>
+  <%= render "shared/back" %>
+  <div class="form-log">
+    <h1 style="font-size: 20px;">Write A Log</h1>
+  </div>
   <%= simple_form_for @log do |f| %>
   <%= f.error_notification %>
   <%= f.input :title, placeholder: "title" %>
