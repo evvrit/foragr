@@ -54,7 +54,7 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-        const popup = new mapboxgl.Popup({className: "popup-background", closeOnClick: true, focusAfterOpen: false})
+        const popup = new mapboxgl.Popup({className: "popup-container", closeOnClick: true, focusAfterOpen: false})
         .setHTML(marker.cache_info)
         .setMaxWidth("250px")
         this.marker = new mapboxgl.Marker({color: '#35635B'})

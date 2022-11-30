@@ -1,5 +1,6 @@
 .popup-title {
   color: $brown-cache-card-text;
+  font-style: bold;
   text-decoration: none;
   font-family: $headers-font;
   border: none;
@@ -16,7 +17,9 @@
   font-weight: bolder;
 }
 
-.popup-background {
+.popup {
+  display: flex;
+  border-radius: 20px;
   // background: $beige-card-collection;
-  // background-color: $brown-cache-card-text;
+  background-color: $brown-cache-card-text;
 }
