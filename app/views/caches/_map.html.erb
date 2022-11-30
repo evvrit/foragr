@@ -1,30 +1,5 @@
-<div id="map-container">
-  <div id="map"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  <div id="static"></div>
+<div id="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
-<style>
-  #map-container {
-    width: 414px;
-    height: 681px;
-    margin: 0;
-    display: grid;
-  }
-  #map {
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    height: 100%;
-    visibility: hidden;
-  }
-  #static {
-    background-image: url("https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/-73.60488,45.53257,10/414x681?access_token=<%= ENV['MAPBOX_API_KEY'] %>");
-    width: 100%;
-    height: 100%;
-    grid-column: 1;
-    grid-row: 1;
-  }
-</style>
