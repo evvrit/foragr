@@ -1,25 +1,25 @@
+<div class="master-container">
 <div class="species-name">
   <h2><%= @species.name %></h2>
 </div>
 
 <div class="container-species-pictures">
-  <div class="species-photos">
+  <%# <div class="species-photos"> %>
     <div class="p1-species-show">
       <%= image_tag @species.photos.first %>
     </div>
-    <div class="photo-species-2-3">
+    <%# <div class="photo-species-2-3"> %>
       <div class="p2-species-show">
         <%= image_tag @species.photos[1] %>
       </div>
       <div class="p3-species-show">
         <%= image_tag @species.photos.last %>
       </div>
-    </div>
-  </div>
+    <%# </div> %>
+  <%# </div> %>
 </div>
 
-<ul class="species-infos" style="list-style: none">
-
+<div class="species-infos" style="list-style: none">
 <br>
 <div data-controller="toggle-favorite">
   <div  class="favorite-icon-species"><%= render "shared/favorite_icon" %></div> <br>
@@ -36,41 +36,33 @@
 </div>
 <br>
 
-  <div>
-    <li>
+<div>
       <h4><%= @species.overview.first %></h4>
       <p><%= @species.overview.last%></p>
-    </li>
-    <li>
+
       <h4><%= @species.edible.first %></h4>
       <p><%= @species.edible.last %></p>
-    </li>
-    <li>
+
       <h4><%= @species.leaves.first %></h4>
       <p><%= @species.leaves.last %></p>
-    </li>
-    <li>
+
       <h4><%= @species.flowers.first %></h4>
       <p><%= @species.flowers.last %></p>
-    </li>
-    <li>
+
       <h4><%= @species.fruit.first %></h4>
       <p><%= @species.fruit.last %></p>
-    </li>
-    <li>
+
       <h4><%= @species.features.first %></h4>
       <p><%= @species.features.last %></p>
-    </li>
-    <li>
+
       <h4><%= @species.sporeprint.first %></h4>
       <p><%= @species.sporeprint.last %></p>
-    </li>
-    <li>
+
       <h4><%= @species.gills.first %></h4>
       <p><%= @species.gills.last %></p>
-    </li>
-    <li>
+
       <h4><%= @species.habitat.first %></h4>
       <p><%= @species.habitat.last %></p>
-  </div>
-</ul>
+</div>
+</div>
+</div>

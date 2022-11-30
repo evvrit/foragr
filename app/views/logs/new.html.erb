@@ -1,14 +1,14 @@
 <div class="container">
-    <%= render "shared/back" %>
-  <div class="form-add-log">
-    <h1>Write A Log</h1>
-    <%= simple_form_for @log do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :title, placeholder: "title" %>
-    <%= f.input :created_on, as: :date, html5: true %>
-    <%= f.input :photos, as: :file, input_html: {multiple: true}%>
-    <%= f.input :content %>
-    <%= f.submit "Add This Log" %>
-    <% end %>
+  <%= render "shared/back" %>
+  <div class="form-log">
+    <h1 style="font-size: 20px;">Write A Log</h1>
   </div>
+  <%= simple_form_for @log do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title, placeholder: "title" %>
+  <%= f.input :created_on, as: :date, html5: true %>
+  <%= f.input :photos, as: :file, input_html: {multiple: true}%>
+  <%= f.input :content %>
+  <%= f.submit "Add This Log" %>
+  <% end %>
 </div>

@@ -1,36 +1,44 @@
+<div class="master-container">
 <div class="header-collection-species">
-<p>My Collection (species)</p>
+<p>My Collection (Species)</p>
 </div>
 
-<div class="icons-container-caches-species">
-  <%= link_to favorites_caches_path do %>
-    <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20caches.png" alt="icon caches" class="icon-caches"></a>
-  <% end %>
-  <%= link_to favorites_species_index_path do %>
-    <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20species.png" alt="icon species" class="icon-species"></a>
-  <% end %>
-</div>
-<div class="container mt-2">
-  <%# <h2>Species</h2> %>
-  <% if @species_favorites.empty? %>
-    <p>You have not added any species to your collection.</p>
-  <% else %>
-      <div class="container-species-collection">
-        <% @specieses.each do |spec| %>
+<div class="master-container-species-collection">
+  <%# BOTH ICONS ON TOP %>
+  <div class="icons-container-caches-species">
+    <%= link_to favorites_caches_path do %>
+      <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20caches.png" alt="icon caches" class="icon-caches"></a>
+    <% end %>
+    <%= link_to favorites_species_index_path do %>
+      <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20species.png" alt="icon species" class="icon-species"></a>
+    <% end %>
+  </div>
 
-          <div data-controller="toggle-favorite">
-            <div class="card-species" data-toggle-favorite-target="cacheCard">
-              <%= spec.photos.empty? ? "" : image_tag("#{spec.photos[0]}") %>
-              <div class="card-species-infos">
-                <h2><%= link_to spec.name, species_path(spec) %></h2>
-                <p><%= spec.overview[1].first(50) %>...</p>
-                <div class="fa-solid-species-collection" >
-                <%= render 'shared/favorite_icon' %>
+  <div class="container mt-2">
+    <%# <h2>Species</h2> %>
+    <% if @species_favorites.empty? %>
+      <p>You have not added any species to your collection.</p>
+    <% else %>
+        <div class="container-species-collection">
+          <% @specieses.each do |spec| %>
+
+            <div data-controller="toggle-favorite">
+              <div class="card-species" data-toggle-favorite-target="cacheCard">
+                <%= spec.photos.empty? ? "" : image_tag("#{spec.photos[0]}") %>
+                <div class="card-species-infos">
+                  <h2><%= link_to spec.name, species_path(spec) %></h2>
+                  <p><%= spec.overview[1].first(50) %>...</p>
                 </div>
+
+
+                  <div class="fa-solid-species-collection" >
+                  <%= render 'shared/favorite_icon' %>
+                  </div>
               </div>
             </div>
-          </div>
 
-        <% end %>
-      </div>
-  <% end %>
+          <% end %>
+        </div>
+    <% end %>
+</div>
+</div>
