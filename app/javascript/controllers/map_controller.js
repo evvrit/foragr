@@ -29,22 +29,22 @@ export default class extends Controller {
       mapContainerEl.style.visibility = 'visible';
     });
 
-    console.log(this.map.markers);
-
     this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
     this.#dropPin();
 
+    if (this.markersValue.length !== 1) {
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
+    }
   }
 
   #setStaticImage() {
     if (this.markersValue.length === 1) {
       this.static = document.getElementById("sm-static");
-      this.lat = this.markersValue[0].lat;
-      this.lng = this.markersValue[0].lng;
+      this.lat = this.markersValue[0].lng; // just trust me
+      this.lng = this.markersValue[0].lat;
 
     } else {
       this.static = document.getElementById("static");
