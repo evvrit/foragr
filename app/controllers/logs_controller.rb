@@ -2,8 +2,7 @@ class LogsController < ApplicationController
   before_action :set_log, only: %i[show update delete]
 
   def index
-    @logs = Log.all
-    @logs = policy_scope(Log)
+    @logs = policy_scope(Log).all.order(created_on: :desc)
   end
 
   def new
