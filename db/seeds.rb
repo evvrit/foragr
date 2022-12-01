@@ -101,7 +101,7 @@ CACHE_DESCRIPTIONS = [
   "These are abundant right now so I probably could have taken more but I wanted to leave enough for regrowth and my fellow foragers :)",
   "Easy find!",
   "Still getting the hang of harvesting correctly, trying to be gentle",
-  "I was stoked to find this, I think I'll aim to go back after we get some rain",
+  "I was stoked to find this, I think I'll forage some more after we get some rain",
   "Hiked for three hours, then found this stuff a block away from my house lol"
 ]
 
@@ -196,12 +196,22 @@ def create_caches(times)
   return caches
 end
 
-cache_instances = create_caches(11)
+cache_instances = create_caches(10)
 
 # puts ">>>first @cache photo: #{cache_instances.first.seed_photo}"
 puts ">>> #{cache_instances.length} caches created."
 
-puts "Seeding 3 caches at specific greenspaces..."
+puts "Seeding 4 caches at specific greenspaces..."
+
+Cache.create!(
+  user: User.all.sample,
+  longitude: -73.60981447783107,
+  latitude: 45.50052293383716,
+  description: CACHE_DESCRIPTIONS.sample,
+  found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
+  seed_photo: PHOTOS[-4],
+  title: GENERIC_TITLES.sample
+)
 
 Cache.create!(
   user: User.all.sample,
@@ -232,6 +242,7 @@ Cache.create!(
   seed_photo: PHOTOS[-1],
   title: GENERIC_TITLES.sample
 )
+
 
 # CACHESPECIES
 

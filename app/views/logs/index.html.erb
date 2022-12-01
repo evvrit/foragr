@@ -1,14 +1,17 @@
 <div class="header-profile">
 <p>My Profile</p>
+<%= link_to "log out", destroy_user_session_path, data: { 'turbo-method': :delete }, class: "btn btn-outline-secondary btn-sm", style: "position: absolute; top: 40px;" %>
 </div>
 
-<div class="card-log-profile">
-  <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
-  <div class="card-log-profile-infos">
-    <h2><%= current_user.username %></h2>
-    <p><strong>Montréal, QC</strong></p>
+<% if current_user.email == "a@a.a" || "river@gmail.com" %>
+  <div class="card-log-profile">
+    <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
+    <div class="card-log-profile-infos">
+      <h2><%= current_user.username %></h2>
+      <p><strong>Montréal, QC</strong></p>
+    </div>
   </div>
-</div>
+<% end %>
 
 <br>
 
