@@ -99,7 +99,7 @@ PHOTOS = [
 CACHE_DESCRIPTIONS = [
   "Look out for the wasps... yes, WASPS! it's well worth the risk",
   "These are abundant right now so I probably could have taken more but I wanted to leave enough for regrowth and my fellow foragers :)",
-  "Goes well in a stir-fry!",
+  "Easy find!",
   "Still getting the hang of harvesting correctly, trying to be gentle",
   "I was stoked to find this, I think I'll aim to go back after we get some rain",
   "Hiked for three hours, then found this stuff a block away from my house lol"
