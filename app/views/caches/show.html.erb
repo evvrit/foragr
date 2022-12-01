@@ -109,23 +109,32 @@
 
 
   </div>
-  <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
-    <% if @cache.photos.attached? %>
-        <%= cl_image_tag @cache.photos.first.key, width: 200 %>
-    <% elsif @cache.seed_photo != nil %>
-      <%= image_tag @cache.seed_photo, style: "width: 80px; height: 80px;" %>
-    <% else %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <% end %>
-    <div class="card-cache-added-to-collection-infos">
-      <h2><%= link_to "Added to your collection!", favorites_caches_path, class: "text-decoration-none" %></h2>
+    <div id="added" class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
+      <%= link_to favorites_caches_path do %>
+        <span class="show-link"></span>
+      <% end %>
+      <% if @cache.photos.attached? %>
+          <%= cl_image_tag @cache.photos.first.key, width: 200 %>
+      <% elsif @cache.seed_photo != nil %>
+        <%= image_tag @cache.seed_photo, style: "width: 80px; height: 80px;" %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <% end %>
+      <div class="card-cache-added-to-collection-infos">
+        <h2>Added to your collection!</h2>
+      </div>
+      <div class="icon-added-cache">
+        <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
     </div>
-    <div class="icon-added-cache">
-      <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
-  </div>
 
 </div>
-<div class="cache-show-infos">
-<p><%= @cache.description %></p>
+  <div class="cache-show-infos">
+    <p><%= @cache.description %></p>
+  </div>
 </div>
-</div>
+
+<style>
+  #added {
+    position: relative;
+  }
+</style>
