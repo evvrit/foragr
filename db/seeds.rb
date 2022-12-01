@@ -177,14 +177,13 @@ puts "seeding caches"
 
 # CACHES
 
-
 def create_caches(times)
   counter = 0
   caches = []
   times.times do
     cache = Cache.create!(
       user: User.all.sample,
-      longitude: Faker::Number.within(range: -73.78550768029655..-73.50260973767234),
+      longitude: Faker::Number.within(range: -73.78550768029655..-73.55797517341051),
       latitude: Faker::Number.within(range: 45.424344632194526..45.69981086087231),
       description: CACHE_DESCRIPTIONS.sample,
       found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
@@ -197,10 +196,42 @@ def create_caches(times)
   return caches
 end
 
-cache_instances = create_caches(14)
+cache_instances = create_caches(11)
 
 # puts ">>>first @cache photo: #{cache_instances.first.seed_photo}"
 puts ">>> #{cache_instances.length} caches created."
+
+puts "Seeding 3 caches at specific greenspaces..."
+
+Cache.create!(
+  user: User.all.sample,
+  longitude: -73.59417371757172,
+  latitude: 45.507953934912464,
+  description: CACHE_DESCRIPTIONS.sample,
+  found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
+  seed_photo: PHOTOS[-3],
+  title: GENERIC_TITLES.sample
+)
+
+Cache.create!(
+  user: User.all.sample,
+  longitude: -73.56701946869165,
+  latitude: 45.566869579158784,
+  description: CACHE_DESCRIPTIONS.sample,
+  found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
+  seed_photo: PHOTOS[-2],
+  title: GENERIC_TITLES.sample
+)
+
+Cache.create!(
+  user: User.all.sample,
+  longitude: -73.60311475055244,
+  latitude: 45.439450804032525,
+  description: CACHE_DESCRIPTIONS.sample,
+  found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
+  seed_photo: PHOTOS[-1],
+  title: GENERIC_TITLES.sample
+)
 
 # CACHESPECIES
 
