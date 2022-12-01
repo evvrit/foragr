@@ -1,8 +1,8 @@
-  <div id="sm-map-container">
-    <%= render 'map' %>
-    <%= render "/shared/back" %>
-    <div id="sm-static"></div>
-  </div>
+<div id="sm-map-container">
+  <%= render 'map' %>
+  <%= render "/shared/back" %>
+  <div id="sm-static"></div>
+</div>
 
 <div class="container mt-5" data-controller="toggle-favorite">
   <div class="header-cache-show">
@@ -59,6 +59,7 @@
   <div class="">
 
     <% if @cache.species.present? %>
+    <p>Hello</p>
       <p>Species: <%= link_to @cache.species[0].name, species_path(@cache.species[0]) %></p>
     <% end %>
 

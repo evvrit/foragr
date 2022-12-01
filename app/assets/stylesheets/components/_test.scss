@@ -4,6 +4,15 @@
   display: flex;
   padding-inline: 3%;
   flex-direction: column;
+  padding-bottom: 70px;
+}
+
+.master-container-log-show {
+  display: flex;
+  padding-inline: 5%;
+  flex-direction: column;
+  padding-bottom: 70px;
+  padding-top: 18px;
 }
 
 .master-container-species-collection {
@@ -25,6 +34,17 @@ body {
 }
 
 // HEADER
+
+.header-log-show p {
+  color: $green-dark;
+  display: flex;
+  justify-content: end;
+}
+
+.header-log-show h1{
+  display: flex;
+  justify-content: end;
+}
 
 .header-collection-species {
   color: $green-dark;
@@ -760,19 +780,47 @@ padding-inline: 3%;
 // SHOW PAGE - log
 
 .photo-log-all {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.p1-log-show img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.p1-log-show {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+.p2-log-show img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.p3-log-show img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
 .photo-log-2-3 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-evenly;
 }
 
 .p1-show img {
-  width: 221px;
-  height: 222px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -781,21 +829,18 @@ padding-inline: 3%;
 }
 
 .p1-show-seed img {
-  width: 330px;
-  height: 240px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .p2-show img {
-  width: 108px;
-  height: 102px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .p3-show img {
-  width: 108px;
-  height: 102px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .header-show-cache {
@@ -812,7 +857,7 @@ padding-inline: 3%;
 
 
 .photo-log-all img {
-  border: 5px solid $green-dark;
+  // border: 5px solid $green-dark;
   border-radius: 15px;
   object-fit: cover;
   // width: 60%;
@@ -824,44 +869,37 @@ padding-inline: 3%;
 }
 
 .container-show-cache {
-  color: $green-dark;
-  width: 85%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: justify;
-  margin-bottom: 10px;
+  // color: $green-dark;
+  // width: 85%;
+  // display: block;
+  // margin-left: auto;
+  // margin-right: auto;
+  // text-align: justify;
+  // margin-bottom: 10px;
   margin-top: 45px;
 }
 
 .log-infos-show {
-  width: 80%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   text-align: justify;
   color: $green-dark;
-  margin-bottom: 100px;
+  padding-top: 20px;
 }
 
 // SHOW PAGE - cache
 
 .p1-cache-show img {
-  width: 221px;
-  height: 222px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .p2-cache-show img {
-  width: 108px;
-  height: 102px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .p3-cache-show img {
-  width: 108px;
-  height: 102px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 // SPECIES PAGE - show
@@ -869,8 +907,7 @@ padding-inline: 3%;
 .species-name {
   width: 100%;
   color: $green-dark;
-  margin-top: 45px;
-  margin-left: 29px;
+  margin-top: 69px;
 }
 
 .species-infos {
@@ -892,10 +929,7 @@ padding-inline: 3%;
 
 .species-infos {
   width: 100%;
-  // padding-left: 32px;
-  // padding-right: 18px;
   text-align: justify;
-  padding-bottom: 100px;
   color: $green-light;
 }
 
@@ -910,11 +944,6 @@ padding-inline: 3%;
   grid-auto-rows: minmax(100px, auto);
 }
 
-.photo-species-2-3 {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
-}
 
 .p1-species-show img {
   width: 100%;
