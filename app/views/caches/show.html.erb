@@ -92,9 +92,11 @@
   <div class="if-species">
 
     <% if @cache.species.present? %>
-      <% @cache.species.each do |s| %>
-        <%= link_to s.name, species_path(s), class: "btn btn-go-to-species" %>
-      <% end %>
+      <div class="container">
+        <% @cache.species.each do |s| %>
+          <%= link_to s.name, species_path(s), class: "btn btn-go-to-species mt-2" %>
+        <% end %>
+      </div>
     <% end %>
 
 </div>
