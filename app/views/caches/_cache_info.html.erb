@@ -1,4 +1,7 @@
-  <div class="d-flex border-radius-sm align-items-center">
+  <div class="d-flex border-radius-sm align-items-center position: relative">
+    <a href="/caches/<%= cache.id %>">
+      <span class="show-link"></span>
+    </a>
     <%= link_to cache_path(cache) do %>
       <% if cache.photos.attached? %>
         <%= cl_image_tag cache.photos.first.key, width: 100, height: 100, crop: :fill, style: "border-radius: 10px" %>
