@@ -4,7 +4,7 @@
   text-decoration: none;
   font-family: $headers-font;
   border: none;
-
+  line-height: normal;
 }
 
 .popup-title:active {
@@ -13,15 +13,18 @@
   color: $brown-cache-card-text;
 }
 
-.popup-username {
+.popup-green-text {
   color: $green-dark;
   font-family: $body-font;
+}
+
+.emph {
   font-weight: bolder;
+  font-size: larger;
 }
 
 .popup {
   display: flex;
   border-radius: 20px;
-  // background: $beige-card-collection;
   background-color: $brown-cache-card-text;
 }
