@@ -1,8 +1,6 @@
 require "faker"
 require_relative "scraper"
 
-
-
 GENERIC_TITLES = [
   "I absolutely love finding treasures growing from the ground",
   "What a wonderful adventure I had that day",
