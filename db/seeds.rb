@@ -243,7 +243,6 @@ Cache.create!(
   title: GENERIC_TITLES.sample
 )
 
-
 # CACHESPECIES
 
 puts "         "
@@ -252,11 +251,14 @@ puts "Assigning Species to all caches and creating CacheSpecies"
 def create_cachespecy
   counter = 0
   Cache.all.each do |cache|
-    CacheSpecy.create(cache: cache, species: Species.all[counter])
+    CacheSpecy.create!(cache: cache, species: Species.all[counter])
     counter += 1
   end
 end
 
+create_cachespecy
+
+puts "#{CacheSpecy.all.count} cachespecies exist."
 puts "Caches now all have a corresponding species assigned"
 
 # LOGS
