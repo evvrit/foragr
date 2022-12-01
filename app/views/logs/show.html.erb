@@ -45,7 +45,7 @@
 
     </div>
         <p class="log-infos-show"><%= @log.content %></p>
-        <%= link_to @log.cache.title, cache_path(@log.cache) %>
+        <%= link_to "Related Cache", cache_path(@log.cache), class: "btn btn-go-to-species mt-2" %>
     </div>
   </div>
 </div>
