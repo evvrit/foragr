@@ -21,7 +21,6 @@
     <% else %>
         <div class="container-species-collection">
           <% @specieses.each do |spec| %>
-
             <div data-controller="toggle-favorite">
               <a href="/species/<%= spec.id %>">
                 <span class="show-link"></span>

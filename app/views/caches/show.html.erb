@@ -105,7 +105,7 @@
 
 
   </div>
-  <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
+  <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %> position: relative" data-toggle-favorite-target="card">
     <% if @cache.photos.attached? %>
         <%= cl_image_tag @cache.photos.first.key, width: 200 %>
     <% elsif @cache.seed_photo != nil %>
