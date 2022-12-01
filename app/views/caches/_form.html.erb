@@ -9,7 +9,7 @@
         <%= link_to_add_association 'add species', f, :cache_species, partial: 'caches/cache_species_fields' %>
       </div>
     </div>
-    <%= f.input :found_on, placeholder: "date found", html5: true %>
+    <%= f.input :found_on, placeholder: "date found", html5: true, default: Date.today %>
     <%= f.input :photos, as: :file, input_html: {multiple: true}, required: false %>
     <%= f.input :description, as: :text, size: "70x5", placeholder: "description" %>
     <%= f.hidden_field :longitude, value: params[:lng] %>

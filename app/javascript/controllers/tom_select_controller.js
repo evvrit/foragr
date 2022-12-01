@@ -6,6 +6,8 @@ export default class extends Controller {
   static targets = ["input"]
   connect() {
     // console.log(this.inputTargets.length);
-    new TomSelect(this.element)
+    const tom = new TomSelect(this.element)
+    tom.settings.placeholder = "Species";
+    tom.inputState();
   }
 }
