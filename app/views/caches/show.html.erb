@@ -80,9 +80,9 @@
         <%# </div> %>
       <% end %>
     <% elsif @cache.seed_photo != nil %>
-      <%= image_tag @cache.seed_photo, width: 200 %>
+      <%= image_tag @cache.seed_photo, width: 200, height: 100, crop: :fill %>
     <% else %>
-      No uploaded photos
+      <p>No uploaded photos</p>
     <% end %>
   </div>
   <div>
