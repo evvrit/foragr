@@ -1,7 +1,7 @@
 <%#STYLE AND MAP<%%>
+<%= render "/shared/back" %>
 <div id="sm-map-container">
   <%= render 'map' %>
-  <%= render "/shared/back" %>
   <div id="sm-static"></div>
 </div>
 
@@ -80,9 +80,9 @@
         <%# </div> %>
       <% end %>
     <% elsif @cache.seed_photo != nil %>
-      <%= image_tag @cache.seed_photo, width: 200 %>
+      <%= image_tag @cache.seed_photo, width: 200, height: 100, crop: :fill %>
     <% else %>
-      No uploaded photos
+      <p>No uploaded photos</p>
     <% end %>
   </div>
   <div>
@@ -92,7 +92,11 @@
   <div class="if-species">
 
     <% if @cache.species.present? %>
-      <%= link_to @cache.species[0].name, species_path(@cache.species[0]), class: "btn btn-go-to-species" %>
+      <div class="container">
+        <% @cache.species.each do |s| %>
+          <%= link_to s.name, species_path(s), class: "btn btn-go-to-species mt-2" %>
+        <% end %>
+      </div>
     <% end %>
 
 </div>

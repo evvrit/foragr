@@ -1,8 +1,6 @@
 require "faker"
 require_relative "scraper"
 
-
-
 GENERIC_TITLES = [
   "I absolutely love finding treasures growing from the ground",
   "What a wonderful adventure I had that day",
@@ -155,11 +153,11 @@ def create_species(identifier)
   return species
 end
 
-species_instances = species_names.map do |identifier|
+@species_instances = species_names.map do |identifier|
   create_species(identifier)
 end
 
-puts ">>> #{species_instances.length} species created - to be used in caches."
+puts ">>> #{@species_instances.length} species created - to be used in caches."
 
 puts "count of all species ************** #{all_species.length}"
 puts "count of extra species ************** #{extra_species.length}"
@@ -248,15 +246,15 @@ Cache.create!(
 puts "         "
 puts "Assigning Species to all caches and creating CacheSpecies"
 
-def create_cachespecy
+def create_cachespecy(array)
   counter = 0
   Cache.all.each do |cache|
-    CacheSpecy.create!(cache: cache, species: Species.all[counter])
+    CacheSpecy.create!(cache: cache, species: array[counter])
     counter += 1
   end
 end
 
-create_cachespecy
+create_cachespecy(@species_instances)
 
 puts "#{CacheSpecy.all.count} cachespecies exist."
 puts "Caches now all have a corresponding species assigned"
@@ -297,13 +295,13 @@ Log.create!(
   seed_photo: "mushroom-apps.jpg"
 )
 
-puts "making 10 fake logs..."
+puts "making 3 random logs for a@a.a..."
 
-10.times do
+3.times do
   log = Log.new(
     content: LOGS_CONTENT.sample,
     created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-    user_id: User.all.sample.id,
+    user_id: anna.id,
     cache_id: Cache.all.sample.id,
     title: GENERIC_TITLES.sample
   )
@@ -311,7 +309,7 @@ puts "making 10 fake logs..."
   log.save!
 end
 
-puts "10 fake logs created."
+puts "3 fake logs created."
 
 # FAVORITES/COLLECTION
 

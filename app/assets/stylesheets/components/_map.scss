@@ -10,6 +10,7 @@
   height: 100vh;
   margin: 0;
   display: grid;
+  position: relative;
 
   #static {
     width: 100%;
@@ -28,6 +29,7 @@
   height: 200px;
   margin: 0;
   display: grid;
+  position: relative;
 
   #sm-static {
     width: 100%;
