@@ -191,6 +191,26 @@ body {
   justify-content: center;
 }
 
+.btn-logout {
+  border-radius: 50px;
+  color: #35635B;
+  background-color: #f8f1d0;
+  font-size: 12px;
+  width: 20%;
+  height: 4.5%;
+  text-align: center;
+  display: block;
+  margin-inline: auto;
+  border: 1px solid #35635B;
+}
+
+.logout-btn-header {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 23px;
+  padding-right: 15px;
+}
+
 .btn-add-a-log {
   border-radius: 50px;
   color: $beige;
@@ -589,7 +609,7 @@ body {
 }
 
 .card-cache-added-to-collection h2 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   margin: 0;
   color: $brown-cache-card-text;
@@ -741,6 +761,7 @@ body {
   align-items: center;
   padding-left: 20px;
   border-radius: 10px;
+  position: relative;
 }
 
 .card-species-added-to-collection a {
@@ -756,7 +777,7 @@ body {
 }
 
 .card-species-added-to-collection h2 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   margin: 0;
   color: $green-light;
@@ -1277,30 +1298,8 @@ padding-top: 30px;
   border-radius: 15px;
 }
 
-<<<<<<< HEAD
-
-// ICON
-
-// .cache-icon-cache {
-//   display: flex;
-//   flex-direction: column-reverse;
-//   align-items: center;
-// }
-
-// .cache-icon-cache-style {
-//   text-decoration: none;
-//   color: $green-dark;
-// }
-
-// .species-icon-cache {
-//   display: flex;
-//   flex-direction: column-reverse;
-//   align-items: center;
-// }
-=======
 .log-out {
   text-decoration: none;
   font-size: small;
   color: $brown-cache-card-text
 }
->>>>>>> master
