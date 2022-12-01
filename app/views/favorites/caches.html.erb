@@ -24,6 +24,9 @@
         <% @caches.each do |cache| %>
 
           <div data-controller="toggle-favorite">
+            <a href="/caches/<%= cache.id %>">
+              <span class="show-link"></span>
+            </a>
             <div class="card-cache" data-toggle-favorite-target="cacheCard">
               <a href="/caches/<%= cache.id %>">
                 <span class="show-link"></span>

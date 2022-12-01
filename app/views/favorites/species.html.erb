@@ -23,6 +23,9 @@
           <% @specieses.each do |spec| %>
 
             <div data-controller="toggle-favorite">
+              <a href="/species/<%= spec.id %>">
+                <span class="show-link"></span>
+              </a>
               <div class="card-species" data-toggle-favorite-target="cacheCard">
                 <a href="/species/<%= spec.id %>">
                   <span class="show-link"></span>
