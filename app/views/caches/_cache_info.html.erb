@@ -1,9 +1,14 @@
-<% if cache.photos.attached? %>
-  <% cache.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, width: 200 %>
-  <% end %>
-<% end %>
+  <div class="d-flex border-radius-sm align-items-center">
+    <%= link_to cache_path(cache) do %>
+      <% if cache.photos.attached? %>
+        <%= cl_image_tag cache.photos.first.key, width: 100, height: 100, crop: :fill, style: "border-radius: 10px" %>
+      <% else %>
+        <%= image_tag cache.seed_photo, width: 100, height: 100, crop: :fill, style: "border-radius: 10px" %>
+      <% end %>
+    <% end %>
 
-<p><strong><%= link_to cache.title, cache_path(cache) %></strong></p>
-<p><%= cache.user.username %></p>
-<p><%= cache.found_on.strftime('%b %d, %Y') %></p>
+    <div class="container-fluid py-1">
+      <p class= "popup-username">-@<%= cache.user.username %></p>
+      <p><%= link_to "#{cache.title.first(32)}...", cache_path(cache), class: "popup-title" %></p>
+    </div>
+  </div>

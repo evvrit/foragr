@@ -1,7 +1,11 @@
+<div class="master-container">
 <div class="header-collection-cache">
-<p>My Collection (caches)</p>
+<p>My Collection (Caches)</p>
 </div>
 
+
+<div class="master-container-cache-collection">
+  <%# BOTH ICONS ON TOP %>
 <div class="icons-container-caches-species">
   <%= link_to favorites_caches_path do %>
     <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669264613/FORAGR/ICON%20-%20caches.png" alt="icon caches" class="icon-caches"></a>
@@ -28,9 +32,9 @@
                 <h2><%= link_to cache.title, cache_path(cache) %></h2>
                 <p>@<%= cache.user.username %></p>
                 <p><%= cache.species.present? ? cache.species[0].name : "" %></p>
-                <div class="fa-solid-cache-collection">
-                <%= render 'shared/favorite_icon' %>
-                </div>
+              </div>
+              <div class="fa-solid-cache-collection">
+              <%= render 'shared/favorite_icon' %>
               </div>
             </div>
           </div>
@@ -38,3 +42,5 @@
         <% end %>
       </div>
   <% end %>
+  </div>
+</div>

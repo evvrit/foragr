@@ -1,0 +1,27 @@
+.popup-title {
+  color: $brown-cache-card-text;
+  font-style: bold;
+  text-decoration: none;
+  font-family: $headers-font;
+  border: none;
+
+}
+
+.popup-title:active {
+  transform: scale(0.98);
+  text-decoration: none;
+  color: $brown-cache-card-text;
+}
+
+.popup-username {
+  color: $green-dark;
+  font-family: $body-font;
+  font-weight: bolder;
+}
+
+.popup {
+  display: flex;
+  border-radius: 20px;
+  // background: $beige-card-collection;
+  background-color: $brown-cache-card-text;
+}
