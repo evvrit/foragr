@@ -300,6 +300,15 @@ PHOTOS = [
   "elmoyster.jpg"
 ]
 
+CACHE_DESCRIPTIONS = [
+  "look out for the wasps... yes, WASPS! it's well worth the risk",
+  "these are abundant right now so I probably could have taken more but I wanted to leave enough for regrowth and my fellow foragers :)",
+  "goes well in a stir-fry!",
+  "still getting the hang of harvesting correctly, trying to be gentle",
+  "I was stoked to find this, I think I'll aim to go back after we get some rain",
+  "hiked for three hours, then found this stuff a block away from my house lol"
+]
+
 def create_caches(times)
   counter = 0
   caches = []
@@ -309,7 +318,7 @@ def create_caches(times)
       longitude: [Faker::Number.within(range: -73.83053621933163..-73.56830061735444),
                   Faker::Number.within(range: -73.56708451801268..-73.36224401489754)].sample,
       latitude: Faker::Number.within(range: 45.4372900644492..45.6280127081368),
-      description: Faker::Lorem.paragraphs(number: 1), # this should not be lorem ipsum
+      description: CACHE_DESCRIPTIONS.sample
       found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
       seed_photo: PHOTOS[counter],
       title: GENERIC_TITLES.sample
