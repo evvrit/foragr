@@ -24,9 +24,12 @@
 
             <div data-controller="toggle-favorite">
               <div class="card-species" data-toggle-favorite-target="cacheCard">
+                <a href="/species/<%= spec.id %>">
+                  <span class="show-link"></span>
+                </a>
                 <%= spec.photos.empty? ? "" : image_tag("#{spec.photos[0]}") %>
                 <div class="card-species-infos">
-                  <h2><%= link_to spec.name, species_path(spec) %></h2>
+                  <h2><%= spec.name %></h2>
                   <p><%= spec.overview[1].first(50) %>...</p>
                 </div>
 

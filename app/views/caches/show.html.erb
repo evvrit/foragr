@@ -86,20 +86,25 @@
     <% end %>
   </div>
   <div>
+
+
+  <div class="fav-btn-and-if-species">
   <div class="if-species">
 
     <% if @cache.species.present? %>
       <%= link_to @cache.species[0].name, species_path(@cache.species[0]), class: "btn btn-go-to-species" %>
     <% end %>
 
-</div> <br>
+</div>
 <div class="fav-icon-cache" style="display: flex; justify-content: center;">
     <%= render 'shared/favorite_icon' %> <br>
     <%#= link_to "collection", favorites_caches_path %>
-  </div> <br>
+  </div>
 
 <%# No CSS NEEDED %>
 
+
+  </div>
   <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
     <% if @cache.photos.attached? %>
         <%= cl_image_tag @cache.photos.first.key, width: 200 %>
@@ -114,7 +119,6 @@
     <div class="icon-added-cache">
       <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
   </div>
-
 
 </div>
 <div class="cache-show-infos">

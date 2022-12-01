@@ -24,11 +24,12 @@
 
           <div data-controller="toggle-favorite">
             <div class="card-cache" data-toggle-favorite-target="cacheCard">
-
+              <a href="/caches/<%= cache.id %>">
+                <span class="show-link"></span>
+              </a>
               <%= cache.photos.first.present? ? cl_image_tag("#{cache.photos.first.key}") : (image_tag("#{cache.seed_photo}") || "") %>
-
               <div class="card-cache-infos">
-                <h2><%= link_to cache.title, cache_path(cache) %></h2>
+                <h2><%= cache.title %></h2>
                 <p>@<%= cache.user.username %></p>
                 <p><%= cache.species.present? ? cache.species[0].name : "" %></p>
               </div>
