@@ -5,10 +5,10 @@
   </div>
   <%= simple_form_for @log do |f| %>
   <%= f.error_notification %>
-  <%= f.input :title, placeholder: "title" %>
-  <%= f.input :created_on, as: :date, html5: true %>
+  <%= f.input :title, placeholder: "your title here" %>
+  <%= f.input :created_on, as: :date, html5: true, input_html: { value: Date.today } %>
   <%= f.input :photos, as: :file, input_html: {multiple: true}%>
-  <%= f.input :content %> <br>
+  <%= f.input :content, placeholder: "your content here" %> <br>
   <%= f.submit "Add a log", class: "btn mt-2 btn-add-a-log" %>
   <% end %>
 </div>
