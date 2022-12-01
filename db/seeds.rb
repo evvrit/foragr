@@ -295,13 +295,13 @@ Log.create!(
   seed_photo: "mushroom-apps.jpg"
 )
 
-puts "making 10 fake logs..."
+puts "making 3 random logs for a@a.a..."
 
-10.times do
+3.times do
   log = Log.new(
     content: LOGS_CONTENT.sample,
     created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-    user_id: User.all.sample.id,
+    user_id: anna.id,
     cache_id: Cache.all.sample.id,
     title: GENERIC_TITLES.sample
   )
@@ -309,7 +309,7 @@ puts "making 10 fake logs..."
   log.save!
 end
 
-puts "10 fake logs created."
+puts "3 fake logs created."
 
 # FAVORITES/COLLECTION
 

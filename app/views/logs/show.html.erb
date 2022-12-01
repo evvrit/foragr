@@ -45,6 +45,7 @@
 
     </div>
         <p class="log-infos-show"><%= @log.content %></p>
+        <%= link_to @log.cache.title, cache_path(@log.cache) %>
     </div>
   </div>
 </div>
