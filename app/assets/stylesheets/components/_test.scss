@@ -317,6 +317,7 @@ body {
   // position:absolute ;
   // left: 366px;
   font-size: 10px;
+  z-index: 2
 }
 
 .fa-solid-species-collection {
@@ -477,6 +478,7 @@ body {
   flex-direction: row;
   justify-content:flex-start;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .card-cache i {
@@ -526,6 +528,15 @@ body {
 .card-cache-infos a {
   color: $brown-cache-card-text;
   text-decoration: none;
+}
+
+.show-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 // CARD CACHE ADDED TO COLLECTION
@@ -643,6 +654,7 @@ body {
   flex-direction: row;
   justify-content: center;
   margin-bottom: 10px;
+  position:relative;
 }
 
 .card-species i {
