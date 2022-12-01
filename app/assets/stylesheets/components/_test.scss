@@ -150,6 +150,17 @@ body {
   justify-content: center;
 }
 
+.btn-add-a-log {
+  border-radius: 50px;
+  color: $beige;
+  background-color: $green-dark;
+  font-size: 14px;
+  width: 80%;
+  height: 36px;
+  text-align: center;
+  display: block;
+  margin-inline: auto;
+}
 
 
 .btn-create-your-own-cache {
@@ -176,9 +187,11 @@ body {
   color: $beige;
   background-color: $gold;
   font-size: 14px;
-  width: 100%;
+  width: 80%;
   height: 36px;
   text-align: center;
+  display: block;
+  margin-inline: auto;
 }
 
 .btn-go-to-species {
@@ -186,9 +199,11 @@ body {
   color: $beige;
   background-color: $gold;
   font-size: 14px;
-  width: 100%;
+  width: 80%;
   height: 36px;
   text-align: center;
+  display: block;
+  margin-inline: auto;
 }
 
 .btn-add-species-to-my-collection-cache {
@@ -232,12 +247,12 @@ body {
   text-align: center;
 }
 
-.btn-add-a-log {
+.btn-add-a-log-form {
   border-radius: 50px;
   color: $beige;
   background-color: $green-dark;
   font-size: 12px;
-  width: 300px;
+  width: 100%;
   height: 34px;
   text-align: center;
   display: block;
@@ -1070,7 +1085,7 @@ padding-inline: 3%;
   justify-content: flex-end;
   margin-top: 10px;
   margin-right: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 0px;
   color: $green-dark;
 }
 

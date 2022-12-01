@@ -14,7 +14,7 @@
     <%= f.input :description, as: :text, size: "70x5", placeholder: "description" %>
     <%= f.hidden_field :longitude, value: params[:lng] %>
     <%= f.hidden_field :latitude, value: params[:lat] %>
-    <%= f.hidden_field :user, value: current_user %>
+    <%= f.hidden_field :user, value: current_user %> <br>
     <%= f.submit "Add cache", class: "btn mt-2 btn-add-a-cache-to-map" %>
   <% end %>
 </div>
