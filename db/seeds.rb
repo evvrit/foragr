@@ -40,9 +40,9 @@ puts "DB is clean."
 GENERIC_TITLES = [
   "I absolutely love finding treasures growing from the ground",
   "What a wonderful adventure I had that day",
-  "Could not have asked for a better haul",
+  "We could not have asked for a better haul",
   "Couldn't find what I was looking for; found somethiing even better!",
-  "These were delicious",
+  "I love this stuff",
   "We had an epic haul from an honest day's worth of foraging",
   "This stuff was growing in my backyard!",
   "We brought some to the neighbours :)"
@@ -318,7 +318,7 @@ def create_caches(times)
       longitude: [Faker::Number.within(range: -73.83053621933163..-73.56830061735444),
                   Faker::Number.within(range: -73.56708451801268..-73.36224401489754)].sample,
       latitude: Faker::Number.within(range: 45.4372900644492..45.6280127081368),
-      description: CACHE_DESCRIPTIONS.sample
+      description: CACHE_DESCRIPTIONS.sample,
       found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
       seed_photo: PHOTOS[counter],
       title: GENERIC_TITLES.sample
