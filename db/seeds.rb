@@ -38,41 +38,17 @@ puts "DB is clean."
 # ]
 
 GENERIC_TITLES = [
-  "we almost walked right by this",
   "I absolutely love finding treasures growing from the ground",
-  "what a wonderful adventure I had that day",
-  "could not have asked for a better haul",
-  "couldn't find what I was looking for; found somethiing even better!",
-  "these were delicious",
-  "looks like a brain lol",
-  "is this past its prime?",
-  "epic haul from an honest day's worth of foraging",
-  "this stuff was growing in my backyard!",
-  "we brought some to the neighbours :)"
+  "What a wonderful adventure I had that day",
+  "Could not have asked for a better haul",
+  "Couldn't find what I was looking for; found somethiing even better!",
+  "These were delicious",
+  "We had an epic haul from an honest day's worth of foraging",
+  "This stuff was growing in my backyard!",
+  "We brought some to the neighbours :)"
 ]
 
 # # Seeding species
-
-# species_names = [
-#   "Apricot Jelly", "Artist's Conk", "Bear's Head Tooth", "Birch Polypore",
-#   "Black Trumpet", "Brown Birch Bolete", "Chaga", "Chanterelles", "Chicken Fat Mushroom",
-#   "Chicken of the Woods", "Comb Tooth Fungus", "Common Morel", "Dark Stalked Bolete",
-#   "Delicious Lactarius", "Dryad's Saddle", "Elm Oyster", "Alfalfa","Alsike Clover",
-#   "American Spikenard", "Angelica", "Arctic Raspberry", "Asian Mustard", "Ball Mustard",
-#   "Bearberry", "Beggarticks", "Bilberry", "Bitter Dock", "Bladder Campion", "Blue Vervain",
-#   "Bluebead", "Borage", "Bracted Orache", "Broadleaf Plantain", "Bugleweed", "Bull Thistle",
-#   "Bunchberry", "Burdock", "Canada Lousewort", "Canada Thistle", "Canadian White Violet",
-#   "Canyon Grape", "Catnip", "Catsear", "Chamomile", "Chickweed", "Chicory", "Cleavers",
-#   "Cloudberry", "Coltsfoot", "Common Agrimony", "Common Reed", "Common Sow Thistle",
-#   "Common Yarrow", "Corn Mint", "Creeping Charlie", "Crimson Clover", "Arrowhead", "Cattail",
-#   "Coontail", "Eurasian Watermilfoil", "Flowering Rush", "Pickerelweed", "Sea Lungwort",
-#   "Sea Plantain", "Sea Sandwort", "Water Lotus", "Water Mint", "Water Plantain", "Watercress",
-#   "White Water Lily", "Yellow Water Lily", "Adam's Needle", "Autumn Olive", "Baobab", "Black Chokeberry",
-#   "Black Raspberry", "Common Barberry", "Common Blueberry", "Common Chokecherry", "Common Hawthorn",
-#   "Common Juniper", "Eastern Redbud", "Eastern White Cedar", "Eastern White Pine", "Elderberry",
-#   "Ginkgo", "Highbush Cranberry", "Calendula", "Cornflower", "Fuchsia", "Hibiscus", "Hollyhock",
-#   "Lavender", "Marigold", "Nasturtium", "Snapdragon"
-# ]
 
 # puts "making #{species_names.length} species"
 
@@ -186,39 +162,58 @@ GENERIC_TITLES = [
 # Users will stay the same
 
 puts "        "
-puts "making 6 users..."
+puts "making anna, river, plus 12 other users...all with password 'secret'"
 # puts "making 6 users..."
 
 anna = User.create(email: "a@a.a", password: "secret", username: "anna")
 river = User.create(email: "river@gmail.com", password: "secret", username: "RiverFlows95")
 
-4.times do User.create!(
+12.times do User.create!(
   email: Faker::Internet.email,
   password: "secret",
   username: Faker::Twitter.screen_name
 )
 end
 
-puts ">>> 6 users made."
+puts ">>> 14 users made."
 
 # Seeding species, on which all things depend
 
 puts "         "
 puts "seeding species..."
 
+all_species = [
+  "Apricot Jelly", "Artist's Conk", "Bear's Head Tooth", "Birch Polypore",
+  "Black Trumpet", "Brown Birch Bolete", "Chaga", "Chanterelles", "Chicken Fat Mushroom",
+  "Chicken of the Woods", "Comb Tooth Fungus", "Common Morel", "Dark Stalked Bolete",
+  "Delicious Lactarius", "Dryad's Saddle", "Elm Oyster", "Alfalfa","Alsike Clover",
+  "American Spikenard", "Angelica", "Arctic Raspberry", "Asian Mustard", "Ball Mustard",
+  "Bearberry", "Beggarticks", "Bilberry", "Bitter Dock", "Bladder Campion", "Blue Vervain",
+  "Bluebead", "Borage", "Bracted Orache", "Broadleaf Plantain", "Bugleweed", "Bull Thistle",
+  "Bunchberry", "Burdock", "Canada Lousewort", "Canada Thistle", "Canadian White Violet",
+  "Canyon Grape", "Catnip", "Catsear", "Chamomile", "Chickweed", "Chicory", "Cleavers",
+  "Cloudberry", "Coltsfoot", "Common Agrimony", "Common Reed", "Common Sow Thistle",
+  "Common Yarrow", "Corn Mint", "Creeping Charlie", "Crimson Clover", "Arrowhead", "Cattail",
+  "Coontail", "Eurasian Watermilfoil", "Flowering Rush", "Pickerelweed", "Sea Lungwort",
+  "Sea Plantain", "Sea Sandwort", "Water Lotus", "Water Mint", "Water Plantain", "Watercress",
+  "White Water Lily", "Yellow Water Lily", "Adam's Needle", "Autumn Olive", "Baobab", "Black Chokeberry",
+  "Black Raspberry", "Common Barberry", "Common Blueberry", "Common Chokecherry", "Common Hawthorn",
+  "Common Juniper", "Eastern Redbud", "Eastern White Cedar", "Eastern White Pine", "Elderberry",
+  "Ginkgo", "Highbush Cranberry", "Calendula", "Cornflower", "Fuchsia", "Hibiscus", "Hollyhock",
+  "Lavender", "Marigold", "Nasturtium", "Snapdragon"
+]
+
 # the specific species and order in which they appear in species_names is
 # integral to the matching of cache and species photos.
 
 species_names = [
   "Brown Birch Bolete", "Chanterelles",
-  "Chicken of the Woods"]
-
-#   ["Common Morel", "Beggarticks",
-#   "Bracted Orache", "Catnip", "Chamomile",
-#   "Common Reed", "Common Yarrow",
-#   "Common Juniper", "Eastern Redbud",
-#   "Canyon Grape", "Elm Oyster"
-# ]
+  "Chicken of the Woods", "Common Morel", "Beggarticks",
+  "Bracted Orache", "Catnip", "Chamomile",
+  "Common Reed", "Common Yarrow",
+  "Common Juniper", "Eastern Redbud",
+  "Canyon Grape", "Elm Oyster"
+]
 
 def create_species(identifier)
   @identifier = species_scraper(identifier)
@@ -244,7 +239,44 @@ species_instances = species_names.map do |identifier|
 end
 
 # puts ">>>first @species photo: #{@species_instances.first.photos.first}"
-puts ">>> #{species_instances.length} species created."
+puts ">>> #{species_instances.length} species created - to be used in caches."
+
+# making sure we still have all species seeded so the user can choose from a full list
+
+# extra_species = all_species.reject do |s|
+#   species_names.include?(s)
+# end                                                 # => doesn't work for some reason, only rejects 4
+
+extra_species = [
+  "Apricot Jelly", "Artist's Conk", "Bear's Head Tooth", "Birch Polypore",
+  "Black Trumpet", "Chaga", "Chicken Fat Mushroom", "Comb Tooth Fungus", "Dark Stalked Bolete",
+  "Delicious Lactarius", "Dryad's Saddle", "Alfalfa","Alsike Clover",
+  "American Spikenard", "Angelica", "Arctic Raspberry", "Asian Mustard", "Ball Mustard",
+  "Bearberry", "Bilberry", "Bitter Dock", "Bladder Campion", "Blue Vervain",
+  "Bluebead", "Borage", "Broadleaf Plantain", "Bugleweed", "Bull Thistle",
+  "Bunchberry", "Burdock", "Canada Lousewort", "Canada Thistle", "Canadian White Violet",
+  "Catsear", "Chickweed", "Chicory", "Cleavers",
+  "Cloudberry", "Coltsfoot", "Common Agrimony", "Common Sow Thistle",
+  "Corn Mint", "Creeping Charlie", "Crimson Clover", "Arrowhead", "Cattail",
+  "Coontail", "Eurasian Watermilfoil", "Flowering Rush", "Pickerelweed", "Sea Lungwort",
+  "Sea Plantain", "Sea Sandwort", "Water Lotus", "Water Mint", "Water Plantain", "Watercress",
+  "White Water Lily", "Yellow Water Lily", "Adam's Needle", "Autumn Olive", "Baobab", "Black Chokeberry",
+  "Black Raspberry", "Common Barberry", "Common Blueberry", "Common Chokecherry", "Common Hawthorn",
+  "Eastern White Cedar", "Eastern White Pine", "Elderberry",
+  "Ginkgo", "Highbush Cranberry", "Calendula", "Cornflower", "Fuchsia", "Hibiscus", "Hollyhock",
+  "Lavender", "Marigold", "Nasturtium", "Snapdragon"
+]
+
+puts "all species ************** #{all_species.length}"
+puts "extra species ************** #{extra_species.length}"
+puts "                "
+puts "Making the rest of the species for the dropdown..."
+
+extra_species_instances = extra_species.map do |identifier|
+  create_species(identifier)
+end
+
+puts ">>> #{extra_species_instances.length} species created - for the dropdown."
 
 puts "          "
 puts "seeding caches"
@@ -288,7 +320,7 @@ def create_caches(times)
   return caches
 end
 
-cache_instances = create_caches(3)
+cache_instances = create_caches(14)
 
 # puts ">>>first @cache photo: #{cache_instances.first.seed_photo}"
 puts ">>> #{cache_instances.length} caches created."
@@ -312,30 +344,55 @@ puts "Caches now all have a corresponding species assigned"
 # unfortunately these are the same pics as caches, will diversify if we have time
 
 puts "         "
-puts "making River (a@a.a) a log with a picture of her dog..."
+puts "making River (river@gmail.com) a log with a picture of her dog..."
 
-# Make a log that has good content
-LOGS_CONTENT = "I'm starting to get the hang of plant identification.
-The other day we came across stinging nettle and I knew it on sight.
-Of course I took a closer look before bringing some home to my partner but sure
-enough we had a pasta dish with it and it tasted quite right. I want to venture into some more uncommon mushrooms
-but I'm afraid my skills aren't at that level just yet; I'm not trying to wind up in the ER.
-The good thing is I have all the time in the world and I am enjoying the process of learning. I'm glad I got started."
+# Make logs that don't have lorem ipsum as content
+
+LOGS_CONTENT = ["I'm starting to get the hang of plant identification. The other day we came across stinging nettle and I knew it on sight. Of course I took a closer look before bringing some home to my partner but sure enough we had a pasta dish with it and it tasted quite right. I want to venture into some more uncommon mushrooms but I'm afraid my skills aren't at that level just yet; I'm not trying to wind up in the ER. The good thing is I have all the time in the world and I am enjoying the process of learning. I'm glad I got started.",
+"The best part of my day is waking up early to catch the sunrise, stumble on some new plant or mushroom, head down to the water to take in some fresh air and give thanks to the earth for all that she provides. I'm amazed at how much is going on beneath my feet. I feel like a kid again!",
+"My cooking game has ACCELERATED since I started foraging. I didn't even know most of this stuff existed, and sure, some of it needs a good amount of butter to go down, but a lot of it is tastier than I expected. Plus it's free, so who can complain. I enjoy the process too, though I think I'm going to need to get some better shoes if I'm going to make this a hobby. I think I will! :D"]
+
+GENERIC_LOG_TITLES = [
+  "We almost walked right by this",
+  "The first hour is the best hour",
+  "Killing it in the kitchen"
+]
 
 Log.create!(
-  content: LOGS_CONTENT,
+  content: LOGS_CONTENT[0],
   created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   user_id: river.id,
-  cache_id: cache_instances[2],
-  title: GENERIC_TITLES[0],
+  cache_id: cache_instances[2].id,
+  title: GENERIC_LOG_TITLES[0],
   seed_photo: "dog-woods.jpg"
 )
+puts "making River (river@gmail.com) a log about getting up early to forage..."
 
-puts "making 100 logs..."
+Log.create!(
+  content: LOGS_CONTENT[1],
+  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
+  user_id: river.id,
+  cache_id: cache_instances[-2].id,
+  title: GENERIC_LOG_TITLES[1],
+  seed_photo: "couple-mountains.jpg"
+)
 
-100.times do
+puts "making River (river@gmail.com) a log about cooking well with foraged mushrooms..."
+
+Log.create!(
+  content: LOGS_CONTENT[2],
+  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
+  user_id: river.id,
+  cache_id: cache_instances[1].id,
+  title: GENERIC_LOG_TITLES[2],
+  seed_photo: "mushroom-apps.jpg"
+)
+
+puts "making 10 fake logs..."
+
+10.times do
   log = Log.new(
-    content: Faker::Lorem.paragraphs(number: 1), # this should not be lorem
+    content: LOGS_CONTENT.sample,
     created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
     user_id: User.all.sample.id,
     cache_id: Cache.all.sample.id,
@@ -345,7 +402,7 @@ puts "making 100 logs..."
   log.save!
 end
 
-puts "100 logs created."
+puts "10 fake logs created."
 
 # Seeding favorites
 
@@ -361,9 +418,10 @@ puts "and #{User.first.favorites_by_type('Cache').length} caches."
 2.times { User.second.favorite(Species.all.sample) }
 3.times { User.second.favorite(Cache.all.sample) }
 
-puts "b@b.b has favorited #{User.second.favorites_by_type('Species').length} species"
+puts "river (river@gmail.com) has favorited #{User.second.favorites_by_type('Species').length} species"
 puts "and #{User.second.favorites_by_type('Cache').length} caches."
 
+puts "             "
 puts "distributing 12 additional favorites randomly..."
 
 12.times { User.all.sample.favorite(Species.all.sample) }
