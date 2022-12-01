@@ -5,6 +5,7 @@
   padding-inline: 3%;
   flex-direction: column;
   padding-bottom: 70px;
+  word-break: break-word;
 }
 
 .master-container-log-show {
@@ -13,6 +14,7 @@
   flex-direction: column;
   padding-bottom: 70px;
   padding-top: 70px;
+  word-break: break-word;
 }
 
 .master-container-cache-show {
@@ -21,6 +23,7 @@
   flex-direction: column;
   padding-bottom: 70px;
   padding-top: 0px;
+  word-break: break-word;
 }
 
 .master-container-cache-show p {
@@ -77,21 +80,23 @@ body {
 }
 
 .header-collection-species {
-  color: $green-dark;
+  color: $green-light;
   display: flex;
   flex-direction: row-reverse;
   padding-top: 10px;
   // padding-right: 15px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .header-collection-cache {
-  color: $green-dark;
+  color: $gold;
   display: flex;
   flex-direction: row-reverse;
   padding-top: 10px;
   // padding-right: 15px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 // NAVBAR
@@ -130,14 +135,21 @@ body {
 
 // BUTTONS
 
+.fav-btn-and-species-card {
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  gap: 10px;
+}
+
 .fav-btn-and-if-species {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .links a {
@@ -445,7 +457,8 @@ body {
   flex-direction: row-reverse;
   padding-top: 10px;
   padding-right: 15px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 
@@ -696,6 +709,7 @@ body {
 
 .card-species-added-to-collection a {
   color: $green-light;
+  word-break: break-word;
 }
 
 .card-species-added-to-collection img {
@@ -890,7 +904,7 @@ padding-inline: 3%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(100px, 100px);
 }
 
 .p1-log-show img {
@@ -1023,10 +1037,12 @@ padding-inline: 3%;
 
 // SPECIES PAGE - show
 
-.species-name {
-  width: 100%;
+.species-name h2 {
+  // width: 100%;
   color: $green-dark;
   margin-top: 69px;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .species-infos {
@@ -1060,7 +1076,7 @@ padding-inline: 3%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(100px, 100px);
 }
 
 
@@ -1102,9 +1118,12 @@ padding-inline: 3%;
 }
 
 .form-log h1 {
-  margin-top: 45px;
+  margin-top: 6px;
   text-align: center;
   color: $green-dark;
+  margin-bottom: 69px;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 // .form-log h1 {
@@ -1144,12 +1163,13 @@ padding-inline: 3%;
 
 
 .cache-show-infos {
-padding-top: 10px;
+padding-top: 30px;
 }
 
 .cache-show-infos p {
   text-align: justify;
   color: $gold;
+  font-weight: normal;
 
 }
 
