@@ -38,6 +38,7 @@ puts "DB is clean."
 # ]
 
 GENERIC_TITLES = [
+  "we almost walked right by this",
   "I absolutely love finding treasures growing from the ground",
   "what a wonderful adventure I had that day",
   "could not have asked for a better haul",
@@ -49,7 +50,6 @@ GENERIC_TITLES = [
   "this stuff was growing in my backyard!",
   "we brought some to the neighbours :)"
 ]
-
 
 # # Seeding species
 
@@ -189,8 +189,8 @@ puts "        "
 puts "making 6 users..."
 # puts "making 6 users..."
 
-User.create(email: "a@a.a", password: "secret", username: "anna")
-User.create(email: "b@b.b", password: "secret", username: "bob")
+anna = User.create(email: "a@a.a", password: "secret", username: "anna")
+river = User.create(email: "river@gmail.com", password: "secret", username: "RiverFlows95")
 
 4.times do User.create!(
   email: Faker::Internet.email,
@@ -312,6 +312,25 @@ puts "Caches now all have a corresponding species assigned"
 # unfortunately these are the same pics as caches, will diversify if we have time
 
 puts "         "
+puts "making River (a@a.a) a log with a picture of her dog..."
+
+# Make a log that has good content
+LOGS_CONTENT = "I'm starting to get the hang of plant identification.
+The other day we came across stinging nettle and I knew it on sight.
+Of course I took a closer look before bringing some home to my partner but sure
+enough we had a pasta dish with it and it tasted quite right. I want to venture into some more uncommon mushrooms
+but I'm afraid my skills aren't at that level just yet; I'm not trying to wind up in the ER.
+The good thing is I have all the time in the world and I am enjoying the process of learning. I'm glad I got started."
+
+Log.create!(
+  content: LOGS_CONTENT,
+  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
+  user_id: river.id,
+  cache_id: cache_instances[2],
+  title: GENERIC_TITLES[0],
+  seed_photo: "dog-woods.jpg"
+)
+
 puts "making 100 logs..."
 
 100.times do
