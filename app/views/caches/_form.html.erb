@@ -1,4 +1,4 @@
-<div class="container">
+<div class="master-container">
   <%= simple_form_for @cache, html: { data: { map_target: 'form' }} do |f| %>
     <%= f.input :title, placeholder: "title" %><hr>
     <div id="cache-species">
@@ -14,7 +14,7 @@
     <%= f.input :description, as: :text, size: "70x5", placeholder: "description" %>
     <%= f.hidden_field :longitude, value: params[:lng] %>
     <%= f.hidden_field :latitude, value: params[:lat] %>
-    <%= f.hidden_field :user, value: current_user %>
-    <%= f.submit "Add cache", class: "btn btn-sm btn-primary btn-block mt-2" %>
+    <%= f.hidden_field :user, value: current_user %> <br>
+    <%= f.submit "Add cache", class: "btn mt-2 btn-add-a-cache-to-map" %>
   <% end %>
 </div>

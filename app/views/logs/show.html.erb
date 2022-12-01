@@ -1,51 +1,51 @@
-<div class="container-show-cache">
-  <%= render "shared/back" %>
-  <div class="header-show-cache">
-    <h1><p><strong><%= @log.title %></strong></p></h1>
+<%= render "shared/back" %>
+
+<div class="master-container-log-show">
+
+  <div class="header-log-show">
+    <h1><strong><%= @log.title %></strong></h1>
     <p><%= @log.created_on.strftime("%b %d, %Y") %></p>
   </div>
+
 
   <div class="photo-log-all">
 
     <% if @log.photos.attached? %>
       <% if @log.photos.count == 1 %>
-        <div class="p1-cache-show">
+        <div class="p1-log-show">
           <%= cl_image_tag @log.photos.first.key %>
         </div>
       <% elsif @log.photos.count == 2 %>
-        <div class="p1-cache-show">
+        <div class="p1-log-show">
           <%= cl_image_tag @log.photos.first.key %>
         </div>
-        <div class="photo-cache-2-3">
-          <div class="p2-cache-show">
+
+          <div class="p2-log-show">
             <%= cl_image_tag @log.photos.last.key %>
           </div>
-        </div>
+
       <% else %>
-        <div class="p1-cache-show">
+        <div class="p1-log-show">
           <%= cl_image_tag @log.photos.first.key %>
         </div>
-        <div class="photo-cache-2-3">
-          <div class="p2-cache-show">
+
+          <div class="p2-log-show">
             <%= cl_image_tag @log.photos[1].key %>
           </div>
-          <div class="p3-cache-show">
+          <div class="p3-log-show">
             <%= cl_image_tag @log.photos.last.key %>
           </div>
-        </div>
+
       <% end %>
     <% else %>
-      <div class="p1-cache-show">
+      <div class="p1-log-show-seed">
         <%= image_tag @log.seed_photo %>
       </div>
     <% end %>
 
+    </div>
+        <p class="log-infos-show"><%= @log.content %></p>
+    </div>
   </div>
-
-  <br>
-
-  </div>
-      <p class="log-infos-show"><%= @log.content %></p>
-  </div>
-
+</div>
 </div>
