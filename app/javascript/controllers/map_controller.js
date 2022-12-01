@@ -30,6 +30,11 @@ export default class extends Controller {
       mapContainerEl.style.visibility = 'visible';
     });
 
+    if (this.markersValue.length > 1) {
+      this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl }))
+    }
+
     this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
