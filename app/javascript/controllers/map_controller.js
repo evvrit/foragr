@@ -62,10 +62,12 @@ export default class extends Controller {
         const popup = new mapboxgl.Popup({className: "popup-container", closeOnClick: true, focusAfterOpen: false})
         .setHTML(marker.cache_info)
         .setMaxWidth("250px")
-        this.marker = new mapboxgl.Marker({color: '#35635B'})
+        let one_marker = new mapboxgl.Marker({color: '#35635B'})
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup, {focusAfterOpen: true})
         .addTo(this.map)
+        if (this.markersValue.length > 1) {
+          one_marker.setPopup(popup, {focusAfterOpen: true}).addTo(this.map);
+        }
     })
   }
 
