@@ -15,15 +15,20 @@
 .landing-page h1 {
   font-size: 50px;
   color: $beige;
+  padding-bottom: 10px;
+}
 
-
+.landing-page h2 {
+  font-size: 25px;
+  color: $beige;
+  padding-bottom: 40px;
 }
 
 .btn-ghost {
-  color: $beige;
-  // border: 1px solid white;
-  padding: 8px 24px;
+  font-size: 20px;
+  color: #35635B;
+  padding: 23px 48px;
   border-radius: 50px;
-  font-weight: lighter;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: $beige;
+  opacity: 0.8;
 }
