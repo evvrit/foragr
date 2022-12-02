@@ -15,6 +15,7 @@
   <div class="container-fluid py-1">
     <p class= "popup-username">-@<%= cache.user.username %></p>
     <p><%= link_to "#{cache.title.first(32)}...", cache_path(cache), class: "popup-title" %></p>
+    <p> <%= cache.species.first.name unless cache.species.empty? %> </p>
   </div>
 </div>
 
