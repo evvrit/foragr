@@ -330,9 +330,9 @@ body {
 
 .icons-container-caches-species {
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   justify-content: space-evenly;
-  height: 50px;
+  // height: 50px;
   align-items: flex-end;
 }
 
@@ -1304,4 +1304,28 @@ padding-top: 30px;
   text-decoration: none;
   font-size: small;
   color: $brown-cache-card-text
+}
+
+.gold-muted-text {
+  color: $gold;
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+.gold-bolded-text {
+  color: $gold;
+  font-size: smaller;
+  font-weight: bolder;
+}
+
+.green-muted-text {
+  color: $green-dark;
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+.green-bolded-text {
+  color: $green-dark;
+  font-size: smaller;
+  font-weight: lighter;
 }

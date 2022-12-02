@@ -5,14 +5,17 @@
 <%= link_to "log out", destroy_user_session_path, data: { 'turbo-method': :delete }, class: "btn btn-outline-secondary btn-sm btn-logout", style: "position: absolute; top: 40px;" %>
 </div>
 
-<div class="card-log-profile">
-  <% if current_user.email == "a@a.a" || current_user.email == "river@gmail.com" %>
-    <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
-  <% end %>
-  <div class="card-log-profile-infos">
-    <h2><%= current_user.username %></h2>
-    <p><strong>Montréal, QC</strong></p>
+<div class="display-flex" data-controller="go-home">
+  <div class="card-log-profile">
+    <% if current_user.email == "richarddfyoung@gmail.com" || current_user.email == "river@gmail.com" %>
+      <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
+    <% end %>
+    <div class="card-log-profile-infos">
+      <h2 data-go-home-target="username" data-action="click->go-home#clickHiddenLink"><%= current_user.username %></h2>
+      <p><strong>Montréal, QC</strong></p>
+    </div>
   </div>
+  <%= link_to "root", root_path, style: "padding: 10px; visibility: hidden;", id: "go-home-link" %>
 </div>
 
 <br>
@@ -34,8 +37,10 @@
           <%= link_to log_path(log) do %>
             <% if log.photos.attached? %>
                 <%= cl_image_tag log.photos.first.key %>
-            <% else %>
+            <% elsif log.seed_photo %>
               <%= image_tag log.seed_photo %>
+            <% else %>
+              <%= image_tag "default.png" %>
             <% end %>
           <% end%>
         </div>

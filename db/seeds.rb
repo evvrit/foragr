@@ -68,13 +68,15 @@ extra_species = [
 
 LOGS_CONTENT = ["I'm starting to get the hang of plant identification. The other day we came across stinging nettle and I knew it on sight. Of course I took a closer look before bringing some home to my partner but sure enough we had a pasta dish with it and it tasted quite right. I want to venture into some more uncommon mushrooms but I'm afraid my skills aren't at that level just yet; I'm not trying to wind up in the ER. The good thing is I have all the time in the world and I am enjoying the process of learning. I'm glad I got started.",
   "The best part of my day is waking up early to catch the sunrise, stumble on some new plant or mushroom, head down to the water to take in some fresh air and give thanks to the earth for all that she provides. I'm amazed at how much is going on beneath my feet. I feel like a kid again!",
-  "My cooking game has ACCELERATED since I started foraging. I didn't even know most of this stuff existed, and sure, some of it needs a good amount of butter to go down, but a lot of it is tastier than I expected. Plus it's free, so who can complain. I enjoy the process too, though I think I'm going to need to get some better shoes if I'm going to make this a hobby. I think I will! :D"
+  "My cooking game has ACCELERATED since I started foraging. I didn't even know most of this stuff existed, and sure, some of it needs a good amount of butter to go down, but a lot of it is tastier than I expected. Plus it's free, so who can complain. I enjoy the process too, though I think I'm going to need to get some better shoes if I'm going to make this a hobby. I think I will! :D",
+  "There's no question that the highlight of this season has been picking up foraging in a new city. There's more in Montreal than meets the eye! Sad to see the snow but I heard chaga mushrooms are abundant here in the winter."
 ]
 
 GENERIC_LOG_TITLES = [
   "We almost walked right by this",
   "The first hour is the best hour",
-  "Killing it in the kitchen"
+  "Killing it in the kitchen",
+  "An autumn well spent"
 ]
 
 PHOTOS = [
@@ -114,9 +116,9 @@ puts "DB is clean."
 
 
 puts "        "
-puts "making a@a.a, river@gmail.com, plus 12 other users...all with password 'secret'"
+puts "making richarddfyoung@gmail.com, river@gmail.com, plus 12 other users...all with password 'secret'"
 
-anna = User.create(email: "a@a.a", password: "secret", username: "anna")
+anna = User.create(email: "richarddfyoung@gmail.com", password: "secret", username: "frauzino_the_4ager")
 river = User.create(email: "river@gmail.com", password: "secret", username: "RiverFlows95")
 
 12.times do
@@ -262,46 +264,56 @@ puts "Caches now all have a corresponding species assigned"
 # LOGS
 
 puts "         "
-puts "making River (river@gmail.com) a log with a picture of her dog..."
+puts "making Frauzino (richarddfyoung@gmail.com) a log with a picture of his dog..."
 
 
 Log.create!(
   content: LOGS_CONTENT[0],
-  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-  user_id: river.id,
+  created_on: Date.today - 3,
+  user_id: anna.id,
   cache_id: cache_instances[2].id,
   title: GENERIC_LOG_TITLES[0],
   seed_photo: "dog-woods.jpg"
 )
-puts "making River (river@gmail.com) a log about getting up early to forage..."
+puts "making Frauzino (richarddfyoung@gmail.com) a log about getting up early to forage..."
 
 Log.create!(
   content: LOGS_CONTENT[1],
-  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-  user_id: river.id,
+  created_on: Date.today - 2,
+  user_id: anna.id,
   cache_id: cache_instances[-2].id,
   title: GENERIC_LOG_TITLES[1],
   seed_photo: "couple-mountains.jpg"
 )
 
-puts "making River (river@gmail.com) a log about cooking well with foraged mushrooms..."
+puts "making Frauzino (richarddfyoung@gmail.com) a log about cooking well with foraged mushrooms..."
 
 Log.create!(
   content: LOGS_CONTENT[2],
-  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-  user_id: river.id,
+  created_on: Date.today - 1,
+  user_id: anna.id,
   cache_id: cache_instances[1].id,
   title: GENERIC_LOG_TITLES[2],
   seed_photo: "mushroom-apps.jpg"
 )
 
-puts "making 3 random logs for a@a.a..."
+puts "making Frauzino (richarddfyoung@gmail.com) a log about wrapping up the fall season..."
+
+Log.create!(
+  content: LOGS_CONTENT[3],
+  created_on: Date.today,
+  user_id: anna.id,
+  title: GENERIC_LOG_TITLES[3],
+  seed_photo: "eos.jpg"
+)
+
+puts "making 3 random logs for river@gmail.com..."
 
 3.times do
   log = Log.new(
     content: LOGS_CONTENT.sample,
     created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-    user_id: anna.id,
+    user_id: river.id,
     cache_id: Cache.all.sample.id,
     title: GENERIC_TITLES.sample
   )
@@ -319,9 +331,10 @@ puts "favoriting caches and species..."
 2.times { User.first.favorite(Species.all.sample) }
 3.times { User.first.favorite(Cache.all.sample) }
 
-puts "a@a.a has favorited #{User.first.favorites_by_type('Species').length} species"
+puts "frauzino (richarddfyoung@gmail.com) has favorited #{User.first.favorites_by_type('Species').length} species"
 puts "and #{User.first.favorites_by_type('Cache').length} caches."
 
+User.second.favorite(Cache.last)
 2.times { User.second.favorite(Species.all.sample) }
 3.times { User.second.favorite(Cache.all.sample) }
 
