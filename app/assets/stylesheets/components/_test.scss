@@ -1240,13 +1240,25 @@ padding-top: 30px;
   color: $brown-cache-card-text
 }
 
-#gold-muted-text {
+.gold-muted-text {
   color: $gold;
   font-size: smaller;
   font-weight: lighter;
 }
 
-#green-muted-text {
+.gold-bolded-text {
+  color: $gold;
+  font-size: smaller;
+  font-weight: bolder;
+}
+
+.green-muted-text {
+  color: $green-dark;
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+.green-bolded-text {
   color: $green-dark;
   font-size: smaller;
   font-weight: lighter;
