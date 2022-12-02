@@ -39,8 +39,9 @@
     </div>
   </div>
 
-<br>
 <%#MASTER CONTAINER%>
+
+<div class="header-cache-show-and-back-btn">Caches</div>
 
 <div class="master-container-cache-show" data-controller="toggle-favorite">
   <div class="header-cache-show">
@@ -79,10 +80,10 @@
           </div>
         <%# </div> %>
       <% end %>
-    <% elsif @cache.seed_photo != nil %>
-      <div class="p1-cache-show">
-        <%= image_tag @cache.seed_photo %>
-      </div>
+    <% elsif @cache.seed_photo %>
+    <div class="p1-cache-show-seed">
+      <%= image_tag @cache.seed_photo %>
+    </div>
     <% else %>
       <p>No uploaded photos</p>
     <% end %>
