@@ -5,9 +5,6 @@ export default class extends Controller {
   static targets = ["username"]
 
   connect() {
-    console.log(this.usernameTarget);
-    this.link = document.getElementById("go-home-link");
-    console.log(this.link);
   }
 
   clickHiddenLink() {
