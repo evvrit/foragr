@@ -37,8 +37,10 @@
           <%= link_to log_path(log) do %>
             <% if log.photos.attached? %>
                 <%= cl_image_tag log.photos.first.key %>
-            <% else %>
+            <% elsif log.seed_photo %>
               <%= image_tag log.seed_photo %>
+            <% else %>
+              <%= image_tag "default.png" %>
             <% end %>
           <% end%>
         </div>
