@@ -25,7 +25,6 @@ export default class extends Controller {
   }
 
   showCard() {
-    // console.log(event);
     this.cardTarget.classList.toggle('d-none')
   }
 

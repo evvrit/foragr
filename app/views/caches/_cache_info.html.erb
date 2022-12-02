@@ -1,17 +1,25 @@
-  <div class="d-flex border-radius-sm align-items-center position: relative">
-    <a href="/caches/<%= cache.id %>">
-      <span class="show-link"></span>
-    </a>
-    <%= link_to cache_path(cache) do %>
-      <% if cache.photos.attached? %>
-        <%= cl_image_tag cache.photos.first.key, width: 100, height: 100, crop: :fill, style: "border-radius: 10px" %>
-      <% else %>
-        <%= image_tag cache.seed_photo, width: 100, height: 100, crop: :fill, style: "border-radius: 10px" %>
-      <% end %>
+<div class="d-flex border-radius-sm align-items-center position: relative">
+  <a href="/caches/<%= cache.id %>">
+    <span class="show-link"></span>
+  </a>
+  <%= link_to cache_path(cache) do %>
+    <% if cache.photos.attached? %>
+      <%= cl_image_tag cache.photos.first.key, width: 100, height: 100, crop: :fill, style: "border-radius: 10px" %>
+    <% elsif cache.seed_photo %>
+      <%= image_tag cache.seed_photo, width: 100, height: 100, crop: :fill, style: "border-radius: 10px" %>
+    <% else %>
+      <p></p>
     <% end %>
+  <% end %>
 
-    <div class="container-fluid py-1">
-      <p class= "popup-username">-@<%= cache.user.username %></p>
-      <p><%= link_to "#{cache.title.first(32)}...", cache_path(cache), class: "popup-title" %></p>
-    </div>
+  <div class="container-fluid py-1">
+    <p class= "popup-username">-@<%= cache.user.username %></p>
+    <p><%= link_to "#{cache.title.first(32)}...", cache_path(cache), class: "popup-title" %></p>
   </div>
+</div>
+
+<style>
+  .mapboxgl-popup-close-button {
+    z-index: 2;
+  }
+</style>
