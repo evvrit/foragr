@@ -2,14 +2,22 @@ require "faker"
 require_relative "scraper"
 
 GENERIC_TITLES = [
-  "I absolutely love finding treasures growing from the ground",
+  "I love finding treasures growing from the ground",
   "What a wonderful adventure I had that day",
   "We could not have asked for a better haul",
-  "Couldn't find what I was looking for; found somethiing even better!",
+  "Couldn't find what I was looking for; found something even better!",
   "I love this stuff",
   "We had an epic haul from an honest day's worth of foraging",
   "This stuff was growing in my backyard!",
-  "We brought some to the neighbours :)"
+  "We brought some to the neighbours :)",
+  "Having fun in the sun",
+  "Earth's bounty",
+  "It's harvest season baby!!",
+  "Get 'em while they're good!",
+  "Stumbled upon these walking the dog...",
+  "Simply the best!!",
+  "My daughter's favourite :)",
+  "Not an easy find but worth the hunt"
 ]
 
 all_species = [
@@ -203,7 +211,7 @@ puts ">>> #{cache_instances.length} caches created."
 
 puts "Seeding 4 caches at specific greenspaces..."
 
-Cache.create!(
+juniper_cache = Cache.create!(
   user: User.all.sample,
   longitude: -73.60981447783107,
   latitude: 45.50052293383716,
@@ -213,17 +221,17 @@ Cache.create!(
   title: GENERIC_TITLES.sample
 )
 
-Cache.create!(
+eastern_redbud_cache = Cache.create!(
   user: User.all.sample,
   longitude: -73.59417371757172,
   latitude: 45.507953934912464,
-  description: CACHE_DESCRIPTIONS.sample,
+  description: CACHE_DESCRIPTIONS[0],
   found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   seed_photo: PHOTOS[-3],
-  title: GENERIC_TITLES.sample
+  title: GENERIC_TITLES[7]
 )
 
-Cache.create!(
+canyon_grape_cache = Cache.create!(
   user: User.all.sample,
   longitude: -73.56701946869165,
   latitude: 45.566869579158784,
@@ -233,14 +241,14 @@ Cache.create!(
   title: GENERIC_TITLES.sample
 )
 
-Cache.create!(
+elm_oyster_cache = Cache.create!(
   user: User.all.sample,
   longitude: -73.60311475055244,
   latitude: 45.439450804032525,
   description: CACHE_DESCRIPTIONS.sample,
   found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   seed_photo: PHOTOS[-1],
-  title: GENERIC_TITLES.sample
+  title: GENERIC_TITLES[-6]
 )
 
 # CACHESPECIES
@@ -332,11 +340,12 @@ puts "favoriting caches and species..."
 3.times { User.first.favorite(Cache.all.sample) }
 
 puts "frauzino (richarddfyoung@gmail.com) has favorited #{User.first.favorites_by_type('Species').length} species"
-puts "and #{User.first.favorites_by_type('Cache').length} caches."
+puts "and #{User.first.favorites_by_type('Cache').length } caches."
 
-User.second.favorite(Cache.last)
-2.times { User.second.favorite(Species.all.sample) }
-3.times { User.second.favorite(Cache.all.sample) }
+anna.favorite(eastern_redbud_cache)
+anna.favorite(elm_oyster_cache)
+anna.favorite(cache_instances[0])
+2.times { anna.favorite(Species.all.sample) }
 
 puts "river (river@gmail.com) has favorited #{User.second.favorites_by_type('Species').length} species"
 puts "and #{User.second.favorites_by_type('Cache').length} caches."
