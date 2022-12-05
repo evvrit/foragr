@@ -40,15 +40,19 @@
           </div>
 
       <% end %>
-    <% else %>
+    <% elsif @log.seed_photo %>
       <div class="p1-log-show-seed">
         <%= image_tag @log.seed_photo %>
       </div>
+    <% else %>
+      <p></p>
     <% end %>
 
     </div>
         <p class="log-infos-show"><%= @log.content %></p>
-        <%= link_to "Related Cache", cache_path(@log.cache), class: "btn btn-go-to-species mt-2" %>
+        <% if @log.cache %>
+          <%= link_to "Related Cache", cache_path(@log.cache), class: "btn btn-go-to-species mt-2" %>
+        <% end %>
     </div>
   </div>
 </div>
