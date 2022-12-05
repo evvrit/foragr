@@ -2,14 +2,22 @@ require "faker"
 require_relative "scraper"
 
 GENERIC_TITLES = [
-  "I absolutely love finding treasures growing from the ground",
+  "I love finding treasures growing from the ground",
   "What a wonderful adventure I had that day",
   "We could not have asked for a better haul",
-  "Couldn't find what I was looking for; found somethiing even better!",
+  "Couldn't find what I was looking for; found something even better!",
   "I love this stuff",
   "We had an epic haul from an honest day's worth of foraging",
   "This stuff was growing in my backyard!",
-  "We brought some to the neighbours :)"
+  "We brought some to the neighbours :)",
+  "Having fun in the sun",
+  "Earth's bounty",
+  "It's harvest season baby!!",
+  "Get 'em while they're good!",
+  "Stumbled upon these walking the dog...",
+  "Simply the best!!",
+  "My daughter's favourite :)",
+  "Not an easy find but worth the hunt"
 ]
 
 all_species = [
@@ -68,13 +76,15 @@ extra_species = [
 
 LOGS_CONTENT = ["I'm starting to get the hang of plant identification. The other day we came across stinging nettle and I knew it on sight. Of course I took a closer look before bringing some home to my partner but sure enough we had a pasta dish with it and it tasted quite right. I want to venture into some more uncommon mushrooms but I'm afraid my skills aren't at that level just yet; I'm not trying to wind up in the ER. The good thing is I have all the time in the world and I am enjoying the process of learning. I'm glad I got started.",
   "The best part of my day is waking up early to catch the sunrise, stumble on some new plant or mushroom, head down to the water to take in some fresh air and give thanks to the earth for all that she provides. I'm amazed at how much is going on beneath my feet. I feel like a kid again!",
-  "My cooking game has ACCELERATED since I started foraging. I didn't even know most of this stuff existed, and sure, some of it needs a good amount of butter to go down, but a lot of it is tastier than I expected. Plus it's free, so who can complain. I enjoy the process too, though I think I'm going to need to get some better shoes if I'm going to make this a hobby. I think I will! :D"
+  "My cooking game has ACCELERATED since I started foraging. I didn't even know most of this stuff existed, and sure, some of it needs a good amount of butter to go down, but a lot of it is tastier than I expected. Plus it's free, so who can complain. I enjoy the process too, though I think I'm going to need to get some better shoes if I'm going to make this a hobby. I think I will! :D",
+  "There's no question that the highlight of this season has been picking up foraging in a new city. There's more in Montreal than meets the eye! Sad to see the snow but I heard chaga mushrooms are abundant here in the winter."
 ]
 
 GENERIC_LOG_TITLES = [
   "We almost walked right by this",
   "The first hour is the best hour",
-  "Killing it in the kitchen"
+  "Killing it in the kitchen",
+  "An autumn well spent"
 ]
 
 PHOTOS = [
@@ -114,9 +124,9 @@ puts "DB is clean."
 
 
 puts "        "
-puts "making a@a.a, river@gmail.com, plus 12 other users...all with password 'secret'"
+puts "making richarddfyoung@gmail.com, river@gmail.com, plus 12 other users...all with password 'secret'"
 
-anna = User.create(email: "a@a.a", password: "secret", username: "anna")
+anna = User.create(email: "richarddfyoung@gmail.com", password: "secret", username: "frauzino_the_4ager")
 river = User.create(email: "river@gmail.com", password: "secret", username: "RiverFlows95")
 
 12.times do
@@ -201,7 +211,7 @@ puts ">>> #{cache_instances.length} caches created."
 
 puts "Seeding 4 caches at specific greenspaces..."
 
-Cache.create!(
+juniper_cache = Cache.create!(
   user: User.all.sample,
   longitude: -73.60981447783107,
   latitude: 45.50052293383716,
@@ -211,17 +221,17 @@ Cache.create!(
   title: GENERIC_TITLES.sample
 )
 
-Cache.create!(
+eastern_redbud_cache = Cache.create!(
   user: User.all.sample,
   longitude: -73.59417371757172,
   latitude: 45.507953934912464,
-  description: CACHE_DESCRIPTIONS.sample,
+  description: CACHE_DESCRIPTIONS[0],
   found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   seed_photo: PHOTOS[-3],
-  title: GENERIC_TITLES.sample
+  title: GENERIC_TITLES[7]
 )
 
-Cache.create!(
+canyon_grape_cache = Cache.create!(
   user: User.all.sample,
   longitude: -73.56701946869165,
   latitude: 45.566869579158784,
@@ -231,14 +241,14 @@ Cache.create!(
   title: GENERIC_TITLES.sample
 )
 
-Cache.create!(
+elm_oyster_cache = Cache.create!(
   user: User.all.sample,
   longitude: -73.60311475055244,
   latitude: 45.439450804032525,
   description: CACHE_DESCRIPTIONS.sample,
   found_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
   seed_photo: PHOTOS[-1],
-  title: GENERIC_TITLES.sample
+  title: GENERIC_TITLES[-6]
 )
 
 # CACHESPECIES
@@ -262,46 +272,56 @@ puts "Caches now all have a corresponding species assigned"
 # LOGS
 
 puts "         "
-puts "making River (river@gmail.com) a log with a picture of her dog..."
+puts "making Frauzino (richarddfyoung@gmail.com) a log with a picture of his dog..."
 
 
 Log.create!(
   content: LOGS_CONTENT[0],
-  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-  user_id: river.id,
+  created_on: Date.today - 3,
+  user_id: anna.id,
   cache_id: cache_instances[2].id,
   title: GENERIC_LOG_TITLES[0],
   seed_photo: "dog-woods.jpg"
 )
-puts "making River (river@gmail.com) a log about getting up early to forage..."
+puts "making Frauzino (richarddfyoung@gmail.com) a log about getting up early to forage..."
 
 Log.create!(
   content: LOGS_CONTENT[1],
-  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-  user_id: river.id,
+  created_on: Date.today - 2,
+  user_id: anna.id,
   cache_id: cache_instances[-2].id,
   title: GENERIC_LOG_TITLES[1],
   seed_photo: "couple-mountains.jpg"
 )
 
-puts "making River (river@gmail.com) a log about cooking well with foraged mushrooms..."
+puts "making Frauzino (richarddfyoung@gmail.com) a log about cooking well with foraged mushrooms..."
 
 Log.create!(
   content: LOGS_CONTENT[2],
-  created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-  user_id: river.id,
+  created_on: Date.today - 1,
+  user_id: anna.id,
   cache_id: cache_instances[1].id,
   title: GENERIC_LOG_TITLES[2],
   seed_photo: "mushroom-apps.jpg"
 )
 
-puts "making 3 random logs for a@a.a..."
+puts "making Frauzino (richarddfyoung@gmail.com) a log about wrapping up the fall season..."
+
+Log.create!(
+  content: LOGS_CONTENT[3],
+  created_on: Date.today,
+  user_id: anna.id,
+  title: GENERIC_LOG_TITLES[3],
+  seed_photo: "eos.jpg"
+)
+
+puts "making 3 random logs for river@gmail.com..."
 
 3.times do
   log = Log.new(
     content: LOGS_CONTENT.sample,
     created_on: Faker::Date.between(from: 5.days.ago, to: Date.today),
-    user_id: anna.id,
+    user_id: river.id,
     cache_id: Cache.all.sample.id,
     title: GENERIC_TITLES.sample
   )
@@ -319,11 +339,13 @@ puts "favoriting caches and species..."
 2.times { User.first.favorite(Species.all.sample) }
 3.times { User.first.favorite(Cache.all.sample) }
 
-puts "a@a.a has favorited #{User.first.favorites_by_type('Species').length} species"
-puts "and #{User.first.favorites_by_type('Cache').length} caches."
+puts "frauzino (richarddfyoung@gmail.com) has favorited #{User.first.favorites_by_type('Species').length} species"
+puts "and #{User.first.favorites_by_type('Cache').length } caches."
 
-2.times { User.second.favorite(Species.all.sample) }
-3.times { User.second.favorite(Cache.all.sample) }
+anna.favorite(eastern_redbud_cache)
+anna.favorite(elm_oyster_cache)
+anna.favorite(cache_instances[0])
+2.times { anna.favorite(Species.all.sample) }
 
 puts "river (river@gmail.com) has favorited #{User.second.favorites_by_type('Species').length} species"
 puts "and #{User.second.favorites_by_type('Cache').length} caches."
