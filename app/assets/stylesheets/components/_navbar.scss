@@ -9,3 +9,35 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-t {
+  background-color: $green-dark;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 100;
+  left: 0px;
+}
+
+.navbar-t a {
+  padding: 15px 15px;
+}
+
+.logo-profile {
+  width: 20px;
+}
+
+.logo-map {
+  width: 20px;
+}
+
+.logo-add-a-log {
+  width: 20px;
+}
+
+.logo-collection {
+  width: 20px;
+}

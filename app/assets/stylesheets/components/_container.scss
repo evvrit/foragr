@@ -1,0 +1,59 @@
+
+.master-container {
+  display: flex;
+  padding-inline: 3%;
+  flex-direction: column;
+  padding-bottom: 70px;
+  word-break: break-word;
+}
+
+.master-container-log-show {
+  display: flex;
+  padding-inline: 5%;
+  flex-direction: column;
+  padding-bottom: 70px;
+  padding-top: 10px;
+  word-break: break-word;
+}
+
+.master-container-cache-show {
+  display: flex;
+  padding-inline: 5%;
+  flex-direction: column;
+  padding-bottom: 70px;
+  padding-top: 0px;
+  word-break: break-word;
+}
+
+.master-container-cache-show p {
+text-align: justify;
+color: $gold;
+}
+
+.master-container-species-collection {
+  display: flex;
+  flex-direction: column;
+}
+
+.master-container-cache-collection {
+  display: flex;
+  flex-direction: column;
+}
+
+.hw {
+  padding-bottom: 100px;
+}
+
+body {
+  background-color: $beige;
+}
+
+
+.container-caches-collection {
+  padding-bottom: 70px;
+  padding-inline: 3%;
+  }
+
+.container-species-collection {
+  padding-bottom: 70px;
+  }

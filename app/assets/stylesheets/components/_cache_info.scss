@@ -1,3 +1,8 @@
+.popup {
+  display: flex;
+  border-radius: 20px;
+}
+
 .popup-title {
   color: $brown-cache-card-text;
   font-style: bold;
@@ -5,33 +10,21 @@
   font-family: $headers-font;
   border: none;
   max-width: 150px;
-  // line-height: normal;
 }
-
-// .popup-title:active {
-//   transform: scale(0.98);
-//   text-decoration: none;
-//   color: $brown-cache-card-text;
-//   font-size: smaller;
-// }
 
 .popup-username {
   color: $brown-cache-card-text;
   font-family: $body-font;
-  // font-weight: bolder;
   font-size: smaller;
   margin-bottom: 0;
-}
-
-.popup {
-  display: flex;
-  border-radius: 20px;
-  // background: $beige-card-collection;
-  // background-color: $brown-cache-card-text;
 }
 
 .popup-species {
   font-family: $body-font;
   color: $green-dark;
   text-align: center;
+}
+
+.mapboxgl-popup-close-button {
+  z-index: 2;
 }

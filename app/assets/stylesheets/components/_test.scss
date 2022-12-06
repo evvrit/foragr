@@ -1,53 +1,53 @@
 // MASTER CONTAINER
 
-.master-container {
-  display: flex;
-  padding-inline: 3%;
-  flex-direction: column;
-  padding-bottom: 70px;
-  word-break: break-word;
-}
+// .master-container {
+//   display: flex;
+//   padding-inline: 3%;
+//   flex-direction: column;
+//   padding-bottom: 70px;
+//   word-break: break-word;
+// }
 
-.master-container-log-show {
-  display: flex;
-  padding-inline: 5%;
-  flex-direction: column;
-  padding-bottom: 70px;
-  padding-top: 10px;
-  word-break: break-word;
-}
+// .master-container-log-show {
+//   display: flex;
+//   padding-inline: 5%;
+//   flex-direction: column;
+//   padding-bottom: 70px;
+//   padding-top: 10px;
+//   word-break: break-word;
+// }
 
-.master-container-cache-show {
-  display: flex;
-  padding-inline: 5%;
-  flex-direction: column;
-  padding-bottom: 70px;
-  padding-top: 0px;
-  word-break: break-word;
-}
+// .master-container-cache-show {
+//   display: flex;
+//   padding-inline: 5%;
+//   flex-direction: column;
+//   padding-bottom: 70px;
+//   padding-top: 0px;
+//   word-break: break-word;
+// }
 
-.master-container-cache-show p {
-text-align: justify;
-color: $gold;
-}
+// .master-container-cache-show p {
+// text-align: justify;
+// color: $gold;
+// }
 
-.master-container-species-collection {
-  display: flex;
-  flex-direction: column;
-}
+// .master-container-species-collection {
+//   display: flex;
+//   flex-direction: column;
+// }
 
-.master-container-cache-collection {
-  display: flex;
-  flex-direction: column;
-}
+// .master-container-cache-collection {
+//   display: flex;
+//   flex-direction: column;
+// }
 
-.hw {
-  padding-bottom: 100px;
-}
+// .hw {
+//   padding-bottom: 100px;
+// }
 
-body {
-  background-color: $beige;
-}
+// body {
+//   background-color: $beige;
+// }
 
 // HEADER
 
@@ -120,206 +120,206 @@ body {
 
 // NAVBAR
 
-.navbar-t {
-  background-color: $green-dark;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  z-index: 100;
-  left: 0px;
-}
+// .navbar-t {
+//   background-color: $green-dark;
+//   overflow: hidden;
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-around;
+//   z-index: 100;
+//   left: 0px;
+// }
 
-.navbar-t a {
-  padding: 15px 15px;
-}
+// .navbar-t a {
+//   padding: 15px 15px;
+// }
 
-.logo-profile {
-  width: 20px;
-}
+// .logo-profile {
+//   width: 20px;
+// }
 
-.logo-map {
-  width: 20px;
-}
+// .logo-map {
+//   width: 20px;
+// }
 
-.logo-add-a-log {
-  width: 20px;
-}
+// .logo-add-a-log {
+//   width: 20px;
+// }
 
-.logo-collection {
-  width: 20px;
-}
+// .logo-collection {
+//   width: 20px;
+// }
 
 // BUTTONS
 
-.fav-btn-and-species-card {
-  display: flex;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  gap: 10px;
-}
+// .fav-btn-and-species-card {
+//   display: flex;
+//   padding-top: 30px;
+//   padding-bottom: 30px;
+//   gap: 10px;
+// }
 
-.fav-btn-and-if-species {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
+// .fav-btn-and-if-species {
+//   display: flex;
+//   flex-direction: row-reverse;
+//   align-items: center;
+//   justify-content: space-between;
+//   gap: 10px;
+//   padding-top: 30px;
+//   padding-bottom: 30px;
+// }
 
-.links a {
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  color: $green-light;
-  font-size: 14px;
-}
+// .links a {
+//   text-decoration: none;
+//   display: flex;
+//   justify-content: center;
+//   color: $green-light;
+//   font-size: 14px;
+// }
 
-.nested-fields {
-  color: $green-dark;
-}
+// .nested-fields {
+//   color: $green-dark;
+// }
 
-.remove_fields {
-  color: $green-light;
-  font-size: 14px;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-}
+// .remove_fields {
+//   color: $green-light;
+//   font-size: 14px;
+//   text-decoration: none;
+//   display: flex;
+//   justify-content: center;
+// }
 
-.btn-logout {
-  border-radius: 50px;
-  color: #35635B;
-  background-color: #f8f1d0;
-  font-size: 12px;
-  width: 20%;
-  height: 4.5%;
-  text-align: center;
-  display: block;
-  margin-inline: auto;
-  border: 1px solid #35635B;
-}
+// .btn-logout {
+//   border-radius: 50px;
+//   color: #35635B;
+//   background-color: #f8f1d0;
+//   font-size: 12px;
+//   width: 20%;
+//   height: 4.5%;
+//   text-align: center;
+//   display: block;
+//   margin-inline: auto;
+//   border: 1px solid #35635B;
+// }
 
-.logout-btn-header {
-  display: flex;
-  flex-direction: row-reverse;
-  // padding-top: 23px;
-  padding-right: 15px;
-}
+// .logout-btn-header {
+//   display: flex;
+//   flex-direction: row-reverse;
+//   // padding-top: 23px;
+//   padding-right: 15px;
+// }
 
-.btn-add-a-log {
-  border-radius: 50px;
-  color: $beige;
-  background-color: $green-dark;
-  font-size: 14px;
-  width: 80%;
-  height: 36px;
-  text-align: center;
-  display: block;
-  margin-inline: auto;
-}
+// .btn-add-a-log {
+//   border-radius: 50px;
+//   color: $beige;
+//   background-color: $green-dark;
+//   font-size: 14px;
+//   width: 80%;
+//   height: 36px;
+//   text-align: center;
+//   display: block;
+//   margin-inline: auto;
+// }
 
 
-.btn-create-your-own-cache {
-  border-radius: 50px;
-  color: $beige;
-  background-color: $gold;
-  font-size: 12px;
-  width: 200px;
-  height: 34px;
-}
+// .btn-create-your-own-cache {
+//   border-radius: 50px;
+//   color: $beige;
+//   background-color: $gold;
+//   font-size: 12px;
+//   width: 200px;
+//   height: 34px;
+// }
 
-.btn-add-cache-to-my-collection {
-  border-radius: 50px;
-  color: $beige;
-  background-color: $gold;
-  font-size: 7px;
-  width: 104px;
-  height: 36px;
-  text-align: center;
-}
+// .btn-add-cache-to-my-collection {
+//   border-radius: 50px;
+//   color: $beige;
+//   background-color: $gold;
+//   font-size: 7px;
+//   width: 104px;
+//   height: 36px;
+//   text-align: center;
+// }
 
-.btn-add-a-cache-to-map {
-  border-radius: 50px;
-  color: $beige;
-  background-color: $gold;
-  font-size: 14px;
-  width: 80%;
-  height: 36px;
-  text-align: center;
-  display: block;
-  margin-inline: auto;
-}
+// .btn-add-a-cache-to-map {
+//   border-radius: 50px;
+//   color: $beige;
+//   background-color: $gold;
+//   font-size: 14px;
+//   width: 80%;
+//   height: 36px;
+//   text-align: center;
+//   display: block;
+//   margin-inline: auto;
+// }
 
-.btn-go-to-species {
-  border-radius: 50px;
-  color: #f8f1d0;
-  background-color: #c3a655;
-  font-size: 14px;
-  width: 100%;
-  height: 36px;
-  text-align: center;
-  display: block;
-  margin-inline: auto;
-}
+// .btn-go-to-species {
+//   border-radius: 50px;
+//   color: #f8f1d0;
+//   background-color: #c3a655;
+//   font-size: 14px;
+//   width: 100%;
+//   height: 36px;
+//   text-align: center;
+//   display: block;
+//   margin-inline: auto;
+// }
 
-.btn-add-species-to-my-collection-cache {
-  border-radius: 50px;
-  color: $beige;
-  background-color: $green-light;
-  font-size: 7px;
-  width: 104px;
-  height: 36px;
-  text-align: center;
-}
+// .btn-add-species-to-my-collection-cache {
+//   border-radius: 50px;
+//   color: $beige;
+//   background-color: $green-light;
+//   font-size: 7px;
+//   width: 104px;
+//   height: 36px;
+//   text-align: center;
+// }
 
-.btn-add-a-comment {
-  border-radius: 50px;
-  color: $beige;
-  background-color: $green-dark;
-  font-size: 12px;
-  width: 200px;
-  height: 34px;
-}
+// .btn-add-a-comment {
+//   border-radius: 50px;
+//   color: $beige;
+//   background-color: $green-dark;
+//   font-size: 12px;
+//   width: 200px;
+//   height: 34px;
+// }
 
-.btn-add-a-cache {
-  border-radius: 50px;
-  color: $beige;
-  background-color: $gold;
-  font-size: 12px;
-  width: 300px;
-  height: 34px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+// .btn-add-a-cache {
+//   border-radius: 50px;
+//   color: $beige;
+//   background-color: $gold;
+//   font-size: 12px;
+//   width: 300px;
+//   height: 34px;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 
-.btn-add-species-to-your-collection-show {
-  border-radius: 50px;
-  color: $beige;
-  background-color: $green-light;
-  font-size: 12px;
-  width: 200px;
-  height: 34px;
-  text-align: center;
-}
+// .btn-add-species-to-your-collection-show {
+//   border-radius: 50px;
+//   color: $beige;
+//   background-color: $green-light;
+//   font-size: 12px;
+//   width: 200px;
+//   height: 34px;
+//   text-align: center;
+// }
 
-.btn-add-a-log-form {
-  border-radius: 50px;
-  color: $beige;
-  background-color: $green-dark;
-  font-size: 12px;
-  width: 100%;
-  height: 34px;
-  text-align: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+// .btn-add-a-log-form {
+//   border-radius: 50px;
+//   color: $beige;
+//   background-color: $green-dark;
+//   font-size: 12px;
+//   width: 100%;
+//   height: 34px;
+//   text-align: center;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 
 
 // ICONS
@@ -368,70 +368,70 @@ body {
 
 // MODAL
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  -webkit-animation-name: fadeIn; /* Fade in the background */
-  -webkit-animation-duration: 0.4s;
-  animation-name: fadeIn;
-  animation-duration: 0.4s
-}
+// /* The Modal (background) */
+// .modal {
+//   display: none; /* Hidden by default */
+//   position: fixed; /* Stay in place */
+//   z-index: 1; /* Sit on top */
+//   left: 0;
+//   top: 0;
+//   width: 100%; /* Full width */
+//   height: 100%; /* Full height */
+//   overflow: auto; /* Enable scroll if needed */
+//   background-color: rgb(0,0,0); /* Fallback color */
+//   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+//   -webkit-animation-name: fadeIn; /* Fade in the background */
+//   -webkit-animation-duration: 0.4s;
+//   animation-name: fadeIn;
+//   animation-duration: 0.4s
+// }
 
-/* Modal Content */
-.modal-content {
-  position: fixed;
-  height: 500px;
-  bottom: 0;
-  border: none;
-  background-color: $beige;
-  width: 100%;
-  -webkit-animation-name: slideIn;
-  -webkit-animation-duration: 0.4s;
-  animation-name: slideIn;
-  animation-duration: 0.4s
-}
+// /* Modal Content */
+// .modal-content {
+//   position: fixed;
+//   height: 500px;
+//   bottom: 0;
+//   border: none;
+//   background-color: $beige;
+//   width: 100%;
+//   -webkit-animation-name: slideIn;
+//   -webkit-animation-duration: 0.4s;
+//   animation-name: slideIn;
+//   animation-duration: 0.4s
+// }
 
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+// /* The Close Button */
+// .close {
+//   color: white;
+//   float: right;
+//   font-size: 28px;
+//   font-weight: bold;
+// }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
+// .close:hover,
+// .close:focus {
+//   color: #000;
+//   text-decoration: none;
+//   cursor: pointer;
+// }
 
-.modal-header {
-  padding: 2px 16px;
-  background-color: $beige;
-  color: $green-dark;
-  border-bottom: none;
-  border-radius:  50px 50px 0px 0px;
-}
+// .modal-header {
+//   padding: 2px 16px;
+//   background-color: $beige;
+//   color: $green-dark;
+//   border-bottom: none;
+//   border-radius:  50px 50px 0px 0px;
+// }
 
-.modal-body {padding: 2px 16px;}
+// .modal-body {padding: 2px 16px;}
 
-.modal-footer {
-  padding: 2px 16px;
-  background-color: $beige;
-  color: $green-dark;
-  border: none;
-  border-radius: 0px 0px 0px 0px;
-}
+// .modal-footer {
+//   padding: 2px 16px;
+//   background-color: $beige;
+//   color: $green-dark;
+//   border: none;
+//   border-radius: 0px 0px 0px 0px;
+// }
 
 
 // CARD LOG PROFILE
@@ -945,16 +945,16 @@ body {
 }
 
 
-// CONTAINERS
+// // CONTAINERS
 
-.container-caches-collection {
-padding-bottom: 70px;
-padding-inline: 3%;
-}
+// .container-caches-collection {
+// padding-bottom: 70px;
+// padding-inline: 3%;
+// }
 
-.container-species-collection {
-  padding-bottom: 70px;
-  }
+// .container-species-collection {
+//   padding-bottom: 70px;
+//   }
 
 
 // SHOW PAGE - log
