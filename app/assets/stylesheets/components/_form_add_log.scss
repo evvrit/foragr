@@ -7,3 +7,51 @@
   text-align: center;
   color: $green-dark
 }
+
+.form-log {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  color: $green-dark;
+}
+
+.form-log h1 {
+  margin-top: 6px;
+  text-align: center;
+  color: $green-dark;
+  margin-bottom: 69px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+// .form-log h1 {
+//   size: 20px;
+// }
+
+.date {
+  color: $green-dark;
+}
+
+.file {
+  color: $green-dark;
+}
+
+.text {
+  color: $green-dark;
+}
+
+.string {
+  color: $green-dark;
+}
+
+.form-select {
+  opacity: 1;
+  color: $green-dark;
+}
+
+.form-control {
+  opacity: 1;
+  color: $green-dark;
+}
