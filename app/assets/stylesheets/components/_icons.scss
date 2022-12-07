@@ -1,0 +1,40 @@
+.fav-icon-cache a {
+  color: $brown-cache-card-text;
+}
+
+.icons-container-caches-species {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-evenly;
+  // height: 50px;
+  align-items: flex-end;
+}
+
+.icon-caches {
+  width: 20px;
+}
+
+.icon-species {
+  width: 20px;
+}
+
+.icon-edit {
+  width: 32px;
+}
+
+.icon-delete {
+  width: 30px;
+}
+
+.fa-solid-cache-collection {
+  // position:absolute ;
+  // left: 366px;
+  font-size: 10px;
+  z-index: 2
+}
+
+.fa-solid-species-collection {
+  // position:absolute ;
+  // left: 366px;
+  font-size: 10px;
+}

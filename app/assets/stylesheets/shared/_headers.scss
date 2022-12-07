@@ -1,0 +1,66 @@
+.header-cache-show-and-back-btn {
+  display: flex;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-right: 15px;
+  color: #c3a655;
+  flex-direction: row-reverse;
+}
+
+.header-cache-show h1 {
+  line-height: 1;
+  font-size: 20px;
+  color: #826516;
+  padding-top: 33px;
+}
+
+.header-cache-show h2 {
+  line-height: 0.4;
+  font-size: 14px;
+  color: $gold;
+}
+
+.header-cache-show h3 {
+  font-size: 14px;
+  color: $brown-cache-card-text;
+}
+
+.header-log-show-and-back-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 15px;
+  padding-top: 14px;
+  font-size: 25px;
+  color: $green-dark;
+}
+
+.header-log-show p {
+  color: $green-dark;
+  font-size: 14px;
+}
+
+.header-log-show h1 {
+  font-size: 20px;
+  color: #35635B;
+  padding-top: 33px;
+}
+
+.header-collection-species {
+  color: $green-light;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 10px;
+  // padding-right: 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header-collection-cache {
+  color: $gold;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 10px;
+  // padding-right: 15px;
+  font-size: 25px;
+  font-weight: bold;
+}

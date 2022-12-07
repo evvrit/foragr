@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  // font-family: Arial;
+}
+
+.all-log-pictures {
+  padding-bottom: 80px;
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 100px));
+  justify-content:center;
+  grid-gap: 0;
+}
+
+.log-picture {
+  border: 1px solid $beige;
+}
+
+// CARD LOG PROFILE
+
+.card-log-profile {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-log-profile img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid $green-dark;
+}
+
+.card-log-profile h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-dark;
+}
+
+.card-log-profile p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-dark;
+}
+
+.card-log-profile .card-log-profile-infos {
+  padding: 16px;
+}
+
+// .log-picture {
+//   max-width: 100%;
+//   max-height: 100%;
+// }
+
+// PROFILE - LOG INDEX
+
+.log-picture img {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+}
+
+.header-profile {
+  color: $green-dark;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 10px;
+  padding-right: 15px;
+  font-size: 25px;
+  font-weight: bold;
+}
