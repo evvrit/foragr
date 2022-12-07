@@ -1,0 +1,440 @@
+
+.card-cache {
+  overflow: hidden;
+  height: 120px;
+  // width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  border-radius: 10px;
+  flex-direction: row;
+  justify-content:flex-start;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.card-cache i {
+  color: $brown-cache-card-text;
+}
+
+.card-cache img {
+  height: 85px;
+  width: 85px;
+  object-fit: cover;
+  border-radius: 10%;
+  flex-shrink: 0;
+}
+
+.card-cache h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  height: 39px;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  color: #826516;
+  width: 100%;
+}
+
+.card-cache p {
+  font-size: 12px;
+  line-height: 0.8;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $brown-cache-card-text;
+}
+
+.card-cache .card-cache-infos {
+  display: flex;
+  margin-right: 26px;
+  padding: 16px;
+  top: 11px;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.card-cache {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.card-cache-infos a {
+  color: $brown-cache-card-text;
+  text-decoration: none;
+}
+
+.show-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+// CARD CACHE ADDED TO COLLECTION
+
+.card-cache-added-to-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 100%;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+  // position: fixed;
+  // margin: auto;
+}
+
+.card-cache-added-to-collection a {
+  color: $brown-cache-card-text;
+}
+
+.card-cache-added-to-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-cache-added-to-collection h2 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+  color: $brown-cache-card-text;
+}
+
+.card-cache-added-to-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $brown-cache-card-text;
+}
+
+.card-cache-added-to-collection .card-cache-added-to-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-added-cache {
+  display: contents;
+}
+
+
+// CARD CACHE DELETED FROM COLLECTION
+
+.card-cache-deleted-from-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-cache-deleted-from-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-cache-deleted-from-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $brown-cache-card-text;
+}
+
+.card-cache-deleted-from-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $brown-cache-card-text;
+}
+
+.card-cache-deleted-from-collection .card-cache-deleted-from-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-deleted-cache {
+  display: contents;
+}
+
+
+
+
+// CARD COLLECTION (SPECIES)
+
+.card-species {
+  overflow: hidden;
+  height: 120px;
+  // width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  border-radius: 10px;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+  position:relative;
+}
+
+.card-species i {
+  color: $green-light;
+}
+
+.card-species img {
+  height: 85px;
+  width: 85px;
+  object-fit: cover;
+  border-radius: 10%;
+  flex-shrink: 0;
+}
+
+.card-species h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-light;
+}
+
+.card-species p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-light;
+}
+
+.card-species .card-species-infos {
+  display: flex;
+  margin-right: 0px;
+  padding: 16px;
+  top: 11px;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: space-around;
+}
+
+.card-species {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.card-species-infos a {
+  text-decoration: none;
+  color: $green-light;
+}
+
+// CARD SPECIE ADDED TO COLLECTION
+
+.card-species-added-to-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 328px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.card-species-added-to-collection a {
+  color: $green-light;
+  word-break: break-word;
+}
+
+.card-species-added-to-collection img {
+  height: 44%;
+  width: 24%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-species-added-to-collection h2 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-light;
+  text-align: left;
+}
+
+.card-species-added-to-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-light;
+}
+
+.card-species-added-to-collection .card-species-added-to-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-added-species {
+  display: contents;
+}
+
+
+// CARD SPECIES DELETED FROM COLLECTION
+
+.card-species-deleted-from-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-species-deleted-from-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-species-deleted-from-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-light;
+}
+
+.card-species-deleted-from-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-light;
+}
+
+.card-species-deleted-from-collection .card-species-deleted-from-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-deleted-species {
+  display: contents;
+}
+
+
+// CARD LOG ADDED TO PROFILE
+
+.card-log-added-to-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-log-added-to-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-log-added-to-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-dark;
+}
+
+.card-log-added-to-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-dark;
+}
+
+.card-log-added-to-collection .card-log-added-to-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-added-log {
+  display: contents;
+}
+
+
+// CARD LOG DELETED FROM PROFILE
+
+.card-log-deleted-from-collection {
+  overflow: hidden;
+  height: 120px;
+  width: 350px;
+  background: $beige-card-collection;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.card-log-deleted-from-collection img {
+  height: 72%;
+  width: 26%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.card-log-deleted-from-collection h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: $green-dark;
+}
+
+.card-log-deleted-from-collection p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: $green-dark;
+}
+
+.card-log-deleted-from-collection .card-log-deleted-from-collection-infos {
+  padding: 16px;
+  width: 45%;
+}
+
+.icon-deleted-log {
+  display: contents;
+}
