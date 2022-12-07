@@ -1,22 +1,8 @@
-<%#STYLE AND MAP<%%>
 <%= render "/shared/back" %>
 <div id="sm-map-container">
   <%= render 'map' %>
   <div id="sm-static"></div>
 </div>
-
-
-  <div class="d-none">
-    <div id="sm-map-container">
-      <div id="sm-map"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-      <div id="sm-static"></div>
-    </div>
-  </div>
-
-<%#MASTER CONTAINER%>
 
 <div class="header-cache-show-and-back-btn">Caches</div>
 
@@ -58,9 +44,9 @@
         <%# </div> %>
       <% end %>
     <% elsif @cache.seed_photo %>
-    <div class="p1-cache-show-seed">
-      <%= image_tag @cache.seed_photo %>
-    </div>
+      <div class="p1-cache-show-seed">
+        <%= image_tag @cache.seed_photo %>
+      </div>
     <% else %>
       <p>No uploaded photos</p>
     <% end %>
@@ -82,11 +68,7 @@
 </div>
 <div class="fav-icon-cache" style="display: flex; justify-content: center;">
     <%= render 'shared/favorite_icon' %> <br>
-    <%#= link_to "collection", favorites_caches_path %>
   </div>
-
-<%# No CSS NEEDED %>
-
 
   </div>
     <div id="added" class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
