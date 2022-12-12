@@ -92,24 +92,25 @@
   border-radius: 10px;
   // position: fixed;
   // margin: auto;
+
+  h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 15px;
+    color: $brown-cache-card-text;
+    text-decoration: none;
+  }
 }
 
-.card-cache-added-to-collection a {
-  color: $brown-cache-card-text;
-}
+// .card-cache-added-to-collection a {
+//   color: $brown-cache-card-text;
+// }
 
 .card-cache-added-to-collection img {
   height: 72%;
   width: 26%;
   object-fit: cover;
   border-radius: 10%;
-}
-
-.card-cache-added-to-collection h2 {
-  font-size: 12px;
-  font-weight: bold;
-  margin: 0;
-  color: $brown-cache-card-text;
 }
 
 .card-cache-added-to-collection p {

@@ -15,7 +15,7 @@
   </div>
 
 
-  <div class="cache-show-photo-all">
+  <div class="cache-photo-grid">
     <% if @cache.photos.attached? %>
       <% if @cache.photos.count == 1 %>
         <div class="p1-cache-show">
@@ -25,23 +25,19 @@
         <div class="p1-cache-show">
           <%= cl_image_tag @cache.photos.first.key %>
         </div>
-        <%# <div class="photo-cache-2-3"> %>
           <div class="p2-cache-show">
             <%= cl_image_tag @cache.photos.last.key %>
           </div>
-        <%# </div> %>
       <% else %>
         <div class="p1-cache-show">
           <%= cl_image_tag @cache.photos.first.key %>
         </div>
-        <%# <div class="photo-cache-2-3"> %>
           <div class="p2-cache-show">
             <%= cl_image_tag @cache.photos[1].key %>
           </div>
           <div class="p3-cache-show">
             <%= cl_image_tag @cache.photos.last.key %>
           </div>
-        <%# </div> %>
       <% end %>
     <% elsif @cache.seed_photo %>
       <div class="p1-cache-show-seed">
@@ -71,7 +67,7 @@
   </div>
 
   </div>
-    <div id="added" class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
+    <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
       <%= link_to favorites_caches_path do %>
         <span class="show-link"></span>
       <% end %>
@@ -80,16 +76,11 @@
       <% elsif @cache.seed_photo != nil %>
         <%= image_tag @cache.seed_photo, style: "width: 80px; height: 80px;" %>
       <% else %>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <p></p>
       <% end %>
-      <div class="card-cache-added-to-collection-infos">
-        <h2>Added to your collection!</h2>
-      </div>
-      <div class="icon-added-cache">
-        <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
+      <i class="fa-solid fa-check"></i><h2>Added to your collection!</h2>
     </div>
 
-</div>
   <div class="cache-show-infos">
     <p><%= @cache.description %></p>
   </div>

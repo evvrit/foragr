@@ -1,7 +1,5 @@
-// Specific CSS for your home-page
-
 .landing-page {
-  background-image: asset-url("forest.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), asset-url("forest.jpg");
   height: 100vh;
   width: 100vw;
   background-size: cover;
@@ -10,25 +8,35 @@
   flex-direction: column;
   justify-content: center;
   opacity: .85;
-}
 
-.landing-page h1 {
-  font-size: 50px;
-  color: $beige;
-  padding-bottom: 10px;
-}
+  h1 {
+    font-size: 30px;
+    font-family: $headers-font;
+    color: $beige;
+    padding-bottom: 10px;
+  }
 
-.landing-page h2 {
-  font-size: 25px;
-  color: $beige;
-  padding-bottom: 40px;
-}
+  h2 {
+    font-size: 20px;
+    font-family: $body-font;
+    color: $beige;
+    padding-bottom: 40px;
+  }
 
-.btn-ghost {
-  font-size: 20px;
-  color: #35635B;
-  padding: 23px 48px;
-  border-radius: 50px;
-  background-color: $beige;
-  opacity: 0.8;
+  a {
+    font-size: 25px;
+    color: $beige;
+    padding: 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: $body-font;
+    border: 1px solid $beige;
+    background-color: rgba(0,0,0,0.5);
+    position: relative;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
 }
