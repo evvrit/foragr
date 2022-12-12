@@ -5,7 +5,8 @@ export default class extends Controller {
   static targets = ["link", "card", "cacheCard"]
 
   connect() {
-    // console.log(this.linkTarget);
+    const popover = document.getElementById("popover-link")
+    // console.log(popover);
   }
 
   toggleIconFill() {
@@ -14,7 +15,7 @@ export default class extends Controller {
     ['fa-heart-circle-plus', 'fa-heart-circle-minus'].map(v=> this.linkTarget.classList.toggle(v) )
 
     if (this.hasCardTarget) {
-      this.showCard();
+      // this.showCard();
     }
 
     if (this.hasCacheCardTarget) {

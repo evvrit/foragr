@@ -6,7 +6,7 @@
 
 <div class="header-cache-show-and-back-btn">Caches</div>
 
-<div class="master-container-cache-show" data-controller="toggle-favorite">
+<div class="master-container-cache-show">
   <div class="header-cache-show">
     <h1><strong><%= @cache.title %><strong></h1>
     <h2> @ <%= @cache.user.username %> </h2>
@@ -63,7 +63,7 @@
 
 </div>
 <div class="fav-icon-cache" style="display: flex; justify-content: center;">
-    <%= render 'shared/favorite_icon' %> <br>
+    <%= render 'shared/favorite_icon' %>
   </div>
 
   </div>
@@ -86,8 +86,24 @@
   </div>
 </div>
 
-<style>
-  #added {
-    position: relative;
-  }
-</style>
+<div data-controller="toggle-favorite">
+  <a href="/caches/<%= @cache.id %>/toggle_favorite"
+    data-turbo-method="post"
+    tabindex="0"
+    id="popover-link"
+    role="button"
+    data-bs-toggle="popover"
+    data-bs-title="Added!"
+    data-bs-content="Go to my collection">
+    <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-heart-circle-minus fa-2xl' : 'fa-solid fa-heart-circle-plus fa-2xl' %>"></i>
+  </a>
+
+  <script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    const popover = new bootstrap.Popover('.popover', {
+      container: 'body'
+    })
+  </script>
+
+</div>
