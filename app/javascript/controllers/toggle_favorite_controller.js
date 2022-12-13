@@ -7,6 +7,12 @@ export default class extends Controller {
   connect() {
     if (this.hasPopoverLinkTarget) {
       this.popover = new bootstrap.Popover(this.popoverLinkTarget);
+      var a = document.createElement('a');
+      var linkText = document.createTextNode("Go to my collection");
+      a.appendChild(linkText);
+      a.title = "Go to my collection";
+      a.href = "/caches/favorites";
+      this.popover.setContent(a);
     }
   }
 

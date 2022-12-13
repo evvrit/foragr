@@ -4,8 +4,6 @@
   <div id="sm-static"></div>
 </div>
 
-<div class="header-cache-show-and-back-btn">Caches</div>
-
 <div class="master-container-cache-show">
   <div class="header-cache-show">
     <h1><strong><%= @cache.title %><strong></h1>
@@ -63,6 +61,22 @@
 
 </div>
 
+<div data-controller="toggle-favorite">
+  <a href="/caches/<%= @cache.id %>/toggle_favorite"
+    data-turbo-method="post"
+    tabindex="0"
+    role="button"
+    data-bs-toggle="popover"
+    data-bs-trigger="manual"
+    data-bs-placement="bottom"
+    data-bs-html="true"
+    data-bs-content="Added!"
+    data-bs-custom-class="custom-popover"
+    data-toggle-favorite-target="popoverLink">
+    <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-heart-circle-minus fa-2xl' : 'fa-solid fa-heart-circle-plus fa-2xl' %>"></i>
+  </a>
+</div>
+
   </div>
     <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
       <%= link_to favorites_caches_path do %>
@@ -81,18 +95,4 @@
   <div class="cache-show-infos">
     <p><%= @cache.description %></p>
   </div>
-</div>
-
-<div data-controller="toggle-favorite">
-  <a href="/caches/<%= @cache.id %>/toggle_favorite"
-    data-turbo-method="post"
-    tabindex="0"
-    role="button"
-    data-bs-toggle="popover"
-    data-bs-trigger="manual"
-    data-bs-title="Added!"
-    data-bs-content="Go to my collection"
-    data-toggle-favorite-target="popoverLink">
-    <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-heart-circle-minus fa-2xl' : 'fa-solid fa-heart-circle-plus fa-2xl' %>"></i>
-  </a>
 </div>
