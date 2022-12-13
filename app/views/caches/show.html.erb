@@ -4,16 +4,8 @@
   <div id="sm-static"></div>
 </div>
 
-<div class="master-container-cache-show">
-  <div class="header-cache-show">
-    <h1><strong><%= @cache.title %><strong></h1>
-    <h2> @ <%= @cache.user.username %> </h2>
-    <br>
-    <h3> found on <%= @cache.found_on.strftime("%b %d, %Y") %></h3>
-  </div>
-
-
-  <div class="cache-photo-grid">
+<div class="container">
+  <div class="cache-photo-grid mt-3">
     <% if @cache.photos.attached? %>
       <% if @cache.photos.count == 1 %>
         <div class="p1-cache-show">
@@ -45,54 +37,49 @@
       <p>No uploaded photos</p>
     <% end %>
   </div>
-  <div>
 
-
-  <div class="fav-btn-and-if-species">
-  <div class="if-species">
-
-    <% if @cache.species.present? %>
-      <div class="container">
-        <% @cache.species.each do |s| %>
-          <%= link_to s.name, species_path(s), class: "btn btn-go-to-species mt-2" %>
-        <% end %>
-      </div>
-    <% end %>
-
-</div>
-
-<div data-controller="toggle-favorite">
-  <a href="/caches/<%= @cache.id %>/toggle_favorite"
-    data-turbo-method="post"
-    tabindex="0"
-    role="button"
-    data-bs-toggle="popover"
-    data-bs-trigger="manual"
-    data-bs-placement="bottom"
-    data-bs-html="true"
-    data-bs-content="Added!"
-    data-bs-custom-class="custom-popover"
-    data-toggle-favorite-target="popoverLink">
-    <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-heart-circle-minus fa-2xl' : 'fa-solid fa-heart-circle-plus fa-2xl' %>"></i>
-  </a>
-</div>
-
-  </div>
-    <div class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
-      <%= link_to favorites_caches_path do %>
-        <span class="show-link"></span>
-      <% end %>
-      <% if @cache.photos.attached? %>
-          <%= cl_image_tag @cache.photos.first.key, width: 200 %>
-      <% elsif @cache.seed_photo != nil %>
-        <%= image_tag @cache.seed_photo, style: "width: 80px; height: 80px;" %>
-      <% else %>
-        <p></p>
-      <% end %>
-      <i class="fa-solid fa-check"></i><h2>Added to your collection!</h2>
+  <div class="d-flex m-3 px-3 justify-content-between">
+    <div class="text-align-center">
+      <h2 class="text-success"><%= @cache.title %></h1>
     </div>
 
-  <div class="cache-show-infos">
-    <p><%= @cache.description %></p>
+    <div data-controller="toggle-favorite">
+      <a href="/caches/<%= @cache.id %>/toggle_favorite"
+        data-turbo-method="post"
+        tabindex="0"
+        role="button"
+        data-bs-toggle="popover"
+        data-bs-trigger="manual"
+        data-bs-placement="left"
+        data-bs-html="true"
+        data-bs-content="Added!"
+        data-bs-custom-class="custom-popover"
+        data-toggle-favorite-target="popoverLink">
+        <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-heart-circle-minus fa-2xl' : 'fa-solid fa-heart-circle-plus fa-2xl' %>"></i>
+      </a>
+    </div>
+  </div>
+
+      <% if @cache.species.present? %>
+        <div class="container">
+          <% @cache.species.each do |s| %>
+            <%= link_to s.name, species_path(s), class: "btn btn-secondary" %>
+          <% end %>
+        </div>
+      <% end %>
+
+  <div class="row">
+    <div class="col-6">
+      <div class="card mb-3">
+        <%= image_tag @cache.seed_photo %>
+        <div class="card-body">
+          <h5 class="card-title">@<%= @cache.user.username %></h5>
+          <p class="card-text"><%= @cache.description %></p>
+          <p class="card-text"><small class="text-muted"><%= @cache.found_on.strftime("%b %d, %Y") %></small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   </div>
 </div>
