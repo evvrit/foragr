@@ -4,39 +4,39 @@
   <div id="sm-static"></div>
 </div>
 
-<div class="container">
-  <div class="cache-photo-grid mt-3">
-    <% if @cache.photos.attached? %>
-      <% if @cache.photos.count == 1 %>
-        <div class="p1-cache-show">
-          <%= cl_image_tag @cache.photos.first.key %>
+    <% if @cache.photos.attached? && @cache.photos.count > 1 %>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-      <% elsif @cache.photos.count == 2 %>
-        <div class="p1-cache-show">
-          <%= cl_image_tag @cache.photos.first.key %>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= cl_image_tag @cache.photos.first.key, class: "d-block w-100" %>
+          </div>
+          <% @cache.photos.drop(1).map do |p| %>
+            <div class="carousel-item">
+              <%= cl_image_tag p.key, class: "d-block w-100" %>
+            </div>
+          <% end %>
         </div>
-          <div class="p2-cache-show">
-            <%= cl_image_tag @cache.photos.last.key %>
-          </div>
-      <% else %>
-        <div class="p1-cache-show">
-          <%= cl_image_tag @cache.photos.first.key %>
-        </div>
-          <div class="p2-cache-show">
-            <%= cl_image_tag @cache.photos[1].key %>
-          </div>
-          <div class="p3-cache-show">
-            <%= cl_image_tag @cache.photos.last.key %>
-          </div>
-      <% end %>
-    <% elsif @cache.seed_photo %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <% elsif @cache.seed_photo || @cache.photos.count == 1 %>
       <div class="p1-cache-show-seed">
         <%= image_tag @cache.seed_photo %>
       </div>
     <% else %>
       <p>No uploaded photos</p>
     <% end %>
-  </div>
 
     <div class="d-flex justify-content-center mb-2">
       <h6 class="text-success text-align-center"><%= @cache.title %></h6>
@@ -72,11 +72,13 @@
   </div>
 
     <% if @cache.species.present? %>
+
       <div class="d-flex justify-content-center">
         <% @cache.species.each do |s| %>
           <%= link_to s.name, species_path(s), class: "btn btn-secondary m-auto" %>
         <% end %>
       </div>
+
     <% end %>
   </div>
 </div>
