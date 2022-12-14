@@ -5,10 +5,10 @@
 </div>
 
 <div class="mt-3">
-  <div class="row justify-content-around gx-2">
+  <div class="row justify-content-around">
     <% if @cache.photos.attached? %>
       <% if @cache.photos.count == 1 %>
-        <div class="col">
+        <div class="col-sm-12 col-lg-8">
           <%= cl_image_tag @cache.photos.first.key, class: "w-100 h-100" %>
         </div>
       <% elsif @cache.photos.count == 2 %>
@@ -30,7 +30,7 @@
           </div>
       <% end %>
     <% elsif @cache.seed_photo %>
-      <div class="col">
+      <div class="col-sm-12 col-lg-6">
         <%= image_tag @cache.seed_photo, class: "w-100 h-100 border-radius-3" %>
       </div>
     <% else %>
@@ -39,47 +39,42 @@
   </div>
 </div>
 
-    <div class="mt-3 d-flex justify-content-center">
-      <h6 class="text-success text-align-center"><%= @cache.title %></h6>
-    </div>
+<div class="mt-3 d-flex justify-content-center">
+  <h6 class="text-success text-align-center"><%= @cache.title %></h6>
+</div>
 
-  <div class="row justify-content-lg-center">
-    <div class="col-sm-12 col-lg-6">
-      <div class="">
-        <div class="d-flex justify-content-between p-2">
-          <div>
-            <p class="mb-0"><small>@<%= @cache.user.username %></small></p>
-            <p class=""><small class="text-muted"><%= @cache.found_on.strftime("%b %d, %Y") %></small></p>
-            <h5 class=""><%= @cache.description %></h5>
-          </div>
-          <div data-controller="toggle-favorite">
-            <a href="/caches/<%= @cache.id %>/toggle_favorite"
-              data-turbo-method="post"
-              tabindex="0"
-              role="button"
-              data-bs-toggle="popover"
-              data-bs-trigger="manual"
-              data-bs-placement="left"
-              data-bs-html="true"
-              data-bs-content="Added!"
-              data-bs-custom-class="custom-popover"
-              data-toggle-favorite-target="popoverLink">
-              <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-heart-circle-minus fa-2xl' : 'fa-solid fa-heart-circle-plus fa-2xl' %>"></i>
-            </a>
-          </div>
+<div class="row justify-content-lg-center">
+  <div class="col-sm-12 col-lg-6">
+    <div class="">
+      <div class="d-flex justify-content-between p-2">
+        <div>
+          <p class="mb-0"><small>@<%= @cache.user.username %></small></p>
+          <p class=""><small class="text-muted"><%= @cache.found_on.strftime("%b %d, %Y") %></small></p>
+          <h5 class=""><%= @cache.description %></h5>
+           <% if @cache.species.present? %>
+            <div class="d-flex justify-content-center">
+              <% @cache.species.each do |s| %>
+                <%= link_to s.name, species_path(s), class: "btn btn-secondary m-auto" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div data-controller="toggle-favorite">
+          <a href="/caches/<%= @cache.id %>/toggle_favorite"
+            data-turbo-method="post"
+            tabindex="0"
+            role="button"
+            data-bs-toggle="popover"
+            data-bs-trigger="manual"
+            data-bs-placement="left"
+            data-bs-html="true"
+            data-bs-content="Added!"
+            data-bs-custom-class="custom-popover"
+            data-toggle-favorite-target="popoverLink">
+            <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-heart-circle-minus fa-2xl' : 'fa-solid fa-heart-circle-plus fa-2xl' %>"></i>
+          </a>
         </div>
       </div>
     </div>
-  </div>
-
-    <% if @cache.species.present? %>
-
-      <div class="d-flex justify-content-center">
-        <% @cache.species.each do |s| %>
-          <%= link_to s.name, species_path(s), class: "btn btn-secondary m-auto" %>
-        <% end %>
-      </div>
-
-    <% end %>
   </div>
 </div>
