@@ -11,11 +11,7 @@ export default class extends Controller {
   }
 
   toggleIconFill() {
-    // console.log(this.linkTarget);
-    // this.linkTarget.className == 'fa-solid fa-heart-circle-minus fa-2xl' ? 'fa-solid fa-heart-circle-plus fa-2xl' : 'fa-solid fa-heart-circle-minus fa-2xl';
-    ["fa-regular-fa-bookmark", "fa-solid-fa-bookmark"].map((v) =>
-      this.linkTarget.classList.toggle(v)
-    );
+    ["fa-regular", "fa-solid"].map((v) => this.linkTarget.classList.toggle(v));
 
     if (this.hasPopoverLinkTarget) {
       this.togglePopover();
@@ -29,9 +25,9 @@ export default class extends Controller {
   }
 
   togglePopover() {
-    if (this.linkTarget.classList.contains("fa-regular-fa-bookmark")) {
+    if (this.linkTarget.classList.contains("fa-regular")) {
       this.popover.hide();
-    } else if (this.linkTarget.classList.contains("fa-solid-fa-bookmark")) {
+    } else if (this.linkTarget.classList.contains("fa-solid")) {
       this.popover.show();
       setTimeout(() => {
         this.popover.hide();
