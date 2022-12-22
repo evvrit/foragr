@@ -16,7 +16,7 @@
       <% end %>
   </div>
 
-<div class="container mt-2" style="padding-left: 0px; padding-right: 0px">
+<div class="container mt-2">
   <% if @cache_favorites.empty? %>
     <p>You have not added any caches to your collection. <%= link_to "Explore caches in my area", caches_path %></p>
   <% else %>
@@ -29,7 +29,7 @@
               </a>
               <%= cache.photos.first.present? ? cl_image_tag("#{cache.photos.first.key}") : (image_tag("#{cache.seed_photo}") || "") %>
               <div>
-                <p><%= cache.title %></p>
+                <h5><%= cache.title %></h5>
                 <p><small>@<%= cache.user.username %></small></p>
                 <p><%= cache.species.present? ? cache.species[0].name : "" %></p>
               </div>
