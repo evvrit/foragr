@@ -28,12 +28,13 @@
                 <span class="show-link"></span>
               </a>
               <%= cache.photos.first.present? ? cl_image_tag("#{cache.photos.first.key}") : (image_tag("#{cache.seed_photo}") || "") %>
-              <div>
-                <h5><%= cache.title %></h5>
-                <p><small>@<%= cache.user.username %></small></p>
-                <p><%= cache.species.present? ? cache.species[0].name : "" %></p>
+              <div class="card-body">
+                <div class="card-infos">
+                  <p><%= cache.title %></p>
+                  <span class="badge rounded-pill bg-secondary"><%= cache.species.present? ? cache.species[0].name : "" %></span>
+                </div>
+                <%= render 'shared/favorite_icon' %>
               </div>
-              <%= render 'shared/favorite_icon' %>
             </div>
           </div>
 

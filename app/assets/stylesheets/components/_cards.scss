@@ -1,15 +1,13 @@
 .favorite-card {
-  overflow: hidden;
-  height: 120px;
   background: $light-beige;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   padding-left: 15px;
   border-radius: 10px;
-  flex-direction: row;
   justify-content: flex-start;
   margin-bottom: 10px;
   position: relative;
+  padding: 10px;
 
   img {
     height: 85px;
@@ -17,28 +15,14 @@
     object-fit: cover;
     border-radius: 10%;
     flex-shrink: 0;
+    align-self: flex-start;
   }
-}
 
-.card-cache h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  height: 39px;
-  overflow: hidden;
-  /* white-space: nowrap; */
-  text-overflow: ellipsis;
-  color: #826516;
-  width: 100%;
-}
-
-.card-cache p {
-  font-size: 12px;
-  line-height: 0.8;
-  opacity: 0.7;
-  margin-bottom: 0;
-  margin-top: 8px;
-  color: $dark-brown;
+  .card-body {
+    padding-left: 2%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .card-cache .card-cache-infos {
