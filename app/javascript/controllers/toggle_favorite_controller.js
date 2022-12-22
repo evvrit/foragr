@@ -2,10 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle-favorite"
 export default class extends Controller {
-  static targets = ["link", "card", "cacheCard"]
+  static targets = ["link", "card", "cacheCard", "popoverLink"]
 
   connect() {
-    // console.log(this.linkTarget);
+    if (this.hasPopoverLinkTarget) {
+      this.popover = new bootstrap.Popover(this.popoverLinkTarget);
+    }
   }
 
   toggleIconFill() {
@@ -13,8 +15,8 @@ export default class extends Controller {
     // this.linkTarget.className == 'fa-solid fa-heart-circle-minus fa-2xl' ? 'fa-solid fa-heart-circle-plus fa-2xl' : 'fa-solid fa-heart-circle-minus fa-2xl';
     ['fa-heart-circle-plus', 'fa-heart-circle-minus'].map(v=> this.linkTarget.classList.toggle(v) )
 
-    if (this.hasCardTarget) {
-      this.showCard();
+    if (this.hasPopoverLinkTarget) {
+      this.togglePopover();
     }
 
     if (this.hasCacheCardTarget) {
@@ -24,8 +26,15 @@ export default class extends Controller {
     }
   }
 
-  showCard() {
-    this.cardTarget.classList.toggle('d-none')
+  togglePopover() {
+    if (this.linkTarget.classList.contains("fa-heart-circle-plus")) {
+      this.popover.hide();
+    } else if (this.linkTarget.classList.contains("fa-heart-circle-minus")) {
+      this.popover.show();
+      setTimeout(() => {
+        this.popover.hide();
+      }, '2000')
+    }
   }
 
   removeCacheCard() {

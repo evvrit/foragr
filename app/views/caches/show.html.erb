@@ -1,120 +1,68 @@
-<%#STYLE AND MAP<%%>
 <%= render "/shared/back" %>
 <div id="sm-map-container">
   <%= render 'map' %>
   <div id="sm-static"></div>
 </div>
 
+<div class="container">
 
-  <div class="d-none">
-    <div id="sm-map-container">
-      <div id="sm-map"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-      <div id="sm-static"></div>
-    </div>
-  </div>
-
-<%#MASTER CONTAINER%>
-
-<div class="header-cache-show-and-back-btn">Caches</div>
-
-<div class="master-container-cache-show" data-controller="toggle-favorite">
-  <div class="header-cache-show">
-    <h1><strong><%= @cache.title %><strong></h1>
-    <h2> @ <%= @cache.user.username %> </h2>
-    <br>
-    <h3> found on <%= @cache.found_on.strftime("%b %d, %Y") %></h3>
-  </div>
-
-
-  <div class="cache-show-photo-all">
-    <% if @cache.photos.attached? %>
-      <% if @cache.photos.count == 1 %>
-        <div class="p1-cache-show">
-          <%= cl_image_tag @cache.photos.first.key %>
-        </div>
-      <% elsif @cache.photos.count == 2 %>
-        <div class="p1-cache-show">
-          <%= cl_image_tag @cache.photos.first.key %>
-        </div>
-        <%# <div class="photo-cache-2-3"> %>
-          <div class="p2-cache-show">
-            <%= cl_image_tag @cache.photos.last.key %>
-          </div>
-        <%# </div> %>
-      <% else %>
-        <div class="p1-cache-show">
-          <%= cl_image_tag @cache.photos.first.key %>
-        </div>
-        <%# <div class="photo-cache-2-3"> %>
-          <div class="p2-cache-show">
-            <%= cl_image_tag @cache.photos[1].key %>
-          </div>
-          <div class="p3-cache-show">
-            <%= cl_image_tag @cache.photos.last.key %>
-          </div>
-        <%# </div> %>
-      <% end %>
-    <% elsif @cache.seed_photo %>
-    <div class="p1-cache-show-seed">
-      <%= image_tag @cache.seed_photo %>
-    </div>
-    <% else %>
-      <p>No uploaded photos</p>
-    <% end %>
-  </div>
-  <div>
-
-
-  <div class="fav-btn-and-if-species">
-  <div class="if-species">
-
-    <% if @cache.species.present? %>
-      <div class="container">
-        <% @cache.species.each do |s| %>
-          <%= link_to s.name, species_path(s), class: "btn btn-go-to-species mt-2" %>
-        <% end %>
+  <div class="mt-4">
+    <div class="d-flex justify-content-between">
+      <div>
+        <h6><%= @cache.title %></h6>
+        <p><small>@<%= @cache.user.username %></small></p>
       </div>
-    <% end %>
-
-</div>
-<div class="fav-icon-cache" style="display: flex; justify-content: center;">
-    <%= render 'shared/favorite_icon' %> <br>
-    <%#= link_to "collection", favorites_caches_path %>
+      <div data-controller="toggle-favorite">
+        <a href="/caches/<%= @cache.id %>/toggle_favorite"
+          data-turbo-method="post"
+          tabindex="0"
+          role="button"
+          data-bs-toggle="popover"
+          data-bs-trigger="manual"
+          data-bs-placement="left"
+          data-bs-html="true"
+          data-bs-content="Added!"
+          data-bs-custom-class="custom-popover"
+          data-toggle-favorite-target="popoverLink">
+          <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-heart-circle-minus fa-2xl' : 'fa-solid fa-heart-circle-plus fa-2xl' %>"></i>
+        </a>
+      </div>
+    </div>
+    <div class="pt-2">
+      <p class="text-muted text-end"><small><em><%= @cache.found_on.strftime("%b %d, %Y") %></em></small></p>
+      <p><%= @cache.description %></p>
+    </div>
   </div>
 
-<%# No CSS NEEDED %>
-
-
-  </div>
-    <div id="added" class="<%= @caches.include?(@cache) ? 'card-cache-added-to-collection' : 'card-cache-added-to-collection d-none' %>" data-toggle-favorite-target="card">
-      <%= link_to favorites_caches_path do %>
-        <span class="show-link"></span>
-      <% end %>
+  <div class="mt-3">
+    <div class="row row-cols-2 row-cols-md-4">
       <% if @cache.photos.attached? %>
-          <%= cl_image_tag @cache.photos.first.key, width: 200 %>
-      <% elsif @cache.seed_photo != nil %>
-        <%= image_tag @cache.seed_photo, style: "width: 80px; height: 80px;" %>
+        <% @cache.photos.each do |photo| %>
+          <div class="col">
+            <%= cl_image_tag @cache.photos.first.key, class: "w-100 h-100" %>
+          </div>
+        <% end %>
+      <% elsif @cache.seed_photo %>
+        <div class="col-12 col-md-2 col-lg-2">
+          <%= image_tag @cache.seed_photo, class: "w-100 h-100 border-radius-3" %>
+        </div>
+        <div class="col-md-10"></div>
       <% else %>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <p>No uploaded photos</p>
       <% end %>
-      <div class="card-cache-added-to-collection-infos">
-        <h2>Added to your collection!</h2>
-      </div>
-      <div class="icon-added-cache">
-        <img src="https://res.cloudinary.com/dytbz32gy/image/upload/v1669318620/FORAGR/ICON%20-%20added%20cache%20in%20collection.png" alt="icon check gold" style="margin-right: 16px;">
     </div>
-
-</div>
-  <div class="cache-show-infos">
-    <p><%= @cache.description %></p>
   </div>
-</div>
 
-<style>
-  #added {
-    position: relative;
-  }
-</style>
+  <% if @cache.species.present? %>
+    <% @cache.species.each do |s| %>
+      <div class="card p-3 mt-3">
+        <h6 class="card-header"><%= s.name %></h6>
+        <div class="card-body">
+          <p class="card-text text-truncate"><%= s.overview[1] %></p>
+          <%= link_to "Learn more", species_path(s), class: "card-link" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

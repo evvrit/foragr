@@ -18,3 +18,5 @@ application.register("toggle-favorite", ToggleFavoriteController)
 
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
+
+// import 'bootstrap';

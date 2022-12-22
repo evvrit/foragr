@@ -1,30 +1,23 @@
-
-.card-cache {
+.favorite-card {
   overflow: hidden;
   height: 120px;
-  // width: 350px;
-  background: $beige-card-collection;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: $light-beige;
   display: flex;
   align-items: center;
   padding-left: 15px;
   border-radius: 10px;
   flex-direction: row;
-  justify-content:flex-start;
+  justify-content: flex-start;
   margin-bottom: 10px;
   position: relative;
-}
 
-.card-cache i {
-  color: $brown-cache-card-text;
-}
-
-.card-cache img {
-  height: 85px;
-  width: 85px;
-  object-fit: cover;
-  border-radius: 10%;
-  flex-shrink: 0;
+  img {
+    height: 85px;
+    width: 85px;
+    object-fit: cover;
+    border-radius: 10%;
+    flex-shrink: 0;
+  }
 }
 
 .card-cache h2 {
@@ -42,10 +35,10 @@
 .card-cache p {
   font-size: 12px;
   line-height: 0.8;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
-  color: $brown-cache-card-text;
+  color: $dark-brown;
 }
 
 .card-cache .card-cache-infos {
@@ -65,7 +58,7 @@
 }
 
 .card-cache-infos a {
-  color: $brown-cache-card-text;
+  color: $dark-brown;
   text-decoration: none;
 }
 
@@ -84,7 +77,7 @@
   overflow: hidden;
   height: 120px;
   width: 100%;
-  background: $beige-card-collection;
+  background: $light-beige;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -92,11 +85,19 @@
   border-radius: 10px;
   // position: fixed;
   // margin: auto;
+
+  h2 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 15px;
+    color: $dark-brown;
+    text-decoration: none;
+  }
 }
 
-.card-cache-added-to-collection a {
-  color: $brown-cache-card-text;
-}
+// .card-cache-added-to-collection a {
+//   color: $dark-brown;
+// }
 
 .card-cache-added-to-collection img {
   height: 72%;
@@ -105,20 +106,13 @@
   border-radius: 10%;
 }
 
-.card-cache-added-to-collection h2 {
-  font-size: 12px;
-  font-weight: bold;
-  margin: 0;
-  color: $brown-cache-card-text;
-}
-
 .card-cache-added-to-collection p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
-  color: $brown-cache-card-text;
+  color: $dark-brown;
 }
 
 .card-cache-added-to-collection .card-cache-added-to-collection-infos {
@@ -130,14 +124,13 @@
   display: contents;
 }
 
-
 // CARD CACHE DELETED FROM COLLECTION
 
 .card-cache-deleted-from-collection {
   overflow: hidden;
   height: 120px;
   width: 350px;
-  background: $beige-card-collection;
+  background: $light-beige;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -156,16 +149,16 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-  color: $brown-cache-card-text;
+  color: $dark-brown;
 }
 
 .card-cache-deleted-from-collection p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
-  color: $brown-cache-card-text;
+  color: $dark-brown;
 }
 
 .card-cache-deleted-from-collection .card-cache-deleted-from-collection-infos {
@@ -177,16 +170,13 @@
   display: contents;
 }
 
-
-
-
 // CARD COLLECTION (SPECIES)
 
 .card-species {
   overflow: hidden;
   height: 120px;
   // width: 350px;
-  background: $beige-card-collection;
+  background: $light-beige;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -195,7 +185,7 @@
   flex-direction: row;
   justify-content: center;
   margin-bottom: 10px;
-  position:relative;
+  position: relative;
 }
 
 .card-species i {
@@ -220,7 +210,7 @@
 .card-species p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
   color: $green-light;
@@ -252,7 +242,7 @@
   overflow: hidden;
   height: 120px;
   width: 328px;
-  background: $beige-card-collection;
+  background: $light-beige;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -284,7 +274,7 @@
 .card-species-added-to-collection p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
   color: $green-light;
@@ -299,61 +289,13 @@
   display: contents;
 }
 
-
-// CARD SPECIES DELETED FROM COLLECTION
-
-.card-species-deleted-from-collection {
-  overflow: hidden;
-  height: 120px;
-  width: 350px;
-  background: $beige-card-collection;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-  border-radius: 10px;
-}
-
-.card-species-deleted-from-collection img {
-  height: 72%;
-  width: 26%;
-  object-fit: cover;
-  border-radius: 10%;
-}
-
-.card-species-deleted-from-collection h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  color: $green-light;
-}
-
-.card-species-deleted-from-collection p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-  color: $green-light;
-}
-
-.card-species-deleted-from-collection .card-species-deleted-from-collection-infos {
-  padding: 16px;
-  width: 45%;
-}
-
-.icon-deleted-species {
-  display: contents;
-}
-
-
 // CARD LOG ADDED TO PROFILE
 
 .card-log-added-to-collection {
   overflow: hidden;
   height: 120px;
   width: 350px;
-  background: $beige-card-collection;
+  background: $light-beige;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -378,7 +320,7 @@
 .card-log-added-to-collection p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
   color: $green-dark;
@@ -393,14 +335,13 @@
   display: contents;
 }
 
-
 // CARD LOG DELETED FROM PROFILE
 
 .card-log-deleted-from-collection {
   overflow: hidden;
   height: 120px;
   width: 350px;
-  background: $beige-card-collection;
+  background: $light-beige;
   display: flex;
   align-items: center;
   padding-left: 20px;
@@ -424,7 +365,7 @@
 .card-log-deleted-from-collection p {
   font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
   color: $green-dark;
