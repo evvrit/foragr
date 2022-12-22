@@ -25,24 +25,21 @@
         <div class="container-species-collection">
           <% @specieses.each do |spec| %>
 
-            <div data-controller="toggle-favorite">
-              <div class="card-species" data-toggle-favorite-target="cacheCard">
+            <div class="row justify-content-center" data-controller="toggle-favorite">
+              <div class="favorite-card col-10 col-md-8 col-lg-6" data-toggle-favorite-target="cacheCard">
                 <a href="/species/<%= spec.id %>">
                   <span class="show-link"></span>
                 </a>
                 <%= spec.photos.empty? ? "" : image_tag("#{spec.photos[0]}") %>
-                <div class="card-species-infos">
-                  <h2><%= spec.name %></h2>
-                  <p><%= spec.overview[1].first(50) %>...</p>
-                </div>
-
-
-                  <div class="fa-solid-species-collection" style="z-index: 3;">
-                  <%= render 'shared/favorite_icon' %>
+                <div class="card-body">
+                  <div class="card-infos">
+                    <h6><%= spec.name %></h6>
+                    <p><%= spec.overview[1].first(50) %>...</p>
                   </div>
+                </div>
+                <%= render 'shared/favorite_icon' %>
               </div>
             </div>
-
           <% end %>
         </div>
     <% end %>

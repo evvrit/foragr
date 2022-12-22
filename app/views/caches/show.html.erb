@@ -24,7 +24,7 @@
           data-bs-content="Added!"
           data-bs-custom-class="custom-popover"
           data-toggle-favorite-target="popoverLink">
-          <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-heart-circle-minus fa-2xl' : 'fa-solid fa-heart-circle-plus fa-2xl' %>"></i>
+          <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark' %>"></i>
         </a>
       </div>
     </div>
