@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import "config/defaults";
 // @import "tom-select/dist/css/tom-select.css";
 
 // External libraries
@@ -13,10 +14,3 @@
 @import "components/index";
 @import "pages/index";
 @import "shared/index";
-
-// Resetting defaults
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
