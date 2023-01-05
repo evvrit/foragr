@@ -27,13 +27,13 @@
               <a href="/caches/<%= cache.id %>">
                 <span class="show-link"></span>
               </a>
-              <%= cache.photos.first.present? ? cl_image_tag("#{cache.photos.first.key}") : (image_tag("#{cache.seed_photo}") || "") %>
-              <div class="card-body">
-                <div class="card-infos">
-                  <h6><%= cache.title %></h6>
-                  <span class="badge rounded-pill bg-secondary"><%= cache.species.present? ? cache.species[0].name : "" %></span>
+              <div class="d-flex justify-content-start">
+                <%= cache.photos.first.present? ? cl_image_tag("#{cache.photos.first.key}") : (image_tag("#{cache.seed_photo}") || "") %>
+                <div>
+                  <h5><%= cache.title %></h5>
+                  <p><small>@<%= cache.user.username %></small></p>
                 </div>
-                <%= render 'shared/favorite_icon' %>
+                <p><%= cache.species.present? ? cache.species[0].name : "" %></p>
               </div>
             </div>
           </div>
