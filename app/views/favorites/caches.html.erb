@@ -23,21 +23,23 @@
       <div class="container">
         <% @caches.each do |cache| %>
           <div class="row justify-content-center" data-controller="toggle-favorite">
-            <div class="favorite-card col-10 col-md-8 col-lg-6" data-toggle-favorite-target="cacheCard">
+            <div class="favorite-card col-10 col-md-8 col-lg-6 overflow-scroll" data-toggle-favorite-target="cacheCard">
               <a href="/caches/<%= cache.id %>">
                 <span class="show-link"></span>
               </a>
-              <div class="d-flex justify-content-start">
+              <div>
                 <%= cache.photos.first.present? ? cl_image_tag("#{cache.photos.first.key}") : (image_tag("#{cache.seed_photo}") || "") %>
+              </div>
+              <div class="card-body">
                 <div>
-                  <h5><%= cache.title %></h5>
-                  <p><small>@<%= cache.user.username %></small></p>
+                  <span class="badge bg-info"><%= cache.species.present? ? cache.species[0].name : "" %></span>
+                  <p><small>@<%= cache.user.username %>:</small></p>
+                  <p><%= cache.title %></p>
                 </div>
-                <p><%= cache.species.present? ? cache.species[0].name : "" %></p>
+                <%= render 'shared/favorite_icon' %>
               </div>
             </div>
           </div>
-
         <% end %>
       </div>
   <% end %>
