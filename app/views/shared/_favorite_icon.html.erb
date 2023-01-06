@@ -1,56 +1,13 @@
 <% if @cache %>
-  <% if current_user.favorited?(@cache) %>
-
-        <%= link_to toggle_favorite_cach_path(@cache), remote: true,
-          data: { 'turbo-method': :post } do %>
-          <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-solid fa-bookmark"></i>
-        <% end %>
-
-    <% else %>
-
-        <%= link_to toggle_favorite_cach_path(@cache), remote: true,
-          data: { 'turbo-method': :post } do %>
-          <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-regular fa-bookmark"></i>
-        <% end %>
-
-    <% end %>
+  <%= link_to toggle_favorite_cach_path(@cache), remote: true,
+    data: { 'turbo-method': :post } do %>
+    <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark'%>"></i>
+  <% end %>
 <% end %>
 
 <% if @spec %>
-  <% if current_user.favorited?(@spec) %>
-
-        <%= link_to toggle_favorite_species_path(@spec), remote: true,
-          data: { 'turbo-method': :post } do %>
-          <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-solid fa-bookmark"></i>
-        <% end %>
-
-
-    <% else %>
-
-        <%= link_to toggle_favorite_species_path(@spec), remote: true,
-          data: { 'turbo-method': :post } do %>
-          <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-regular fa-bookmark"></i>
-        <% end %>
-
-    <% end %>
-<% end %>
-
-
-<% if @species %>
-  <% if current_user.favorited?(@species) %>
-
-        <%= link_to toggle_favorite_species_path(@species), remote: true,
-          data: { 'turbo-method': :post } do %>
-          <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-solid fa-bookmark"></i>
-        <% end %>
-
-
-    <% else %>
-
-        <%= link_to toggle_favorite_species_path(@species), remote: true,
-          data: { 'turbo-method': :post } do %>
-          <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="fa-regular fa-bookmark"></i>
-        <% end %>
-
-    <% end %>
+  <%= link_to toggle_favorite_species_path(@spec), remote: true,
+    data: { 'turbo-method': :post } do %>
+    <i data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@spec) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark' %>"></i>
+  <% end %>
 <% end %>
