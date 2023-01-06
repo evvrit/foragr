@@ -1,8 +1,10 @@
-<div id="sm-map-container">
-  <%= render "shared/back" %>
-  <%= render 'map' %>
-  <div id="sm-static"></div>
-</div>
+<% unless @markers.empty? %>
+  <div id="sm-map-container">
+    <%= render "shared/back" %>
+    <%= render 'map' %>
+    <div id="sm-static"></div>
+  </div>
+<% end %>
 
 <br>
 <div class="form-log">

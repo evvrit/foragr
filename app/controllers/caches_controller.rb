@@ -33,7 +33,7 @@ class CachesController < ApplicationController
   end
 
   def new
-    @cache = Cache.new
+    @cache = Cache.new(latitude: params["lat"], longitude: params["lng"])
     authorize @cache
     @cache.cache_species.build unless @cache.cache_species.any?
     @species = Species.all.map { |species| [species.name, species.id] }
@@ -57,6 +57,7 @@ class CachesController < ApplicationController
         lng: params["cache"]["longitude"],
         cache_info: "#{params['lat']}, #{params['lng']}"
         }]
+      # raise
       render :new, status: 422
     end
     authorize @cache
