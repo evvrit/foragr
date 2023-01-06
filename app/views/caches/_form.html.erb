@@ -1,20 +1,19 @@
 <div class="master-container">
   <%= simple_form_for @cache, html: { data: { map_target: 'form' }} do |f| %>
     <%= f.input :title, placeholder: "your title here" %><hr>
-    <div id="cache-species">
+    <div>
       <%= f.simple_fields_for :cache_species do |cache_specy| %>
         <%= render 'cache_species_fields', f: cache_specy %>
       <% end %>
-      <div class="links">
-        <%= link_to_add_association 'add species', f, :cache_species, partial: 'caches/cache_species_fields' %>
-      </div>
+      <%= link_to_add_association 'add species', f, :cache_species, partial: 'caches/cache_species_fields' %>
     </div>
+    <br>
     <%= f.input :found_on, as: :date, html5: true, input_html: { value: Date.today } %>
     <%= f.input :photos, as: :file, input_html: {multiple: true}, required: false %>
     <%= f.input :description, as: :text, size: "70x5", placeholder: "describe your find!" %>
     <%= f.hidden_field :longitude, value: params[:lng] %>
     <%= f.hidden_field :latitude, value: params[:lat] %>
     <%= f.hidden_field :user, value: current_user %> <br>
-    <%= f.submit "Add cache", class: "btn mt-2 btn-add-a-cache-to-map" %>
+    <%= f.submit "Submit", class: "btn btn-info mt-2" %>
   <% end %>
 </div>
