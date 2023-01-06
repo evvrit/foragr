@@ -4,16 +4,17 @@
     <h1>Write A Log</h1>
   </div>
   <%= simple_form_for @log do |f| %>
-  <%= f.error_notification %>
   <%= f.input :title, placeholder: "your title here" %>
+  <%= f.full_error :title, class: "mt-0 mb-2 text-dark" %>
   <%= f.input :cache_id, collection: current_user.favorited_by_type("Cache"),
               input_html: { data: {
-                                controller: "tom-select",
+                controller: "tom-select",
                                 tom_select_target: "input"
                                 } } %>
   <%= f.input :created_on, as: :date, html5: true, input_html: { value: Date.today } %>
   <%= f.input :photos, as: :file, input_html: {multiple: true}%>
-  <%= f.input :content, placeholder: "your content here" %> <br>
+  <%= f.input :content, hint: "minimum 10 characters", placeholder: "your content here" %>
+  <%= f.full_error :content, class: "mt-0 mb-2 text-dark" %>
   <%= f.submit "Submit", class: "btn btn-info mt-2" %>
   <% end %>
 </div>
