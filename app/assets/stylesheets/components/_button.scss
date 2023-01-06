@@ -37,7 +37,7 @@
 
 .btn-logout {
   border-radius: 50px;
-  color: #35635B;
+  color: #35635b;
   background-color: #f8f1d0;
   font-size: 12px;
   width: 20%;
@@ -45,28 +45,32 @@
   text-align: center;
   display: block;
   margin-inline: auto;
-  border: 1px solid #35635B;
+  border: 1px solid #35635b;
 }
 
-.logout-btn-header {
+.btn-header {
   display: flex;
   flex-direction: row-reverse;
-  // padding-top: 23px;
-  padding-right: 15px;
+  padding-right: 20px;
 }
 
-.btn-add-a-log {
+.btn-green {
   border-radius: 50px;
   color: $beige;
   background-color: $green-dark;
   font-size: 14px;
-  width: 80%;
+  // width: 40%;
   height: 36px;
   text-align: center;
   display: block;
   margin-inline: auto;
-}
+  text-decoration: none;
 
+  :hover {
+    text-decoration: none;
+    text-transform: none;
+  }
+}
 
 .btn-create-your-own-cache {
   border-radius: 50px;
