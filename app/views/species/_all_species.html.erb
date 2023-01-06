@@ -1,9 +1,0 @@
-No species match your query
-    <ul style="list-style: none">
-      <% @species.each do |species| %>
-        <li>
-          <%= species.name %>
-          <%= image_tag species.photos.last, width: 200 %>
-        </li>
-      <% end %>
-    </ul>
