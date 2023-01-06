@@ -22,21 +22,24 @@
   <% else %>
       <div class="container">
         <% @caches.each do |cache| %>
-          <div data-controller="toggle-favorite">
-            <div class="favorite-card" data-toggle-favorite-target="cacheCard">
+          <div class="row justify-content-center" data-controller="toggle-favorite">
+            <div class="favorite-card col-10 col-md-8 col-lg-6 overflow-scroll" data-toggle-favorite-target="cacheCard">
               <a href="/caches/<%= cache.id %>">
                 <span class="show-link"></span>
               </a>
-              <%= cache.photos.first.present? ? cl_image_tag("#{cache.photos.first.key}") : (image_tag("#{cache.seed_photo}") || "") %>
               <div>
-                <h5><%= cache.title %></h5>
-                <p><small>@<%= cache.user.username %></small></p>
-                <p><%= cache.species.present? ? cache.species[0].name : "" %></p>
+                <%= cache.photos.first.present? ? cl_image_tag("#{cache.photos.first.key}") : (image_tag("#{cache.seed_photo}") || "") %>
               </div>
-              <%= render 'shared/favorite_icon' %>
+              <div class="card-body">
+                <div>
+                  <span class="badge bg-info"><%= cache.species.present? ? cache.species[0].name : "" %></span>
+                  <p><small>@<%= cache.user.username %>:</small></p>
+                  <p><%= cache.title %></p>
+                </div>
+                <%= render 'shared/favorite_icon' %>
+              </div>
             </div>
           </div>
-
         <% end %>
       </div>
   <% end %>
