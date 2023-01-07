@@ -57,8 +57,11 @@ class CachesController < ApplicationController
         lng: params["cache"]["longitude"],
         cache_info: "#{params['lat']}, #{params['lng']}"
         }]
-      # raise
-      render :new, status: 422
+      # flash.now[:alert] = "Please include a short title and a description with at least 10 characters."
+      # redirect_to action: :new, status: 422
+      render partial: "form", locals: {cache: @cache}, status: 422
+      authorize @species
+      authorize @markers
     end
     authorize @cache
   end
