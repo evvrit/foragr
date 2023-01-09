@@ -54,14 +54,13 @@ class CachesController < ApplicationController
       @species = Species.all.map { |species| [species.name, species.id] }
       @markers = [{
         lat: params["cache"]["latitude"],
-        lng: params["cache"]["longitude"],
-        cache_info: "#{params['lat']}, #{params['lng']}"
+        lng: params["cache"]["longitude"]
         }]
       # flash.now[:alert] = "Please include a short title and a description with at least 10 characters."
       # redirect_to action: :new, status: 422
-      render partial: "form", locals: {cache: @cache}, status: 422
-      authorize @species
-      authorize @markers
+      # render partial: "form", locals: {cache: @cache}, status: 422
+      render :new, status: 422
+      # raise
     end
     authorize @cache
   end

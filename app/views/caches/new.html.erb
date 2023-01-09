@@ -1,8 +1,12 @@
-<% unless @markers.empty? %>
+<% unless @markers[0][:lat] == "" %>
   <div id="sm-map-container">
     <%= render "shared/back" %>
     <%= render 'map' %>
     <div id="sm-static"></div>
+  </div>
+<% else %>
+  <div class="container mt-1">
+    <p><small>oops! looks like we lost the map. don't worry, the location you selected earlier has been saved. please read the error message(s) below and refresh the page to see the map again.</small></p>
   </div>
 <% end %>
 

@@ -1,5 +1,5 @@
 <div class="master-container">
-  <%= simple_form_for cache, html: { data: { map_target: 'form' }} do |f| %>
+  <%= simple_form_for @cache, html: { data: { map_target: 'form' }} do |f| %>
     <%= f.input :title, placeholder: "your title here" %>
     <%= f.full_error :title, class: "mt-0 mb-2 text-dark" %>
     <div>
