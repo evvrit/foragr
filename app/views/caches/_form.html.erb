@@ -1,6 +1,7 @@
 <div class="master-container">
   <%= simple_form_for @cache, html: { data: { map_target: 'form' }} do |f| %>
-    <%= f.input :title, placeholder: "your title here" %><hr>
+    <%= f.input :title, placeholder: "your title here" %>
+    <%= f.full_error :title, class: "mt-0 mb-2 text-dark" %>
     <div>
       <%= f.simple_fields_for :cache_species do |cache_specy| %>
         <%= render 'cache_species_fields', f: cache_specy %>
@@ -11,6 +12,7 @@
     <%= f.input :found_on, as: :date, html5: true, input_html: { value: Date.today } %>
     <%= f.input :photos, as: :file, input_html: {multiple: true}, required: false %>
     <%= f.input :description, as: :text, size: "70x5", placeholder: "describe your find!" %>
+    <%= f.full_error :description, class: "mt-0 mb-2 text-dark" %>
     <%= f.hidden_field :longitude, value: params[:lng] %>
     <%= f.hidden_field :latitude, value: params[:lat] %>
     <%= f.hidden_field :user, value: current_user %> <br>
