@@ -12,8 +12,8 @@ export default class extends Controller {
     this.link = document.getElementById("new-cache-link");
     mapboxgl.accessToken = this.apiKeyValue;
 
-    mapboxgl.workerCount = 12;
-    mapboxgl.prewarm();
+    // mapboxgl.workerCount = 12;
+    // mapboxgl.prewarm();
 
     this.#setStaticImage();
 
@@ -47,7 +47,7 @@ export default class extends Controller {
   #setStaticImage() {
     if (this.markersValue.length === 1) {
       this.static = document.getElementById("sm-static");
-      this.lat = this.markersValue[0].lng; // just trust me
+      this.lat = this.markersValue[0].lng; // inverted lng/lat in the cache controller
       this.lng = this.markersValue[0].lat;
     } else {
       this.static = document.getElementById("static");

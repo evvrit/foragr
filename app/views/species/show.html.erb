@@ -1,6 +1,65 @@
 <div class="container">
   <%= render "shared/back" %>
+<div>
+<div class="master-container">
+  <div class="species-name">
+    <h2><%= @species.name %></h2>
+  </div>
+  <div class="container-species-pictures">
+    <div class="p1-species-show">
+      <%= image_tag @species.photos.first %>
+    </div>
+      <div class="p2-species-show">
+        <%= image_tag @species.photos[1] %>
+      </div>
+      <div class="p3-species-show">
+        <%= image_tag @species.photos.last %>
+      </div>
+    </div>
+  </div>
   <div>
-    <%= render "show_species" %>
+    <div data-controller="toggle-favorite">
+      <a href="/species/<%= @species.id %>/toggle_favorite"
+          data-turbo-method="post"
+          tabindex="0"
+          role="button"
+          data-bs-toggle="popover"
+          data-bs-trigger="manual"
+          data-bs-placement="left"
+          data-bs-html="true"
+          data-bs-content="Added!"
+          data-bs-custom-class="custom-popover"
+          data-toggle-favorite-target="popoverLink">
+          <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@species) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark' %>"></i>
+        </a>
+    </div>
+    <div class="species-infos">
+          <h4><%= @species.overview.first %></h4>
+          <p><%= @species.overview.last%></p>
+
+          <h4><%= @species.edible.first %></h4>
+          <p><%= @species.edible.last %></p>
+
+          <h4><%= @species.leaves.first %></h4>
+          <p><%= @species.leaves.last %></p>
+
+          <h4><%= @species.flowers.first %></h4>
+          <p><%= @species.flowers.last %></p>
+
+          <h4><%= @species.fruit.first %></h4>
+          <p><%= @species.fruit.last %></p>
+
+          <h4><%= @species.features.first %></h4>
+          <p><%= @species.features.last %></p>
+
+          <h4><%= @species.sporeprint.first %></h4>
+          <p><%= @species.sporeprint.last %></p>
+
+          <h4><%= @species.gills.first %></h4>
+          <p><%= @species.gills.last %></p>
+
+          <h4><%= @species.habitat.first %></h4>
+          <p><%= @species.habitat.last %></p>
+    </div>
   </div>
 </div>
