@@ -11,12 +11,8 @@ export default class extends Controller {
   connect() {
     this.link = document.getElementById("new-cache-link");
     this.plus = document.getElementById("plus-link");
-    // this.instruction = document.getElementById("instruction");
-    // console.log(this.plus);
-    mapboxgl.accessToken = this.apiKeyValue;
 
-    // mapboxgl.workerCount = 12;
-    // mapboxgl.prewarm();
+    mapboxgl.accessToken = this.apiKeyValue;
 
     this.#setStaticImage();
 
@@ -45,14 +41,13 @@ export default class extends Controller {
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
     this.#togglePinDropAbility();
-    // this.#checkClickLocation();
   }
 
   #setStaticImage() {
     if (this.markersValue.length === 1) {
       this.static = document.getElementById("sm-static");
-      this.lat = this.markersValue[0].lng; // inverted lng/lat in the cache controller
-      this.lng = this.markersValue[0].lat;
+      this.lat = this.markersValue[0].lng; // lng/lat are inverted somewhere. should be
+      this.lng = this.markersValue[0].lat; // fixed for clarity.
     } else {
       this.static = document.getElementById("static");
       this.lat = -73.60488;
@@ -109,7 +104,7 @@ export default class extends Controller {
       const clickLng = e.lngLat.lng;
       let userClickedMarker = false;
       this.markersValue.forEach((marker) => {
-        // this actually checks the longitude. error in seed do not touch !!!
+        // this actually checks the longitude
         const clickedWithinLat =
           clickLat > marker.lat && clickLat < marker.lat + 2 * offset;
         // actually checks latitude

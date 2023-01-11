@@ -206,7 +206,6 @@ end
 
 cache_instances = create_caches(10)
 
-# puts ">>>first @cache photo: #{cache_instances.first.seed_photo}"
 puts ">>> #{cache_instances.length} caches created."
 
 puts "Seeding 4 caches at specific greenspaces..."
