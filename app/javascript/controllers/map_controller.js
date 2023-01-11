@@ -92,14 +92,14 @@ export default class extends Controller {
   }
 
   #togglePinDropAbility() {
-    // console.log("hello from togglePinDropAbility()");
-    this.plus.addEventListener("click", (e) => {
-      ["xl", "2xl"].map((v) => e.currentTarget.classList.toggle(v));
-      console.log(e.currentTarget);
-      while (e.currentTarget.classList.contains("2xl")) {
-        this.#checkClickLocation();
-      }
-    });
+    if (this.plus) {
+      this.plus.addEventListener("click", (e) => {
+        ["fa-xl", "fa-2xl"].map((v) => e.currentTarget.classList.toggle(v));
+        if (e.currentTarget.classList.contains("fa-2xl")) {
+          this.#checkClickLocation();
+        }
+      });
+    }
   }
 
   #checkClickLocation() {
