@@ -10,10 +10,9 @@ export default class extends Controller {
 
   connect() {
     this.link = document.getElementById("new-cache-link");
-    mapboxgl.accessToken = this.apiKeyValue;
+    this.plus = document.getElementById("plus-link");
 
-    // mapboxgl.workerCount = 12;
-    // mapboxgl.prewarm();
+    mapboxgl.accessToken = this.apiKeyValue;
 
     this.#setStaticImage();
 
@@ -41,14 +40,14 @@ export default class extends Controller {
     this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
-    this.#checkClickLocation();
+    this.#togglePinDropAbility();
   }
 
   #setStaticImage() {
     if (this.markersValue.length === 1) {
       this.static = document.getElementById("sm-static");
-      this.lat = this.markersValue[0].lng; // inverted lng/lat in the cache controller
-      this.lng = this.markersValue[0].lat;
+      this.lat = this.markersValue[0].lng; // lng/lat are inverted somewhere. should be
+      this.lng = this.markersValue[0].lat; // fixed for clarity.
     } else {
       this.static = document.getElementById("static");
       this.lat = -73.60488;
@@ -87,6 +86,17 @@ export default class extends Controller {
     }
   }
 
+  #togglePinDropAbility() {
+    if (this.plus) {
+      this.plus.addEventListener("click", (e) => {
+        ["fa-xl", "fa-2xl"].map((v) => e.currentTarget.classList.toggle(v));
+        if (e.currentTarget.classList.contains("fa-2xl")) {
+          this.#checkClickLocation();
+        }
+      });
+    }
+  }
+
   #checkClickLocation() {
     this.map.on("click", (e) => {
       const offset = 0.01; // we use it to build a selection area around each marker
@@ -94,7 +104,7 @@ export default class extends Controller {
       const clickLng = e.lngLat.lng;
       let userClickedMarker = false;
       this.markersValue.forEach((marker) => {
-        // this actually checks the longitude. error in seed do not touch !!!
+        // this actually checks the longitude
         const clickedWithinLat =
           clickLat > marker.lat && clickLat < marker.lat + 2 * offset;
         // actually checks latitude
@@ -105,7 +115,7 @@ export default class extends Controller {
           return;
         }
       });
-      if (!userClickedMarker) {
+      if (!userClickedMarker && this.markersValue.length > 1) {
         this.#dropPin(e);
         this.#sendCoordsToForm(e);
       }
