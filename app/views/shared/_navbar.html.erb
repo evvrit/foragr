@@ -1,14 +1,14 @@
 <div class="navbar-t">
   <%= link_to logs_path do %>
-    <i class="fa-regular fa-user text-warning"></i>
+    <i class="<%= current_page?(logs_path)? 'fa-solid' : 'fa-regular' %> fa-user text-warning"></i>
   <% end %>
   <%= link_to caches_path do %>
-    <i class="fa-regular fa-map text-warning"></i>
+    <i class="<%= current_page?(caches_path)? 'fa-solid' : 'fa-regular' %> fa-map text-warning"></i>
   <% end %>
   <%= link_to new_log_path do %>
-    <i class="fa-regular fa-pen-to-square text-warning"></i>
+    <i class="<%= current_page?(new_log_path)? 'fa-solid' : 'fa-regular' %> fa-pen-to-square text-warning"></i>
   <% end %>
   <%= link_to favorites_caches_path do %>
-    <i class="fa-regular fa-bookmark text-warning"></i>
+    <i class="<%= current_page?(favorites_caches_path)? 'fa-solid' : 'fa-regular' %> fa-bookmark text-warning"></i>
   <% end %>
 </div>
