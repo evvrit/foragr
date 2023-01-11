@@ -1,16 +1,14 @@
-<div class="d-flex flex-row-reverse pe-3">
-  <%= link_to new_log_path, style: "position: absolute; top: 50px;" do%>
-    <i class="fa-regular fa-square-plus fa-xl"></i>
-  <% end %>
-</div>
 
 <div class="display-flex" data-controller="go-home">
   <div class="card-log-profile">
     <% if current_user.email == "richarddfyoung@gmail.com" || current_user.email == "river@gmail.com" %>
       <img src="https://ca.slack-edge.com/T02NE0241-U044LJM9RL5-ce7c2bd0f2fc-512" />
+    <% else %>
+      <%= image_tag "default-user.png" %>
     <% end %>
     <div class="card-log-profile-infos">
       <h2 data-go-home-target="username" data-action="click->go-home#clickHiddenLink"><%= current_user.username %></h2>
+      <p><%= current_user.email %></p>
       <p><strong>Montréal, QC</strong></p>
       <%= link_to "log out", destroy_user_session_path, data: { 'turbo-method': :delete }, class: "link-dark mt-1" %>
     </div>
@@ -20,22 +18,32 @@
 
 <div class="all-log-pictures">
   <div class="container">
-    <div class="post-list">
-      <% @logs.each do |log| %>
-        <div>
-          <div class="log-picture">
-            <%= link_to log_path(log) do %>
-              <% if log.photos.attached? %>
-                  <%= cl_image_tag log.photos.first.key %>
-              <% elsif log.seed_photo %>
-                <%= image_tag log.seed_photo %>
-              <% else %>
-                <%= image_tag "default.png" %>
-              <% end %>
-            <% end%>
-          </div>
-        </div>
+    <div class="d-flex flex-row-reverse pe-3">
+      <%= link_to new_log_path, style: "position: absolute; top: 50px;" do%>
+        <i class="fa-regular fa-pen-to-square fa-xl"></i>
       <% end %>
     </div>
+    <% if @logs.empty? %>
+      <div class="d-flex justify-content-center mt-3">
+        <i class="p-2 fa-regular fa-images fa-2xl"></i>
+        <p>No Posts Yet</p>
+      </div>
+    <% else %>
+      <div class="post-list">
+          <% @logs.each do |log| %>
+            <div>
+              <div class="log-picture">
+                <%= link_to log_path(log) do %>
+                  <% if log.photos.attached? %>
+                      <%= cl_image_tag log.photos.first.key %>
+                  <% elsif log.seed_photo %>
+                    <%= image_tag log.seed_photo %>
+                  <% end %>
+                <% end%>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
