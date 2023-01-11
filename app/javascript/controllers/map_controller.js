@@ -10,6 +10,9 @@ export default class extends Controller {
 
   connect() {
     this.link = document.getElementById("new-cache-link");
+    this.plus = document.getElementById("plus-link");
+    // this.instruction = document.getElementById("instruction");
+    // console.log(this.plus);
     mapboxgl.accessToken = this.apiKeyValue;
 
     // mapboxgl.workerCount = 12;
@@ -41,7 +44,8 @@ export default class extends Controller {
     this.map.doubleClickZoom.disable();
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
-    this.#checkClickLocation();
+    this.#togglePinDropAbility();
+    // this.#checkClickLocation();
   }
 
   #setStaticImage() {
@@ -87,8 +91,19 @@ export default class extends Controller {
     }
   }
 
+  #togglePinDropAbility() {
+    // console.log("hello from togglePinDropAbility()");
+    this.plus.addEventListener("click", (e) => {
+      ["xl", "2xl"].map((v) => e.currentTarget.classList.toggle(v));
+      console.log(e.currentTarget);
+      while (e.currentTarget.classList.contains("2xl")) {
+        this.#checkClickLocation();
+      }
+    });
+  }
+
   #checkClickLocation() {
-    this.map.on("dblclick", (e) => {
+    this.map.on("click", (e) => {
       const offset = 0.01; // we use it to build a selection area around each marker
       const clickLat = e.lngLat.lat;
       const clickLng = e.lngLat.lng;
@@ -106,7 +121,6 @@ export default class extends Controller {
         }
       });
       if (!userClickedMarker && this.markersValue.length > 1) {
-        console.log(this.markersValue.length);
         this.#dropPin(e);
         this.#sendCoordsToForm(e);
       }
