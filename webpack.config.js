@@ -1,5 +1,5 @@
 const path = require("path");
-const webpack = require("webpack");
+// const webpack = require("webpack");
 
 module.exports = {
   mode: "production",
@@ -12,11 +12,6 @@ module.exports = {
     sourceMapFilename: "[file].map",
     path: path.resolve(__dirname, "app/assets/builds"),
   },
-  plugins: [
-    new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1,
-    }),
-  ],
   module: {
     rules: [
       {
@@ -28,11 +23,5 @@ module.exports = {
         ],
       },
     ],
-  },
-  use: {
-    loader: "babel-loader",
-    options: {
-      ignore: ["./node_modules/mapbox-gl/dist/mapbox-gl.js"],
-    },
   },
 };
