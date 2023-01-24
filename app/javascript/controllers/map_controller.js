@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus";
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 // Connects to data-controller="map"
 export default class extends Controller {
