@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
-import "mapbox-gl/dist/mapbox-gl.css";
-import mapboxgl from "!mapbox-gl";
+import mapboxgl from "mapbox-gl/dist/mapbox-gl";
+import MapboxWorker from "mapbox-gl/dist/mapbox-gl-csp-worker";
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -13,6 +13,7 @@ export default class extends Controller {
     this.link = document.getElementById("new-cache-link");
     this.plus = document.getElementById("plus-link");
 
+    mapboxgl.workerClass = MapboxWorker;
     mapboxgl.accessToken = this.apiKeyValue;
 
     this.#setStaticImage();
