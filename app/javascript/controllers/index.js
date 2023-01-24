@@ -2,21 +2,15 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import GoHomeController from "./go_home_controller"
-application.register("go-home", GoHomeController)
+import MapController from "./map_controller";
+application.register("map", MapController);
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import ToggleFavoriteController from "./toggle_favorite_controller";
+application.register("toggle-favorite", ToggleFavoriteController);
 
-import MapController from "./map_controller"
-application.register("map", MapController)
-
-import ToggleFavoriteController from "./toggle_favorite_controller"
-application.register("toggle-favorite", ToggleFavoriteController)
-
-import TomSelectController from "./tom_select_controller"
-application.register("tom-select", TomSelectController)
+import TomSelectController from "./tom_select_controller";
+application.register("tom-select", TomSelectController);
 
 // import 'bootstrap';
