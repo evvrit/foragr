@@ -1,66 +1,49 @@
-.species-name h2 {
-  // width: 100%;
-  color: $green-dark;
-  margin-top: 69px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
+// .species-name h2 {
+//   // width: 100%;
+//   color: $green-dark;
+//   margin-top: 69px;
+//   margin-bottom: 20px;
+//   font-weight: bold;
+// }
 
-.species-infos {
-  color: $green-light;
-}
+// .species-infos {
+//   color: $green-light;
+// }
 
-.species-infos h4 {
-  color: $green-dark;
-}
+// .species-infos h4 {
+//   color: $green-dark;
+// }
 
-.favorite-icon-species {
-  display: flex;
-}
+// .favorite-icon-species {
+//   display: flex;
+// }
 
-.favorite-icon-species i {
-  color: $green-light
-}
+// .favorite-icon-species i {
+//   color: $green-light;
+// }
 
+// .species-infos {
+//   width: 100%;
+//   text-align: justify;
+//   color: $green-light;
+// }
 
-.species-infos {
-  width: 100%;
-  text-align: justify;
-  color: $green-light;
-}
+// .species-photos {
+//   display: flex;
+// }
 
-.species-photos {
-  display: flex;
-}
+// .container-species-pictures {
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   gap: 10px;
+//   grid-auto-rows: minmax(100px, 100px);
+// }
 
-.container-species-pictures {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(100px, 100px);
-}
-
-
-.p1-species-show img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
-.p1-species-show {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-}
-
-.p2-species-show img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
-.p3-species-show img {
+// .p1-species-show {
+//   grid-column: 1 / 3;
+//   grid-row: 1 / 3;
+// }
+img {
   width: 100%;
   height: 100%;
   object-fit: cover;
