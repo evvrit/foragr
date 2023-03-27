@@ -5,6 +5,10 @@ class CachePolicy < ApplicationPolicy
     end
   end
 
+  def index
+    true
+  end
+
   def toggle_favorite
     true
   end

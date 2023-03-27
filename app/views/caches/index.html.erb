@@ -3,6 +3,12 @@
   <div id="static"></div>
   <%= link_to "+", new_cache_path, id: "new-cache-link" %>
 </div>
-<div class="mx-4 position-relative">
-  <i class="fa-regular fa-square-plus fa-2xl position-absolute bottom-50 start-0 text-success" id="plus-link"></i>
+<div class="position-relative">
+  <div class="position-absolute bottom-12 ms-2 mb-4">
+    <% if current_user %>
+      <i class="fa-regular fa-square-plus fa-xl" id="plus-link"></i>
+    <% else %>
+      <a class="btn btn-outline-secondary" href="/users/sign_in">sign in</a>
+    <% end %>
+  </div>
 </div>

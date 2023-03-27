@@ -1,18 +1,21 @@
 class SpeciesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show]
   before_action :set_species, only: %i[show toggle_favorite]
   after_action :verify_authorized, except: [:toggle_favorite]
 
   def show
     # raise
     authorize @species
-    @species_favorites = current_user.favorites_by_type('Species')
-    # raise
-    @specieses = @species_favorites.map do |species_favorite|
-      @fav_spec = Species.find_by(id: species_favorite.favoritable_id)
-      authorize @fav_spec
+    if current_user
+      @species_favorites = current_user.favorites_by_type('Species')
+      # raise
+      @specieses = @species_favorites.map do |species_favorite|
+        @fav_spec = Species.find_by(id: species_favorite.favoritable_id)
+        authorize @fav_spec
+      end
+      # raise
+      authorize @species_favorites
     end
-    # raise
-    authorize @species_favorites
   end
 
   def search
