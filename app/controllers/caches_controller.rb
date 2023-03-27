@@ -1,4 +1,5 @@
 class CachesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_cache, only: %i[show toggle_favorite]
   after_action :verify_authorized, except: [:toggle_favorite]
 
@@ -17,12 +18,14 @@ class CachesController < ApplicationController
 
   def show
     authorize @cache
-    @cache_favorites = current_user.favorites_by_type('Cache')
-    @caches = @cache_favorites.map do |cache_favorite|
-      @fav_cache = Cache.find_by(id: cache_favorite.favoritable_id)
-      authorize @fav_cache
+    if current_user
+      @cache_favorites = current_user.favorites_by_type('Cache')
+      @caches = @cache_favorites.map do |cache_favorite|
+        @fav_cache = Cache.find_by(id: cache_favorite.favoritable_id)
+        authorize @fav_cache
+      end
+      authorize @cache_favorites
     end
-    authorize @cache_favorites
 
     @markers = [{
       lat: @cache.latitude,

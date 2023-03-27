@@ -12,6 +12,7 @@
         <h6><%= @cache.title %></h6>
         <p><small>@<%= @cache.user.username %></small></p>
       </div>
+      <% if current_user %>
       <div data-controller="toggle-favorite">
         <a href="/caches/<%= @cache.id %>/toggle_favorite"
           data-turbo-method="post"
@@ -27,6 +28,7 @@
           <i id="heart" data-toggle-favorite-target="link" data-action="click->toggle-favorite#toggleIconFill" class="<%= current_user.favorited?(@cache) ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark' %>"></i>
         </a>
       </div>
+      <% end %>
     </div>
     <div class="pt-2">
       <p class="text-muted text-end"><small><em><%= @cache.found_on.strftime("%b %d, %Y") %></em></small></p>
